@@ -912,6 +912,7 @@ ul.portfolio-image li .desc{
   display: inline-block;
   width: 100%;
 }
+
 .bg-about {
   background: url('../images/CroppedTrans.png');
   -webkit-background-size: cover;
