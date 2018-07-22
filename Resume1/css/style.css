@@ -51,7 +51,7 @@ html {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;;
   height: 100%;
   width: 100%;
 }
@@ -912,7 +912,7 @@ ul.portfolio-image li .desc{
   width: 100%;
 }
 .bg-about {
-  background: url('../images/reza.jpg');
+  background: url('../images/CroppedTrans.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
