@@ -138,13 +138,13 @@
     });
 
     //pop up porfolio
-    $('.portfolio-image li a').magnificPopup({
-      type: 'image',
-      gallery: {
-        enabled: true
-      }
-      // other options
-    });
+    // $('.portfolio-image li a').magnificPopup({
+    //   type: 'image',
+    //   gallery: {
+    //     enabled: true
+    //   }
+    //   // other options
+    // });
 
     //Skill
     jQuery('.skillbar').each(function () {

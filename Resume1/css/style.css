@@ -1295,3 +1295,8 @@ ul.portfolio-image li .desc{
 ul.portfolio-image li{
   display:none;
 }
+
+.header-logo{
+  font-style: italic;
+  font-size: 31px;
+}
