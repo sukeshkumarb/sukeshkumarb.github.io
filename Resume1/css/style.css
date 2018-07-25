@@ -1264,3 +1264,34 @@ ul.portfolio-image li .desc{
 }
 .skillst .count-bar .count { background-color: #818181;}
 .skillst .count-bar .count span:after { border-top: 4px solid #818181;}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #ccc;
+  cursor: pointer;
+  min-width:200px;
+  margin: 10px;
+  border-radius: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #666;
+   color: white;
+}
+
+.show {
+  display: block;
+}
+
+ul.portfolio-image li{
+  display:none;
+}
