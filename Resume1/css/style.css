@@ -1134,7 +1134,7 @@ ul.portfolio-image li .desc{
   list-style: outside none none;
   float: left;
   overflow: hidden;
-  width: 33.33333%;
+  width: 100%;
   font-size: 13px;
 }
 
@@ -1299,4 +1299,17 @@ ul.portfolio-image li{
 .header-logo{
   font-style: italic;
   font-size: 31px;
+}
+
+.btn-toolbar .btn{
+  min-width: auto;
+}
+
+li p{
+  line-height:20px;
+  margin-bottom:0px;
+}
+
+.listing-item .wrap-card .card{
+  padding: 30px 15px 45px 15px
 }
