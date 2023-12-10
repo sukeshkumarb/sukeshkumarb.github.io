@@ -1,0 +1,56 @@
+/* -----------------------------------------
+    Nice Select CSS
+----------------------------------------- */
+.nice-select {
+    float: unset;
+    font-weight: var(--font-medium);
+    padding-left: 0;
+    padding-right: 0;
+    padding-inline-start: 18px;
+    padding-inline-end: 30px;
+    // Arrow
+    &:after {
+        right: 0;
+        left: 0;
+        margin-inline-start: auto;
+        margin-inline-end: 0;
+    }
+
+    &.form-control{
+        &:after {
+            margin-inline-end: 12px;
+        }
+    }
+
+    .list{
+        z-index: 777;
+    }
+    
+    &.open {
+
+        .list {
+            width: 100%;
+            opacity: 1;
+            pointer-events: auto;
+            font-size: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .option {
+        display: block;
+        font-weight: 500;
+        border-inline-start: 2px solid transparent;
+
+        &:is(:hover, .focus, .selected.focus) {
+            background-color: var(--bg-1);
+        }
+
+        &.selected{
+            font-weight: 500;
+            color: var(--color-primary) !important;
+            border-color: var(--color-primary);
+        }
+    }
+}

@@ -1,0 +1,263 @@
+/* -----------------------------------------
+    Testimonial CSS
+----------------------------------------- */
+.testimonial-area{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    .slider-item {
+        position: relative;
+        z-index: 5;
+        .quote {
+            position: relative;
+            padding: 0 50px;
+            @media #{$sm} {
+                padding-inline: 30px;
+            }
+        }
+
+        p{
+            margin-bottom: 0;
+        }
+
+        .client-info{
+            h6 {
+                margin-bottom: 2px;
+            }
+        }
+    }
+    
+    .brands{
+        img{
+            position: absolute;
+            max-width: 90px;
+            border-radius: 50%;
+            padding: 10px;
+            z-index: -1;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-md);
+
+            &:nth-child(1){
+                top: 30%;
+                left: 10%;
+            }
+            &:nth-child(2){
+                max-width: 60px;
+                bottom: 20%;
+                left: 5%;
+            }
+            &:nth-child(3){
+                max-width: 70px;
+                bottom: 10%;
+                left: 20%;
+            }
+            &:nth-child(4){
+                max-width: 70px;
+                top: 45%;
+                left: 25%;
+            }
+            &:nth-child(5){
+                top: 30%;
+                right: 20%;
+            }
+            &:nth-child(6){
+                max-width: 70px;
+                top: 45%;
+                right: 5%;
+            }
+            &:nth-child(7){
+                max-width: 70px;
+                bottom: 25%;
+                right: 25%;
+            }
+            &:nth-child(8){
+                max-width: 60px;
+                bottom: 10%;
+                right: 10%;
+            }
+        }
+    }
+
+    &.testimonial-1{
+        .slider-item{
+            .client-img{
+                display: none;
+            }
+        }
+        .swiper-pagination {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .custom-image-pagination {
+            max-width: 40px;
+            width: 40px;
+            border-radius: 50%;
+            position: relative;
+            transition: all .3s;
+            cursor: pointer;
+            
+            &:not(:first-child) {
+                margin-inline-start: -7px;
+            }
+
+            &.swiper-pagination-bullet-active{
+                width: auto;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &.testimonial-2{
+        .slider-item {
+            padding: 30px 0;
+            
+            .client-info {
+                margin-top: 30px;
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 70px 1fr;
+                align-items: center;
+    
+                @media #{$md} {
+                    grid-template-columns: 50px 1fr;
+                    gap: 10px;
+                }
+    
+                img {
+                    max-width: 70px;
+                    max-height: 70px;
+                    border-radius: 50%;
+    
+                    @media #{$md} {
+                        max-height: 50px;
+                        max-width: 50px;
+                    }
+                }
+    
+            }
+    
+            .quote {
+                padding: 50px 40px;
+    
+                @media #{$lg} {
+                    padding: 40px 30px;
+                }
+    
+                @media #{$md} {
+                    padding: 40px 25px;
+                }
+            }
+        }
+        .swiper-slide{
+            transition: all .4s;
+
+            &.swiper-slide-active {
+                transform: scale(1.2);
+                z-index: 99;
+
+                @media #{$md} {
+                    transform: scale(1.1);
+                }
+
+                @media #{$sm} {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    &.testimonial-3 {
+        padding-top: 240px;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: left top;
+        &.mt-negative {
+            margin-top: -230px;
+        }
+
+        .slider-item {
+            .client-info {
+                margin-top: 30px;
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 70px 1fr;
+                align-items: center;
+    
+                @media #{$md} {
+                    grid-template-columns: 50px 1fr;
+                    gap: 10px;
+                }
+    
+                img {
+                    max-width: 70px;
+                    max-height: 70px;
+                    border-radius: 50%;
+    
+                    @media #{$md} {
+                        max-height: 50px;
+                        max-width: 50px;
+                    }
+                }
+    
+            }
+    
+            .quote {
+                padding: 50px 40px;
+    
+                @media #{$lg} {
+                    padding: 40px 30px;
+                }
+    
+                @media #{$md} {
+                    padding: 40px 25px;
+                }
+            }
+        }
+        .swiper-slide{
+            transition: all .4s;
+            opacity: .4;
+
+            &.swiper-slide-active {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.testimonial-pricing-area {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    .shape-one {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-position: left top;
+
+        @media (max-width: 1400px) {
+            background-position: center top;
+        }
+    }
+
+    .shape-two {
+        position: absolute;
+        left: 0;
+        top: 200px;
+        width: 100%;
+        height: calc(100% - 280px);
+        z-index: -2;
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+
+    .testimonial-area {
+        padding-top: 220px;
+        padding-bottom: 240px;
+    }
+}

@@ -1,0 +1,146 @@
+/* -----------------------------------------
+    About CSS
+----------------------------------------- */
+.about-area {
+    position: relative;
+    overflow: hidden;
+
+    .card {
+        .card-text {
+            flex: auto;
+        }
+        
+        &:hover {
+            i{
+                transform: scale(1.2);
+                transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+            }
+        }
+    }
+
+    .card-icon {
+        --size: 60px;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--size);
+        height: var(--size);
+        font-size: 30px;
+        color: var(--color-primary);
+
+        i{
+            display: inline-block;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            transition-duration: 0.5s;
+        }
+    }
+
+    .image {
+        position: relative;
+    }
+
+    .client {
+        @include make-flex(center, start);
+        gap: 15px;
+
+        .client-img {
+            max-width: 60px;
+        }
+    }
+
+    .info-list {
+        .card {
+            max-width: 400px;
+            overflow: hidden;
+            z-index: 1;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .card-icon {
+            background-color: rgba(var(--color-primary-rgb), .08);
+            color: var(--color-primary);
+        }
+    }
+
+    &.about-1 {
+        .info-list {
+            .card-icon {
+                border-color: rgba(var(--color-primary-rgb), .4) !important;
+            }
+        } 
+    }
+
+    &.about-2 {
+        .info-list {
+            $colors: (
+                "1"#7681F8,
+                "2"#FF61C7,
+                "3"#FF7C41,
+                "4"#00DDC1,
+                "5"#499C21,
+                "6"#F1C40F,
+                "7"#E67E22,
+                "8"#E74C3C,
+                "9"#FFAA85,
+                "10"#3C8CE7);
+    
+            @each $i,
+            $color in $colors {
+                .item:nth-child(#{$i}) {
+                    .card-icon {
+                        background-color: rgba($color, .08);
+                        color: $color;
+                    }
+                }
+            }
+        }
+    }
+    &.about-3 {
+        .info-list {
+            .card-icon{
+                color: var(--text-white);
+            }
+            $colors: (
+                "1"#7681F8,
+                "2"#FF61C7,
+                "3"#FF7C41,
+                "4"#00DDC1,
+                "5"#499C21,
+                "6"#F1C40F,
+                "7"#E67E22,
+                "8"#E74C3C,
+                "9"#FFAA85,
+                "10"#3C8CE7);
+    
+            @each $i,
+            $color in $colors {
+                .item:nth-child(#{$i}) {
+                    .card-icon {
+                        background-image: linear-gradient(135deg, rgba(var(--color-white-rgb), .6) 0%, $color 100%);
+                    }
+                }
+            }
+        }
+    }
+
+    &.about-4 {
+        .icon {
+            --size: 80px;
+            height: var(--size);
+            width: var(--size);
+            background-color: rgba(var(--color-primary-rgb), .08);
+            font-size: 30px;
+            color: var(--color-primary);
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

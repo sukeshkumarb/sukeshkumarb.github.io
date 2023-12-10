@@ -1,0 +1,32 @@
+/* -----------------------------------------
+  	Go top CSS
+----------------------------------------- */
+.go-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 3%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 28px;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    background-color: var(--color-primary);
+    transition: 0.4s;
+    transform: translateX(15%);
+    z-index: 100;
+
+    &.active {
+        opacity: 1;
+        transform: none;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+}

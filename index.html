@@ -1,926 +1,948 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-  <meta charset="utf-8">
-  <title>Sukesh - Simple Web Developer</title>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Sukesh - Simple Web Developer" name="description">
-  <meta content="BdgPixel" name="author">
-  <!--Fav-->
-  <link href="images/favicon.ico?v=2" rel="shortcut icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="UI UX Powerhouse">
+    <meta name="description"
+        content="UI UX Powerhouse offers expert front-end development and UI/UX design services, specializing in Angular, jQuery, and more. Transform your web presence with us.">
+    <meta name="keywords"
+        content="UI UX Design, Front-End Development, Web Consulting, Angular Development, jQuery, PrimeNG, Kendo UI, Responsive Design, One page website, wordpress">
+    <link rel="canonical" href="https://www.uiuxpowerhouse.com/">
+    <meta property="og:title" content="UI UX Powerhouse - Expert Web Design & Development">
+    <meta property="og:description"
+        content="Leading front-end development and UI/UX design services tailored for your business needs.">
+    <meta property="og:image" content="https://www.uiuxpowerhouse.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.uiuxpowerhouse.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UI UX Powerhouse - Expert Web Design & Development">
+    <meta name="twitter:description"
+        content="Specializing in Angular, jQuery, and more, we offer top-notch front-end development and UI/UX design services.">
+    <meta name="twitter:image" content="https://www.uiuxpowerhouse.com/images/twitter-card-image.jpg">
 
-  <!--styles-->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/owl.carousel.css" rel="stylesheet">
-  <link href="css/owl.theme.css" rel="stylesheet">
-  <link href="css/magnific-popup.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/responsive.css" rel="stylesheet">
-  <link href="css/aos.css" rel="stylesheet">
+    <!-- Title -->
+    <title>UI UX Powerhouse - Leading Web Design & Front-End Development Consulting</title>
 
-  <!--fonts google-->
-  <link href='https://fonts.googleapis.com/css?family=Poppins:400,700' rel='stylesheet' type='text/css'>
-  <!--[if lt IE 9]>
-       <script type="text/javascript" src="js/html5shiv.min.js"></script>
-    <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/fav-4.png" type="image/x-icon">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123412656-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-123412656-1');
-  </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/bootstrap.min.css">
+    <!-- Fontawesome Icon CSS -->
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/magnific-popup.min.css">
+    <!-- Swiper Slider -->
+    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="assets/css/vendors/nice-select.css">
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/aos.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/animate.min.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Dark Theme CSS -->
+    <link rel="stylesheet" href="assets/css/theme-dark.css">
 </head>
 
-<body>
-  <!--PRELOADER-->
-  <div id="preloader">
-    <div id="status">
-      <!-- <img alt="logo" src="images/logo-big.png"> -->
+<body class="body-dark theme-color-4">
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader"></div>
     </div>
-  </div>
-  <!--/.PRELOADER END-->
+    <!-- Preloader end -->
 
-  <!--HEADER -->
-  <div class="header">
-    <div class="for-sticky">
-      <!--LOGO-->
-      <div class="col-md-2 col-xs-6 logo">
-        <!-- <a href="index.html"><img alt="logo" class="logo-nav" src="images/logo.png"></a> -->
-        <a href="index.html" class="header-logo">Sukesh</a>
-
-      </div>
-      <!--/.LOGO END-->
-    </div>
-    <div class="menu-wrap">
-      <nav class="menu">
-        <div class="menu-list">
-          <a data-scroll="" href="#home" class="active">
-            <span>Home</span>
-          </a>
-          <a data-scroll="" href="#about">
-            <span>About</span>
-          </a>
-          <a data-scroll="" href="#work">
-            <span>Work</span>
-          </a>
-          <a data-scroll="" href="#services">
-            <span>Services</span>
-          </a>
-          <!-- <a data-scroll="" href="#employement">
-            <span>Employement</span>
-          </a> -->
-          <a data-scroll="" href="#skill">
-            <span>Key Skills</span>
-          </a>
-          <a data-scroll="" href="#education">
-            <span>Education</span>
-          </a>
-          <a data-scroll="" href="#contact">
-            <span>Contact</span>
-          </a>
-        </div>
-      </nav>
-      <button class="close-button" id="close-button">Close Menu</button>
-    </div>
-    <button class="menu-button" id="open-button">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <!--/.for-sticky-->
-  </div>
-  <!--/.HEADER END-->
-
-  <!--CONTENT WRAP-->
-  <div class="content-wrap">
-    <!--CONTENT-->
-    <div class="content">
-      <!--HOME-->
-      <section id="home">
-        <div class="container">
-          <div class="row">
-            <div class="wrap-hero-content">
-              <div class="hero-content">
-                <h1>Hello</h1>
-                <br>
-                <span class="typed"></span>
-              </div>
+    <!-- Header-area start -->
+    <header class="header-area" data-aos="fade-down">
+        <!-- Start mobile menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="mobile-menu-wrapper"></div>
             </div>
-            <div class="mouse-icon margin-20">
-              <div class="scroll"></div>
-            </div>
-          </div>
         </div>
-      </section>
-      <!--/.HOME END-->
+        <!-- End mobile menu -->
 
-      <!--ABOUT-->
-      <section id="about">
-        <div class="col-md-6 col-xs-12 no-pad">
-          <div class="bg-about"></div>
-        </div>
-        <div class="col-md-6 col-sm-12 col-xs-12 white-col">
-          <div class="row">
-            <!--OWL CAROUSEL2-->
-            <div class="owl-carousel2">
-              <div class="col-md-12 col-sm-12 col-xs-12 white-col">
-                <div class="row">
-                  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
-                    <div class="wrap-about">
-                      <table class="w-content">
-                        <tr>
-                          <td class="title">Name </td>
-                          <td class="break">:</td>
-                          <td> B. Sukesh</td>
-                        </tr>
-                        <tr>
-                          <td class="title">Phone </td>
-                          <td class="break">:</td>
-                          <td> +49 17635 844116
-                          
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="title">Email </td>
-                          <td class="break">:</td>
-                          <td>
-                            <a href="mailto:sukesh@sukeshkb.com?Subject=Hello">sukesh@sukeshkb.com</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="title">Address </td>
-                          <td class="break">:</td>
-                          <td> Berlin, Germany</td>
-                        </tr>
-                        <tr>
-                          <td class="title">Skype </td>
-                          <td class="break">:</td>
-                          <td> sukeshkumarb</td>
-                        </tr>
-                      </table>
-                    </div>
-                    <div>
-                      <p style="font-style: italic">
-                        A highly committed Frontend responsive UI developer with experience of more than 7 years in the field of software development.
-                        Diligent in formulating best coding practices for the Frontend Development using trending and robust
-                        Frontend frameworks.
-                      </p>
-                    </div>
-                  </div>
+        <div class="main-responsive-nav">
+            <div class="container">
+                <!-- Mobile Logo -->
+                <div class="logo">
+                    <a href="index.html" target="_self" title="UI UX Powerhouse">
+                        <img src="assets/images/logo/logo-4.png" alt="Brand logo">
+                    </a>
                 </div>
-              </div>
+                <!-- Menu toggle button -->
+                <button class="menu-toggler" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <!--/.OWL CAROUSEL2 END-->
-          </div>
         </div>
-      </section>
-      <!--/.ABOUT END-->
 
-      <!--WORK-->
-      <section class="grey-bg mar-tm-10" id="work">
+        <div class="main-navbar">
+            <div class="container-fluid container-custom">
+                <nav class="navbar navbar-expand-lg">
+                    <!-- <div class="more-option mobile-item">
+                        <div class="social-link style-2">
+                            <a href="https://www.instagram.com/" target="_blank" title="Link"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.dribbble.com/" target="_blank" title="Link"><i
+                                    class="fab fa-dribbble"></i></a>
+                            <a href="https://www.twitter.com/" target="_blank" title="Link"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" title="Link"><i
+                                    class="fab fa-youtube"></i></a>
+                        </div>
+                    </div> -->
+                    <!-- Navigation items -->
+                    <div class="collapse navbar-collapse">
+                        <ul id="mainMenu" class="navbar-nav mobile-item mx-auto align-items-xl-center">
+                            <li class="nav-item">
+                                <a href="#home" class="nav-link toggle">Home 
+                                    <!-- <i class="fal fa-plus"></i> -->
+                                </a>
+                                <ul class="menu-dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">Home Demo 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-2.html">Home Demo 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-3.html">Home Demo 3</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-4.html">Home Demo 4</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-5.html">Home Demo 5</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-6.html">Home Demo 6</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-7.html">Home Demo 7</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index-8.html">Home Demo 8</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pricing.html">Pricing</a>
+                            </li>
+                            <li class="nav-item logo">
+                                <a class="navbar-brand nav-link" href="index.html" target="_self" title="UI UX Powerhouse">
+                                    <img src="assets/images/logo/logo-4.png" alt="Brand Logo">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link toggle" href="#pages">Pages<i class="fal fa-plus"></i></a>
+                                <ul class="menu-dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="pricing.html">Pricing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="faq.html">FAQ's</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link toggle" href="#user">User<i class="fal fa-plus"></i></a>
+                                        <ul class="menu-dropdown">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="login.html">Login</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="signup.html">Signup</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="testimonial.html">Testimonials</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="coming-soon.html">Coming Soon</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="terms-conditions.html">Terms & Conditions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="error-404.html">Error 404</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link toggle" href="#blogs">Blog<i class="fal fa-plus"></i></a>
+                                <ul class="menu-dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="blogs.html">Blogs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="blog-details.html">Blog Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="more-option mobile-item">
+                        <div class="item">
+                            <div class="language">
+                                <select class="niceselect">
+                                    <option value="1">English</option>
+                                    <option value="2">Chinese</option>
+                                    <option value="3">French</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="login.html" class="btn-icon-text" target="_self" aria-label="User" title="User">
+                                <i class="fal fa-user"></i>
+                                <span>Login</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header-area end -->
+
+    <!-- Home-area start-->
+    <section class="hero-banner hero-banner-4">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Work</span>
-              </h3>
-              <p class="content-detail">
-                <div id="myBtnContainer">
-                  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                  <button class="btn" onclick="filterSelection('Angular5')"> Angular 5</button>
-                  <button class="btn" onclick="filterSelection('Kendo')"> Kendo UI</button>
-                  <button class="btn" onclick="filterSelection('onepager')"> One Pager</button>
-                  <button class="btn" onclick="filterSelection('onepager')"> Snippets</button>
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6">
+                    <div class="banner-content mb-40">
+                        <h1 class="title mb-30" data-aos="fade-up" data-aos-delay="100">Crafting Stunning User-Friendly
+                            Web Interfaces
+                        </h1>
+                        <p class="text" data-aos="fade-up" data-aos-delay="100">Welcome to UI UX Powerhouse, where we
+                            blend creativity with technology to deliver stunning and user-friendly web solutions. With a
+                            decade of expertise in front-end development, we specialize in Responsive Web development,
+                            One page website builder, Professional resume builder and much more. Some of our tech
+                            expertise are Angular, jQuery, PrimeNG,
+                            Kendo, and more.
+                        </p>
+                        <div class="cta-btn mt-40 btn-groups" data-aos="fade-up" data-aos-delay="200">
+                            <!-- <a href="error-404.html" class="btn btn-img radius-md" title="App Store" target="_blank">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/app-store.png" alt="App Store">
+                            </a>
+                            <a href="error-404.html" class="btn btn-img radius-md" title="Play Store" target="_blank">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/play-store.png" alt="App Store">
+                            </a> -->
+                            <div class="cta-btn mb-20">
+                                <a href="javaScript:void(0)" target="_self" title="Accept"
+                                    class="btn btn-md radius-0 btn-primary">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="clients-avatar mt-40" data-aos="fade-up" data-aos-delay="250">
+                            <!-- <div class="client-img">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/avatar-1.jpg" alt="Client Image">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/avatar-2.jpg" alt="Client Image">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/avatar-3.jpg" alt="Client Image">
+                                <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                    data-src="assets/images/avatar-4.jpg" alt="Client Image">
+                                <span>+10</span>
+                            </div> -->
+
+                        </div>
+                    </div>
                 </div>
-              </p>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="banner-image mb-40">
+                        <img class="lazyload blur-up" src="assets/images/uiux/introduction.png"
+                            data-src="assets/images/uiux/introduction.png" alt="Banner Image">
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 content-right">
-              <!--PORTFOLIO IMAGE-->
-              <ul class="portfolio-image">
-                <li class="col-md-6 portfolio-pane onepager">
-                  <a href="../Portfolio/Bootstrap/ResponsiveWithoutMenu/index.htm" target="_blank">
-                    <img alt="image" src="images/bw-2.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">
-                          Pangirutan
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-
-                <li class="col-md-6 portfolio-pane kendo">
-                  <a href="../Portfolio/Bootstrap/ResponsiveWithMenu/index.html" target="_blank">
-                    <img alt="image" src="images/bw-3.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">
-                          Black Mug
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="col-md-6 portfolio-pane kendo">
-                  <a href="../Portfolio/Angular/RealEstate/index.html">
-                    <img alt="image" src="images/bw-4.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">
-                          Notebook Mockup
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="col-md-6 portfolio-pane onepager">
-                  <a href="../Portfolio/Snippets/Odometer/index.html" target="_blank">
-                    <img alt="image" src="images/Snippet1.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">Bootstrap 4 Responsive Site - Odometer, Generate PDF</p>
-                        <p class="desc"></p>
-                      </div>
-
-                    </div>
-                  </a>
-                </li>
-                <li class="col-md-6 portfolio-pane Angular5">
-                  <a href="images/bw-5.png">
-                    <img alt="image" src="images/bw-5.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">
-                          Presentation
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="col-md-6 portfolio-pane Angular5">
-                  <a href="images/bw-6.png">
-                    <img alt="image" src="images/bw-6.png">
-                    <div class="decription-wrap">
-                      <div class="image-bg">
-                        <p class="desc">
-                          Letter Branding
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-              <!--/.PORTFOLIO IMAGE END-->
-            </div>
-          </div>
         </div>
-      </section>
-      <!--/.WORK END-->
+    </section>
+    <!-- Home-area end -->
 
-      <!--SERVICES-->
-      <section class="white-bg" id="services">
+    <!-- Work-area start -->
+    <section class="work-area">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Services</span>
-              </h3>
-              <!-- <p class="content-detail">
-              </p> -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-center mb-20" data-aos="fade-up">
+                        <h2 class="title mb-15">How Our Powerhouse Enhances Your Digital Products</h2>
+                        <p class="text">
+                            Integrating with the development tools you rely on, we ensure your products are built for
+                            exceptional user experiences. Your feedback drives our innovation.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3 item mt-30" data-aos="fade-up">
+                            <div class="card border text-center radius-md pb-10 h-100">
+                                <div class="card-icon mx-auto">
+                                    <i class="flaticon-downloads"></i>
+                                </div>
+                                <div class="card-content px-2 ptb-30">
+                                    <h4>Initiate Collaboration
+                                    </h4>
+                                    <p class="card-text lh-2 mt-3">Connect & Plan
+                                    </p>
+                                    <p class="card-text lh-2 mt-3">Kick-off with a strategic session to align our UI/UX
+                                        development efforts with your product goals and timelines.
+                                    </p>
+                                </div>
+                                <span class="count">01</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 item mt-30" data-aos="fade-up">
+                            <div class="card border text-center radius-md pb-10 h-100">
+                                <div class="card-icon mx-auto">
+                                    <i class="flaticon-app-installation"></i>
+                                </div>
+                                <div class="card-content px-2 ptb-30">
+                                    <h4>Craft Robust Interfaces
+
+                                    </h4>
+                                    <p class="card-text lh-2 mt-3">Develop with Precision
+                                    </p>
+                                    <p class="card-text lh-2 mt-3">Utilize advanced frontend frameworks to develop
+                                        robust, scalable, and visually appealing user interfaces.
+                                    </p>
+                                </div>
+                                <span class="count">02</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 item mt-30" data-aos="fade-up">
+                            <div class="card border text-center radius-md pb-10 h-100">
+                                <div class="card-icon mx-auto">
+                                    <i class="flaticon-add-user"></i>
+                                </div>
+                                <div class="card-content px-2 ptb-30">
+                                    <h4>Ensure Seamless Integration
+
+                                    </h4>
+                                    <p class="card-text lh-2 mt-3">Connect with Backend Systems
+                                    </p>
+                                    <p class="card-text lh-2 mt-3">Integrate the developed UI components seamlessly with
+                                        backend systems, ensuring a cohesive and functional user experience.
+                                    </p>
+                                </div>
+                                <span class="count">03</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 item mt-30" data-aos="fade-up">
+                            <div class="card border text-center radius-md pb-10 h-100">
+                                <div class="card-icon mx-auto">
+                                    <i class="flaticon-version"></i>
+                                </div>
+                                <div class="card-content px-2 ptb-30">
+                                    <h4>Launch & Evaluate
+                                    </h4>
+                                    <p class="card-text lh-2 mt-3">Monitor & Iterate
+                                    </p>
+                                    <p class="card-text lh-2 mt-3">Deploy the final product and continuously monitor
+                                        user interactions to iterate and enhance the UI/UX.
+                                    </p>
+                                </div>
+                                <span class="count">04</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 content-right">
-              <div class="row">
-                <ul class="listing-item">
-                  <li>
-                    <div class="col-md-4 col-sm-4">
-                      <h3 class="icon-use">
-                        b
-                      </h3>
-                      <p class="head-sm" data-aos="zoom-in-down" data-aos-duration="2000">
-                        WEB DEVELOPMENT
-                      </p>
-                      <p class="text-grey">
-                        Development of standalone responsive web applications from scratch. </p>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="col-md-4 col-sm-4">
-                      <h3 class="icon-use">
-                        d
-                      </h3>
-                      <p class="head-sm" data-aos="zoom-in-down" data-aos-duration="2000">
-                        UI / Frontend
-                      </p>
-                      <p class="text-grey">
-                        Development of responsive Front end User Interfaces which could then be integrated with server side applications (Ex: asp.net,
-                        Java etc)
-                      </p>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="col-md-4 col-sm-4">
-                      <h3 class="icon-use">
-                        p
-                      </h3>
-                      <p class="head-sm" data-aos="zoom-in-down" data-aos-duration="2000">
-                        WEB DESIGN
-                      </p>
-                      <p class="text-grey">
-                        Although my experience with Web Design is limited, I would like to take advantage of millions of templates available in Internet.
-                        Purchase, Customize, Use.. :)
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-
-                <ul class="listing-item">
-                  <li>
-                    <div class="col-md-4 col-sm-4">
-                      <p class="icon-use">
-                        f
-                      </p>
-                      <p class="head-sm" data-aos="zoom-in-down" data-aos-duration="2000">
-                        SHAREPOINT CUSTOMIZATION
-                      </p>
-                      <p class="text-grey">
-                        Development of Sharepoint Custom Webapps. Customizing UI for existing Sharepoint sites. </p>
-                    </div>
-                  </li>
-
-
-
-                  <li>
-                    <div class="col-md-4 col-sm-4">
-                      <h3 class="icon-use">
-                        m
-                      </h3>
-                      <p class="head-sm" data-aos="zoom-in-down" data-aos-duration="2000">
-                        CMS CUSTOMIZATION
-                      </p>
-                      <p class="text-grey">
-                        Customization of CMS like Wordpress, Unbounce, Shopify etc </p>
-                    </div>
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-      <!--/.SERVICES END-->
+    </section>
+    <!-- Work-area end -->
 
-      <!--EMPLOYEMENT-->
-      <!-- <section class="grey-bg" id="employement">
+    <!-- Choose-area start -->
+    <section class="choose-area pt-100">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Employement</span>
-              </h3>
-         
-              
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="image mb-40">
+                        <img class="lazyload blur-up radius-md" src="assets/images/uiux/whyuiux.png"
+                            data-src="assets/images/uiux/whyuiux.png" alt="Why UI / UX">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="content-title mb-40">
+                        <h2 class="title mb-20">
+                            Why UI/UX Matters: The Heart of User Engagement
+                        </h2>
+                        <div class="content-text">
+                            <p>Understanding the importance of UI/UX design is crucial for the success of any product.
+                                It&#39;s not just about the visual appeal; UI/UX stands at the crossroads of art and
+                                functionality, shaping the user&#39;s journey from first impression to lasting
+                                engagement.</p>
+                            <!-- <p>At UI UX Powerhouse, we believe that the essence of a great product lies in its user interface (UI) and user experience (UX). Here&#39;s why:</p> -->
+                            <p><strong>Intuitive Interactions:</strong> A well-crafted UI/UX design simplifies the user
+                                journey, making complex tasks feel effortless. Our designs ensure that users can
+                                navigate your product with intuitive ease, fostering a seamless interaction.</p>
+                            <p><strong>First Impressions Last:</strong> The UI is your product&#39;s handshake with the
+                                world. A visually stunning and functional UI sets the tone for credibility and
+                                professionalism, captivating users from the first click.</p>
+                            <p><strong>Enhanced Usability:</strong> UX is the silent ambassador of your brand. By
+                                focusing on usability, we craft experiences that not only meet users&#39; needs but also
+                                anticipate their next steps, ensuring a frictionless experience.</p>
+                            <p><strong>Increased Retention:</strong> Engaging UI/UX designs translate into higher user
+                                retention. By prioritizing user satisfaction, we turn first-time users into loyal
+                                customers, driving the growth of your product.</p>
+                            <p><strong>Business Impact:</strong> Ultimately, exceptional UI/UX design is a strategic
+                                business advantage. It translates into better conversion rates, customer loyalty, and a
+                                strong market position.</p>
+                            <p>At UI UX Powerhouse, we leverage UI/UX as the catalyst for your product&#39;s success,
+                                blending aesthetics with analytics for designs that resonate and perform.</p>
+
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap gap-25 mt-40" data-aos="fade-up">
+                            <div class="cta-btn mb-20">
+                                <a href="javaScript:void(0)" target="_self" title="Contact Us"
+                                    class="btn btn-md radius-0 btn-primary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 content-right">
-              <div class="row">
-                <ul class="listing-item">
-                  <li>
-                    <div class="col-md-12 col-sm-12">
-                      <div class="wrap-card">
-                        <div class="card">
-                          <h2 class="year">
-                            2015 - Till Date
-                          </h2>
-                          <p class="job">
-                            Senior UI/UX Developer - Berlin
-                          </p>
-                          <p class="company">
-                            KPMG
-                          </p>
-                          <hr>
-                          <div class="text-detail">
-                            <p>
-                              <ul>
-                                <h6>2017, 2018</h6>
-                                <li><p>Development of web applications at fast pace on top of Sharepoint Framework.  </p></li>
-                                <li><p>Responsibilities included Requirement Analysis, Creating Proposals (both technical & Cost Estimations), Development, Deployment, Collect Feedback from customers. </p> </li>
-                                <li><p>Key projects that I developed: Client Collaboration Tool, Activities Tracker, Seat Planning, Custom Events Registration,  </p></li>
-                              </ul>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="wrap-card">
-                        <div class="card">
-                          <h2 class="year">
-                            2009 - 2010
-                          </h2>
-                          <p class="job">
-                            web designer
-                          </p>
-                          <p class="company">
-                            Google inc
-                          </p>
-                          <hr>
-                          <div class="text-detail">
-                            <p>
-                              Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
-                              quam nunc putamus parum claram, anteposuerit litterarum formas humanita per seacula quarta
-                              decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="listing-item">
-                  <li>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="wrap-card">
-                        <div class="card">
-                          <h2 class="year">
-                            2010 - 2014
-                          </h2>
-                          <p class="job">
-                            crative director
-                          </p>
-                          <p class="company">
-                            41 studio
-                          </p>
-                          <hr>
-                          <div class="text-detail">
-                            <p>
-                              Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
-                              quam nunc putamus parum claram, anteposuerit litterarum formas humanita per seacula quarta
-                              decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="wrap-card">
-                        <div class="card">
-                          <h2 class="year">
-                            2014 - NOW
-                          </h2>
-                          <p class="job">
-                            fullstack designer
-                          </p>
-                          <p class="company">
-                            Freelance
-                          </p>
-                          <hr>
-                          <div class="text-detail">
-                            <p>
-                              Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
-                              quam nunc putamus parum claram, anteposuerit litterarum formas humanita per seacula quarta
-                              decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
         </div>
-      </section> -->
-      <!--/.EMPLOYEMENT END-->
+    </section>
+    <!-- Choose-area end -->
 
-      <!--SKILLS-->
-      <section class="white-bg" id="skill">
+    <!-- About-area start -->
+    <section class="about-area about-3 ptb-60">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Key Skills</span>
-              </h3>
-              <!-- <p class="content-detail">
-         
-              </p> -->
-            </div>
-            <div class="col-md-9 content-right">
-              <!--SKILLST-->
-              <div class="skillst">
-                <!-- <div class="skillbar" data-percent="78%"> -->
-                <!-- <div class="skillbar" data-percent="78%">
-                  <div class="title head-sm">
-                    HTML 5
-                  </div>
-                  <div class="count-bar">
-                    <div class="count"></div>
-                  </div>
+            <div class="row align-items-center gx-xl-5">
+                <!-- <div class="col-lg-6" data-aos="fade-up">
+                    <div class="image mb-40">
+                        <img class="lazyload blur-up radius-md" src="assets/images/placeholder.png"
+                            data-src="assets/images/about-4.png" alt="Image">
+                    </div>
                 </div> -->
-
-              </div>
-
-              <h3>UI</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  HTML 5 </button>
-                <button type="button" class="btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  CSS 3 </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Bootstrap 4 </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Jquery </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Jquery UI </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  CSS Preprocessors </button>
-              </div>
-
-              <h3>Scripting</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Javascript </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Angular JS </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Angular 2+</button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Kendo UI </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Kendo for Angular </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  React JS (Naive) </button>
-              </div>
-
-              <h3>Customization</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Sharepoint </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Wordpress </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Shopify</button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Unbounce </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  And Related... </button>
-              </div>
-
-              <h3>Tools</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Balsamiq </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  draw.io </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  proto.io </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Frontend builders... </button>
-              </div>
-
-              <h3>Development Related</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Webpack </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Git </button>
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  And Related... </button>
-              </div>
-
-              <h3>Miscellaneous</h3>
-              <div class="btn-toolbar">
-                <button type="button" class=" btn btn-default btn-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Scrum Methodolgy </button>
-                <button type="button" class="btn btn-default btn-md " data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-                  Communication with Global Clients </button>
-              </div>
-
-              <!--/.SKILLST END-->
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--/.SKILLS END-->
-
-      <!--EDUCATION-->
-      <section class="grey-bg" id="education">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Education</span>
-              </h3>
-              <!-- <p class="content-detail">
-      
-              </p> -->
-            </div>
-            <div class="col-md-9 content-right">
-              <div class="row">
-                <ul class="listing-item">
-                  <li>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="wrap-card">
-                        <div class="card">
-                          <h2 class="year">
-                            2006 - 2010
-                          </h2>
-                          <p class="job">
-                            Bachelors in Information Technology
-                          </p>
-                          <p class="company">
-                            <a href="https://en.wikipedia.org/wiki/Osmania_University" target="_blank">Osmania University</a>
-                          </p>
-                          <hr>
-                          <div class="text-detail">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="content-title mb-40">
+                        <h2 class="title mb-20">
+                            Key Considerations in Our App Development Process
+                        </h2>
+                        <div class="content-text text-center">
                             <p>
-                              "Practice makes a man perfect"
-                              <br> Although my education in Bachelors triggered me to start developing applications, I developed
-                              my skills through practical experience working with customers across the globe.
+                                When building your app, we prioritize:
                             </p>
-                          </div>
                         </div>
-                      </div>
+                        <div class="info-list mt-40">
+                            <div class="row">
+                                <div class="col-md-3 col-12 item">
+                                    <div class="card mb-30">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="fal fa-user"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">User-Centric Design:</h6>
+                                            <p class="card-text">Every decision is informed by how it serves the
+                                                user, from intuitive navigation to accessible interfaces.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-12 item">
+                                    <div class="card mb-30">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="fal fa-tachometer-alt-fast"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Performance Efficiency:</h6>
+                                            <p class="card-text">We ensure that your app operates smoothly,
+                                                with optimized load times and responsive interactions for a seamless experience.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-12 item">
+                                    <div class="card mb-30">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="fal fa-shield-check"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Security &amp; Compliance:</h6>
+                                            <p class="card-text">Protecting your data is paramount. We
+                                                adhere to best practices and regulatory standards to safeguard your app at every
+                                                layer.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-12 item">
+                                    <div class="card mb-30">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="fal fa-expand-arrows"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Scalability:</h6>
+                                            <p class="card-text">Your app is built to grow. We create flexible
+                                                architectures that can evolve with your user base and business needs.</p>
+                                        </div>
+                                    </div>
+                                <!-- </div>
+                                <div class="col-md-3 col-12 item">
+                                    <div class="card mb-30">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="fal fa-chart-bar"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Cross-Platform Compatibility:</h6>
+                                            <p class="card-text">We deliver a consistent and engaging
+                                                experience across all devices, ensuring your app&#39;s broadest reach.</p>
+                                            <p>Our holistic approach ensures your app excels in form and function, engaging users
+                                                and driving business success.</p>
+                                        </div>
+                                    </div>
+                                </div>  -->
+                            </div>
+                        </div>
+                        <!-- <div class="btn-groups gap-25 mt-20" data-aos="fade-up">
+                            <a href="about.html" class="btn btn-lg btn-primary bg-gradient rounded-pill"
+                                title="Download App" target="_self">Download App
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=QSwvg9Rv2EI"
+                                class="video-btn video-btn-text video-btn-sm youtube-popup" target="_self"
+                                title="Show Video">
+                                <i class="fas fa-play"></i>
+                                <span>Video Tutorial</span>
+                            </a>
+                        </div> -->
                     </div>
-                  </li>
-                </ul>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      <!--/.EDUCATION END-->
+    </section>
+    <!-- About-area end -->
 
-      <!--CONTACT-->
-      <section id="contact" class="white-bg">
+    <!-- Screenshot-area start -->
+    <!-- <section class="screenshot-area pb-100">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-center mb-50" data-aos="fade-up">
+                        <h2 class="title">Checkout Teeno Application Screenshot</h2>
+                    </div>
+                </div>
+                <div class="col-12" data-aos="fade-up">
+                    <div class="swiper screenshot-slider" id="screenshot-slider-4" data-slides-per-view="5">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide radius-lg">
+                                <img class="lazyload" src="assets/images/placeholder.png"
+                                    data-src="assets/images/screenshot/screenshot-11.png" alt="Image">
+                            </div>
+                            <div class="swiper-slide radius-lg">
+                                <img class="lazyload" src="assets/images/placeholder.png"
+                                    data-src="assets/images/screenshot/screenshot-12.png" alt="Image">
+                            </div>
+                            <div class="swiper-slide radius-lg">
+                                <img class="lazyload" src="assets/images/placeholder.png"
+                                    data-src="assets/images/screenshot/screenshot-13.png" alt="Image">
+                            </div>
+                            <div class="swiper-slide radius-lg">
+                                <img class="lazyload" src="assets/images/placeholder.png"
+                                    data-src="assets/images/screenshot/screenshot-14.png" alt="Image">
+                            </div>
+                            <div class="swiper-slide radius-lg">
+                                <img class="lazyload" src="assets/images/placeholder.png"
+                                    data-src="assets/images/screenshot/screenshot-15.png" alt="Image">
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-pagination position-static mt-40" id="screenshot-slider-4-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Screenshot-area end -->
+
+    <!-- Testimonial-area start -->
+    <!-- <section class="testimonial-area ptb-100 bg-cover bg-img" data-bg-image="assets/images/testimonial-bg-2.jpg">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <h3 class="title-small">
-                <span>Contact</span>
-              </h3>
-              <p class="content-detail">
-                Want to talk to me?
-              </p>
-
-            </div>
-            <div class="col-md-9 content-right">
-              <p class="text-center font-weight-bold" style="font-weight:bold">
-                <a href="mailto:sukesh@sukeshkb.com?Subject=Hello">Email: sukesh@sukeshkb.com</a>
-              </p>
-              <br>
-              <p class="text-center" style="font-weight:bold">
-                OR
-              </p>
-              <br>
-              <form method="POST" action="https://formspree.io/sukesh@sukeshkb.com">
-                <div class="group">
-                  <input required="" type="text" name="senderName">
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Name</label>
-                </div>
-                <div class="group">
-                  <input required="" type="email" name="email">
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Email</label>
-                </div>
-                <div class="group">
-                  <textarea required="" name="message"></textarea>
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Message</label>
-                </div>
-                <input id="sendMessage" name="sendMessage" type="submit" value="Send Message">
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--/.CONTACT END-->
-
-      <!--FOOTER-->
-      <footer>
-        <div class="footer-top">
-          <ul class="socials">
-            <li class="facebook">
-              
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-bottom">
-          <div class="container">
-
             <div class="row">
-              <p class="text-center" data-toggle="modal" data-target="#myModal" style="cursor:pointer;">
-                Privacy Policy
-              </p>
+                <div class="col-12">
+                    <div class="section-title title-center mb-50" data-aos="fade-up">
+                        <h2 class="title mt-0">Who’s Using Our Teeno Mobile App</h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row justify-content-center" data-aos="fade-up">
+                        <div class="col-lg-6">
+                            <div class="swiper" id="testimonial-slider-2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide pb-25">
+                                        <div class="slider-item text-center">
+                                            <div class="quote">
+                                                <p class="text font-lg">
+                                                    "It's impressed me on multiple levels. Thank you for making it
+                                                    painless, pleasant and most of all hassle free! I'd be lost without
+                                                    It.
+                                                </p>
+                                            </div>
+                                            <div class="client-info mt-20">
+                                                <h6 class="name mb-1">Hames Rodrigo</h6>
+                                                <span class="designation font-sm">UI/UX Designer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide pb-25">
+                                        <div class="slider-item text-center">
+                                            <div class="quote">
+                                                <p class="text font-lg">
+                                                    "It's impressed me on multiple levels. Thank you for making it
+                                                    painless, pleasant and most of all hassle free! I'd be lost without
+                                                    It.
+                                                </p>
+                                            </div>
+                                            <div class="client-info mt-20">
+                                                <h6 class="name mb-1">Jacob Dickinson</h6>
+                                                <span class="designation font-sm">Mobile Designer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide pb-25">
+                                        <div class="slider-item text-center">
+                                            <div class="quote">
+                                                <p class="text font-lg">
+                                                    "It's impressed me on multiple levels. Thank you for making it
+                                                    painless, pleasant and most of all hassle free! I'd be lost without
+                                                    It.
+                                                </p>
+                                            </div>
+                                            <div class="client-info mt-20">
+                                                <h6 class="name mb-1">Jimmy Chan</h6>
+                                                <span class="designation font-sm">Web Designer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination position-static" id="testimonial-slider-2-pagination">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="brands d-none d-lg-block">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/slack.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/messenger.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/envato.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/dribbble.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/behance.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/skype.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/printerest.png"
+                alt="Brand Image">
+            <img class="lazyload blur-up" src="assets/images/placeholder.png" data-src="assets/images/telegram.png"
+                alt="Client Image">
+        </div>
+    </section> -->
+    <!-- Testimonial-area end -->
+
+    <!-- Blog-area start -->
+    <section class="blog-area blog-3 pt-100">
+        <div class="container">
             <div class="row">
-              <p class="text-center">Thank you for visiting the Page !</p>
+                <div class="col-12">
+                    <div class="col-12">
+                        <div class="section-title title-inline mb-50" data-aos="fade-up">
+                            <h2 class="title">Read Our Blog Post</h2>
+                            <button class="btn btn-lg btn-primary bg-gradient rounded-pill" type="button"
+                                aria-label="Read Now">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <article class="card mb-30">
+                                <div class="card-img">
+                                    <a href="blog-details.html" target="_self" title="Link"
+                                        class="lazy-container ratio ratio-5-4">
+                                        <img class="lazyload" src="assets/images/placeholder.png"
+                                            data-src="assets/images/blog/blog-13.jpg" alt="Blog Image">
+                                    </a>
+                                </div>
+                                <div class="card-content radius-md p-25 text-center radius-md">
+                                    <h5 class="card-title lc-2 mb-15">
+                                        <a href="blog-details.html" target="_self" title="Link">
+                                            Step by Step Guide to Teeno Application
+                                        </a>
+                                    </h5>
+                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
+                                        title="Read More">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <article class="card mb-30">
+                                <div class="card-img">
+                                    <a href="blog-details.html" target="_self" title="Link"
+                                        class="lazy-container ratio ratio-5-4">
+                                        <img class="lazyload" src="assets/images/placeholder.png"
+                                            data-src="assets/images/blog/blog-14.jpg" alt="Blog Image">
+                                    </a>
+                                </div>
+                                <div class="card-content radius-md p-25 text-center radius-md">
+                                    <h5 class="card-title lc-2 mb-15">
+                                        <a href="blog-details.html" target="_self" title="Link">
+                                            Never Miss a Single Notification
+                                        </a>
+                                    </h5>
+                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
+                                        title="Read More">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <article class="card mb-30">
+                                <div class="card-img">
+                                    <a href="blog-details.html" target="_self" title="Link"
+                                        class="lazy-container ratio ratio-5-4">
+                                        <img class="lazyload" src="assets/images/placeholder.png"
+                                            data-src="assets/images/blog/blog-15.jpg" alt="Blog Image">
+                                    </a>
+                                </div>
+                                <div class="card-content radius-md p-25 text-center radius-md">
+                                    <h5 class="card-title lc-2 mb-15">
+                                        <a href="blog-details.html" target="_self" title="Link">
+                                            Teeno Application Allow to Send Message
+                                        </a>
+                                    </h5>
+                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
+                                        title="Read More">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </footer>
-      <!--/.FOOTER-END-->
+    </section>
+    <!-- Blog-area end -->
 
-      <!--/.CONTENT END-->
+    <!-- Newsletter area start -->
+    <!-- <section class="newsletter-area newsletter-3 pt-70">
+        <div class="newsletter-inner position-relative z-1 ptb-30 px-60">
+            <div class="overlay bg-gradient opacity-1"></div>
+            <div class="container">
+                <div class="row align-items-center" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <div class="content">
+                            <h2 class="color-white mb-30">Let’s Download Teeno Mobile App Free</h2>
+                            <div class="content-text w-75 w-sm-100">
+                                <p class="text color-white">A Private Limited is the most popular type of partnership
+                                    Malta. The limited liabilityis in fact, the only type of the</p>
+                            </div>
+                            <div class=" btn-groups mt-30">
+                                <a href="error-404.html" class="btn btn-img radius-md" title="App Store"
+                                    target="_blank">
+                                    <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                        data-src="assets/images/app-store.png" alt="App Store">
+                                </a>
+                                <a href="error-404.html" class="btn btn-img radius-md" title="Play Store"
+                                    target="_blank">
+                                    <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                        data-src="assets/images/play-store.png" alt="App Store">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image d-none d-lg-block">
+                            <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                data-src="assets/images/newsletter-4.png" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Newsletter area end -->
+
+    <!-- Footer-area start -->
+    <footer class="footer-area bg-primary-light radius-0">
+        <div class="footer-top pt-100 pb-70">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-delay="100">
+                            <div class="navbar-brand">
+                                <a href="index.html" target="_self" title="Link">
+                                    <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                        data-src="assets/images/logo/logo-4.png" alt="Brand Logo">
+                                </a>
+                            </div>
+                            <p>Indignation and dislike men who are so beguiled and demoralized by the charms of pleasure
+                                of the moment, so blinded by desire that they cannot foresee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
+                            <h5>Useful Links</h5>
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Download App</a>
+                                </li>
+                                <li>
+                                    <a href="signup.html" target="_self" title="link">Registration</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" target="_self" title="link">Business</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Privacy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
+                            <h5>Features</h5>
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Paid Features</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Management</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Tracking</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Invoice</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
+                            <h5>Explore</h5>
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="about.html" target="_self" title="link">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="about.html" target="_self" title="link">Our Mission</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">How It Work</a>
+                                </li>
+                                <li>
+                                    <a href="error-404.html" target="_self" title="link">Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
+                            <h5>Download App</h5>
+                            <div class="btn-groups">
+                                <a href="error-404.html" class="btn btn-img radius-sm size-sm" title="App Store"
+                                    target="_blank">
+                                    <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                        data-src="assets/images/app-store.png" alt="App Store">
+                                </a>
+                                <a href="error-404.html" class="btn btn-img radius-sm size-sm" title="Play Store"
+                                    target="_blank">
+                                    <img class="lazyload blur-up" src="assets/images/placeholder.png"
+                                        data-src="assets/images/play-store.png" alt="App Store">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right-area border-top ptb-30">
+            <div class="container">
+                <div class="social-link">
+                    <a href="https://www.instagram.com/" target="_blank" title="Link"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.dribbble.com/" target="_blank" title="Link"><i class="fab fa-dribbble"></i></a>
+                    <a href="https://www.twitter.com/" target="_blank" title="Link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank" title="Link"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="copy-right-content mt-20">
+                    <span>
+                        Copyright <i class="fal fa-copyright"></i><span id="footerDate"></span> <a href="index.html"
+                            target="_self" title="UI UX Powerhouse" class="color-primary">UI UX Powerhouse</a>. All Rights Reserved
+                    </span>
+                </div>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8vql2ygO6xFVj7F0iDrpWLX-cu-amQbfwS6z__Dd2-weZfQ/viewform?embedded=true" width="640" height="915" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer-area end-->
+
+    <!-- Cookie bar start -->
+    <div class="cookie-bar">
+        <div class="container">
+            <div class="cookie-bar-inner">
+                <p class="mb-20 color-light">
+                    By continuing to use this site you agree to our
+                    <a href="javaScript:void(0)" target="_self" title="Cookie Policy"
+                        class="color-primary text-decoration-underline">Cookie Policy</a>.
+                </p>
+                <div class="cta-btn mb-20">
+                    <a href="javaScript:void(0)" target="_self" title="Accept"
+                        class="btn btn-md radius-0 btn-primary">Accept</a>
+                    <a href="javaScript:void(0)" target="_self" title="Decline"
+                        class="btn btn-md radius-0 btn-primary">Decline</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--/.CONTENT-WRAP END-->
-  </div>
+    <!-- Cookie bar end -->
 
-  <!-- Button to Open the Modal -->
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
 
-
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Privacy Policy</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <h1>Privacy Policy</h1>
-
-          <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you visit
-            this website and the choices you have associated with that data.
-
-            <p>By visiting the website and using the Service, you agree to the collection and use of information in accordance
-              with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the
-              same meanings as in our Terms and Conditions, accessible from https://sukeshkb.com</p>
-
-
-            <h2>Information Collection And Use</h2>
-
-            <h3>Types of Data Collected</h3>
-
-            <h4>Personal Data</h4>
-
-            <p>While filling up the contact form, the website asks you to provide with certain personally identifiable information
-              that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include,
-              but is not limited to:</p>
-
-            <ul>
-              <li>Email address</li>
-              <li>First name and last name</li>
-              <li>Cookies and Usage Data</li>
-            </ul>
-
-            <h4>Usage Data</h4>
-
-            <p>Website also collect information how the Service is accessed and used ("Usage Data"). This Usage Data may include
-              information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version,
-              the pages website that you visit, the time and date of your visit, the time spent on those pages, unique device
-              identifiers and other diagnostic data.</p>
-
-            <h4>Tracking & Cookies Data</h4>
-            <p>This site use cookies and similar tracking technologies to track the activityand hold certain information.</p>
-            <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent
-              to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags,
-              and scripts to collect and track information and to improve and analyze.</p>
-            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you
-              do not accept cookies, you may not be able to use some portions of the website.</p>
-            <p>Examples of Cookies we use:</p>
-            <ul>
-              <li>
-                <strong>Session Cookies.</strong> We use Session Cookies to operate our Service.</li>
-              <li>
-                <strong>Preference Cookies.</strong> We use Preference Cookies to remember your preferences and various settings.</li>
-              <li>
-                <strong>Security Cookies.</strong> We use Security Cookies for security purposes.</li>
-            </ul>
-
-            <h2>Use of Data</h2>
-
-            <p>Sukesh - Web Developer uses the collected data for various purposes:</p>
-            <p>
-              <ul>
-                <li>To provide and maintain the Service</li>
-                <li>To notify you about changes to our Service</li>
-                <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
-                <li>To provide customer care and support</li>
-                <li>To provide analysis or valuable information so that we can improve the Service</li>
-                <li>To monitor the usage of the Service</li>
-                <li>To detect, prevent and address technical issues</li>
-              </ul>
-            </p>
-            <h2>Transfer Of Data</h2>
-
-            <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement
-              to that transfer.</p>
-            <p>This website owner will take all steps reasonably necessary to ensure that your data is treated securely and
-              in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization
-              or a country unless there are adequate controls in place including the security of your data and other personal
-              information.
-            </p>
-
-            <h2>Disclosure Of Data</h2>
-
-
-            <h2>Security Of Data</h2>
-            <p>The security of your data is important to us, but remember that no method of transmission over the Internet,
-              or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect
-              your Personal Data, we cannot guarantee its absolute security.</p>
-
-            <h2>Service Providers</h2>
-            <p>This site may employ third party companies and individuals to facilitate the Service ("Service Providers"), to
-              provide the Service on this website's behalf, to perform Service-related services or to assist us in analyzing
-              how this website is used.</p>
-            <p>These third parties have access to your Personal Data only to perform these tasks on this website's behalf and
-              are obligated not to disclose or use it for any other purpose.</p>
-
-            <h3>Analytics</h3>
-            <p>This site may use third-party Service Providers to monitor and analyze the usage of the website.</p>
-            <ul>
-              <li>
-                <p>
-                  <strong>Google Analytics</strong>
-                </p>
-                <p>Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google
-                  uses the data collected to track and monitor the use of our Service. This data is shared with other Google
-                  services. Google may use the collected data to contextualize and personalize the ads of its own advertising
-                  network.
-                </p>
-                <p>You can opt-out of having made your activity on the Service available to Google Analytics by installing the
-                  Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js,
-                  and dc.js) from sharing information with Google Analytics about visits activity.</p>
-                <p>For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page:
-                  <a href="https://policies.google.com/privacy?hl=en">https://policies.google.com/privacy?hl=en</a>
-                </p>
-              </li>
-            </ul>
-
-
-            <h2>Links To Other Sites</h2>
-            <p>This website may contain links to other sites that are not operated by this website. If you click on a third
-              party link, you will be directed to that third party's site. This website strongly advise you to review the
-              Privacy Policy of every site you visit.</p>
-            <p>This website has no control over and assume no responsibility for the content, privacy policies or practices
-              of any third party sites or services.</p>
-
-
-            <h2>Changes To This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy
-              Policy on this page.</p>
-            <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective
-              and update the "effective date" at the top of this Privacy Policy.</p>
-            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are
-              effective when they are posted on this page.</p>
-
-
-            <h2>Contact Me</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us:</p>
-            <ul>
-              <li>By email: sukesh@sukeshkb.com</li>
-
-            </ul>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-  <script src="js/jquery.appear.js" type="text/javascript"></script>
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="js/classie.js" type="text/javascript"></script>
-  <script src="js/owl.carousel.min.js" type="text/javascript"></script>
-  <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-  <script src="js/masonry.pkgd.min.js" type="text/javascript"></script>
-  <script src="js/masonry.js" type="text/javascript"></script>
-  <script src="js/smooth-scroll.min.js" type="text/javascript"></script>
-  <script src="js/typed.js" type="text/javascript"></script>
-  <script src="js/aos.js" type="text/javascript"></script>
-  <script src="js/main.js" type="text/javascript"></script>
+    <!-- Jquery JS -->
+    <script src="assets/js/vendors/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendors/bootstrap.min.js"></script>
+    <!-- Counter JS -->
+    <script src="assets/js/vendors/jquery.counterup.min.js"></script>
+    <!-- Nice Select JS -->
+    <script src="assets/js/vendors/jquery.nice-select.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
+    <!-- Swiper Slider JS -->
+    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+    <!-- Lazysizes -->
+    <script src="assets/js/vendors/lazysizes.min.js"></script>
+    <!-- Twinmax JS -->
+    <script src="assets/js/vendors/tweenMax.min.js"></script>
+    <!-- Tilt JS -->
+    <script src="assets/js/vendors/tilt.jquery.min.js"></script>
+    <!-- AOS JS -->
+    <script src="assets/js/vendors/aos.min.js"></script>
+    <!-- Main script JS -->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+/* -----------------------------------------
+    Pricing CSS
+----------------------------------------- */
+.team-area {
+    .slider-item {
+        padding: 60px 45px 45px;
+        text-align: center;
+        position: relative;
+
+        @media #{$lg} {
+            padding: 60px 25px 30px;
+        }
+
+        .shape-content {
+            padding: 0 10px 30px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto;
+
+            .item-img {
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                margin-top: -10px;
+                margin-inline: auto;
+            }
+        }
+    }
+
+    &.team-2 {
+        .slider-item{
+            .shape-content{
+                background-position: bottom center;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+
+:root {
+    --color-medium: #3d3d3d;
+    // Text Color
+    --text-dark: #f2f2f2;
+    --text-medium: #9c9c9c;
+    --text-white: var(--color-white);
+    --text-light: var(--color-light);
+    --border-color: #222222;
+    --border-color-2: #3d3d3d;
+    // Background Colors
+    --bg-1: #141529;
+    --bg-2: #0f101d;
+    --bg-white: #0A0B1C;
+    --bg-dark: var(--color-dark);
+}
+* {
+    box-shadow: none;
+}
+.header-area {
+    &.is-sticky {
+        background: rgba(var(--color-dark-rgb), 0.9);
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-navbar .menu-dropdown {
+        border: 1px solid var(--border-color);
+    }
+}
+.blog-area {
+    .card-content {
+        background-color: var(--bg-1);
+    }
+}

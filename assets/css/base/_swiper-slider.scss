@@ -1,0 +1,107 @@
+/* -----------------------------------------
+    Swiper Slider CSS
+----------------------------------------- */
+.swiper-slide{
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+}
+.swiper-wrapper{
+    -webkit-transform-style: preserve-3d;
+}
+
+.swiper-pagination {
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 30px;
+        opacity: 1;
+        background-color: var(--color-primary);
+        opacity: .3;
+        transition: all .3s ease-in-out;
+
+        &-active {
+            width: 16px;
+        }
+        &-active,
+        &:hover {
+            background-color: var(--color-primary);
+            opacity: 1;
+        }
+    }
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    line-height: 1;
+    bottom: 0;
+}
+
+.slider-navigation {
+    z-index: 3;
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: var(--color-primary);
+        
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        color: var(--text-white);
+        font-size: 24px;
+        transition: all .3s ease-out;
+
+        &:last-child {
+            margin-inline-start: 10px;
+        }
+
+        i {
+            transition: transform .3s ease-out;
+        }
+
+        &.btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+
+            &:hover {
+                color: var(--text-white);
+                background: var(--color-primary);
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    &.position-middle{
+        .slider-btn{
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            transform: translateY(-50%);
+            z-index: 4;
+            background: rgba($color: var(--color-white-rgb), $alpha: .2);
+            backdrop-filter: blur(20px);
+
+            &.slider-btn-prev {
+                left: 0%;
+            }
+            &.slider-btn-next {
+                right: 0%;
+            }
+        }
+    }
+}
+
+.swiper-lazy{
+    background-color: var(--text-light);
+}
+.swiper-lazy-loaded.blur-up{
+    filter: blur(0);
+}

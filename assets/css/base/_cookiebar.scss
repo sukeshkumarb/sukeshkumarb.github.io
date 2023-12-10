@@ -1,0 +1,32 @@
+/* -----------------------------------------
+    Cookiebar CSS
+----------------------------------------- */
+.cookie-bar {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-dark);
+    padding: 20px 20px 0;
+    transition: all 2s linear;
+    z-index: 999;
+
+    &-inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .btn:not(:last-child) {
+        margin-inline-end: 10px;
+    }
+
+    .btn::before{
+        content: none;
+    }
+
+    &.show {
+        bottom: 0;
+        transition: all 2s linear;
+    }
+}

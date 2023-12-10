@@ -1,0 +1,43 @@
+/* -----------------------------------------
+    Video CSS
+----------------------------------------- */
+.video-area {
+    .video-inner {
+        width: 100%;
+        height: 440px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+
+        @media #{$sm} {
+            height: 340px;
+        }
+
+
+        &::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            content: "";
+            z-index: -1;
+            background-color: var(--color-primary);
+        }
+    }
+
+    &.mb-negative {
+        margin-bottom: -220px;
+        z-index: 2;
+        position: relative;
+
+        @media #{$sm} {
+            margin-bottom: -60px;
+        }
+    }
+}

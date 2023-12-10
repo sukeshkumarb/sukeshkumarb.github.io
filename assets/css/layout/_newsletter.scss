@@ -1,0 +1,77 @@
+/* -----------------------------------------
+    Newsletter CSS
+----------------------------------------- */
+
+.newsletter-area {
+    position: relative;
+    z-index: 1;
+
+    .newsletter-form{
+        max-width: 540px;
+    }
+    .overlay{
+        background-color: transparent;
+    }
+
+    .image-absolute {
+        position: absolute;
+        top: -3rem;
+        right: 60px;
+        height: calc(100% + 3rem);
+
+        img{
+            height: 100%;
+        }
+    }
+
+    h2{
+        margin-top: -8px;
+    }
+}
+
+.newsletter-1 {
+    .overlay{
+        height: calc(100% - 6rem);
+        bottom: 0;
+        top: auto;
+    }
+    .content {
+        margin-top: 6rem;
+    }
+    @media #{$md} {
+        .overlay{
+            height: 100%;
+        }
+        .content {
+            margin-top: 0;
+        }
+    }
+}
+
+.newsletter-2 {
+    background-repeat: no-repeat;
+    background-position: center center;
+    .newsletter-form{
+        max-width: 620px;
+
+        .form-control {
+            height: 70px;
+            line-height: 70px;
+            padding-inline: 30px;
+            font-size: var(--font-base);
+        }
+
+        button{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            width: fit-content;
+            margin-inline-end: 30px;
+            margin-inline-start: auto;
+            font-size: 30px;
+            transform: translateY(-50%);
+
+        }
+    }
+}

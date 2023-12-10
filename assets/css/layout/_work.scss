@@ -1,0 +1,60 @@
+/* -----------------------------------------
+    Work CSS
+----------------------------------------- */
+.work-area {
+    .card {
+        margin-bottom: 13px;
+        &-icon {
+            --size: 150px;
+            $size: 150px;
+            width: var(--size);
+            height: calc(var(--size) / 2);
+            line-height: calc(var(--size) / 2);
+            text-align: center;
+            font-size: 40px;
+            border-bottom-left-radius: calc(var(--size) * 2);
+            border-bottom-right-radius: calc(var(--size) * 2);
+            color: var(--text-white);
+            background-color: var(--color-primary);
+            background-image: var(--gradient-1);
+        }
+        .count{
+            --size: 26px;
+            position: absolute;
+            bottom: -13px;
+            left: 0;
+            right: 0;
+            margin-inline: auto;
+            width: var(--size);
+            height: var(--size);
+            line-height: var(--size);
+            text-align: center;
+            border-radius: 50%;
+            color: var(--text-white);
+            font-size: var(--font-xsm);
+            background-color: var(--color-medium);
+        }
+    }
+
+    $colors: (
+        "1"#0D25B9,
+        "2"#97ABFF,
+        "3"#E67E22,
+        "4"#B210FF,
+        "5"#499C21,
+        "6"#F1C40F,
+        "7"#E67E22,
+        "8"#E74C3C,
+        "9"#FFAA85,
+        "10"#3C8CE7);
+
+    @each $i,
+    $color in $colors {
+        .item:nth-child(#{$i}) {
+            .card-icon {
+                background-color: $color;
+                background-image: linear-gradient(135deg, rgba(var(--color-white-rgb), .6) 0%, $color 100%);
+            }
+        }
+    }
+}
