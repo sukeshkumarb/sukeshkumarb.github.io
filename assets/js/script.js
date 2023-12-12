@@ -692,8 +692,13 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse.length === 0) {
-        alert("Please complete the reCAPTCHA.");
+        // alert("Please complete the reCAPTCHA.");
+        $(".error").show();
+        $(".success-msg").hide();
         return;
+    } else {
+        $(".error").hide();
+        $(".success-msg").hide();
     }
     var formData = {
         'name': this.name.value,
@@ -708,11 +713,11 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
         },
         body: JSON.stringify(formData)
     }).then(response => {
-        console.log('Success:', response);
         this.name.value = '';
         this.email.value = '';
         this.message.value = '';
         grecaptcha.reset();
-        console.log('Data sent to Google Sheet');
+        $(".success-msg").show();
+        $(".success-msg").hide(15000);
     }).catch(error => console.error('Error:', error));
 });
