@@ -262,8 +262,8 @@
                                 <!-- <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary" 
                                      data-toggle="modal" data-target="#contactModal">Contact
                                     Us</a>  -->
-                                <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary"
-                                    data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a>
+                                <!-- <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a> -->
                             </div>
                         </div>
                         <div class="clients-avatar mt-40" data-aos="fade-up" data-aos-delay="250">
@@ -794,10 +794,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="g-recaptcha" data-sitekey="6Lem-y4pAAAAAOZCsL1SVFiXyDDIIqTyjDrkFUlK"></div>
+                                        <!-- <div class="g-recaptcha" data-sitekey="6Lem-y4pAAAAAOZCsL1SVFiXyDDIIqTyjDrkFUlK"></div> -->
                                         <br>
                                         <div class="col-md-12 text-center">
                                             <button type="submit" class="btn btn-lg btn-primary bg-dark color-white" title="Send message">Send Your Message</button>
+                                            <button class="g-recaptcha btn btn-lg btn-primary bg-dark color-white" 
+        data-sitekey="6Lem-y4pAAAAAOZCsL1SVFiXyDDIIqTyjDrkFUlK" 
+        data-callback='onSubmit' 
+        data-action='submit'>Send Your Message</button>
                                         </div>
                                     </div>
                                 </form>
