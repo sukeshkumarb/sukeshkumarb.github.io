@@ -201,7 +201,7 @@
             el: ".swiper-scrollbar"
         },
     })
-    
+
     // Screenshot Slider all
     $(".screenshot-slider").each(function () {
         var id = $(this).attr("id");
@@ -290,7 +290,7 @@
     // Sync testimonial slider 1
     testimonialSlider1.controller.control = testimonialThumb;
     testimonialThumb.controller.control = testimonialSlider1;
-    
+
     // Testimonial Slider 2
     var testimonialSlider2 = new Swiper("#testimonial-slider-2", {
         speed: 1200,
@@ -508,7 +508,7 @@
     /*============================================
         Hover Tilt
     ============================================*/
-    if($('.js-tilt').length) {
+    if ($('.js-tilt').length) {
         $('.js-tilt').tilt({
             glare: true,
             maxGlare: .5,
@@ -653,7 +653,7 @@
         $("#minutes .time").html(minutes);
         $("#seconds .time").html(seconds);
     }
-    setInterval(function() {
+    setInterval(function () {
         makeTimer()
     }, 0);
 
@@ -686,3 +686,33 @@ $(window).on("load", function () {
         aosAnimation();
     }
 })
+
+
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length === 0) {
+        alert("Please complete the reCAPTCHA.");
+        return;
+    }
+    var formData = {
+        'name': this.name.value,
+        'email': this.email.value,
+        'message': this.message.value
+    };
+    fetch('https://script.google.com/macros/s/AKfycbyBsFtCEyNABIXIHZ9spw1zild1qxiPILOQvmrcsBNZ2WlwgUGs9RNllNttAs6QB-iz/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    }).then(response => {
+        console.log('Success:', response);
+        this.name.value = '';
+        this.email.value = '';
+        this.message.value = '';
+        grecaptcha.reset();
+        console.log('Data sent to Google Sheet');
+    }).catch(error => console.error('Error:', error));
+});

@@ -51,6 +51,8 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Dark Theme CSS -->
     <link rel="stylesheet" href="assets/css/theme-dark.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body class="body-dark theme-color-4">
@@ -106,7 +108,7 @@
                     <div class="collapse navbar-collapse">
                         <ul id="mainMenu" class="navbar-nav mobile-item mx-auto align-items-xl-center">
                             <li class="nav-item">
-                                <a href="#home" class="nav-link toggle">Home 
+                                <a href="#home" class="nav-link toggle">Home
                                     <!-- <i class="fal fa-plus"></i> -->
                                 </a>
                                 <ul class="menu-dropdown">
@@ -143,7 +145,8 @@
                                 <a class="nav-link" href="pricing.html">Pricing</a>
                             </li>
                             <li class="nav-item logo">
-                                <a class="navbar-brand nav-link" href="index.html" target="_self" title="UI UX Powerhouse">
+                                <a class="navbar-brand nav-link" href="index.html" target="_self"
+                                    title="UI UX Powerhouse">
                                     <img src="assets/images/logo/logo-4.png" alt="Brand Logo">
                                 </a>
                             </li>
@@ -251,6 +254,16 @@
                             <div class="cta-btn mb-20">
                                 <a href="javaScript:void(0)" target="_self" title="Accept"
                                     class="btn btn-md radius-0 btn-primary">Contact Us</a>
+                                <!-- Onclick open a popup -->
+                                <!-- <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary" data-toggle="modal"
+                                    data-target="#contactModal">Contact Us</a> -->
+                                <!-- contact modal -->
+                                <!-- FILEPATH: /c:/Dev/UiUXPowerhouse/sukeshkumarb.github.io/index.html -->
+                                <!-- <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary" 
+                                     data-toggle="modal" data-target="#contactModal">Contact
+                                    Us</a>  -->
+                                <a href="javascript:void(0)" class="btn btn-md radius-0 btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a>
                             </div>
                         </div>
                         <div class="clients-avatar mt-40" data-aos="fade-up" data-aos-delay="250">
@@ -467,7 +480,8 @@
                                         <div class="card-content">
                                             <h6 class="card-title mb-2">Performance Efficiency:</h6>
                                             <p class="card-text">We ensure that your app operates smoothly,
-                                                with optimized load times and responsive interactions for a seamless experience.</p>
+                                                with optimized load times and responsive interactions for a seamless
+                                                experience.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -479,7 +493,8 @@
                                         <div class="card-content">
                                             <h6 class="card-title mb-2">Security &amp; Compliance:</h6>
                                             <p class="card-text">Protecting your data is paramount. We
-                                                adhere to best practices and regulatory standards to safeguard your app at every
+                                                adhere to best practices and regulatory standards to safeguard your app
+                                                at every
                                                 layer.</p>
                                         </div>
                                     </div>
@@ -492,10 +507,11 @@
                                         <div class="card-content">
                                             <h6 class="card-title mb-2">Scalability:</h6>
                                             <p class="card-text">Your app is built to grow. We create flexible
-                                                architectures that can evolve with your user base and business needs.</p>
+                                                architectures that can evolve with your user base and business needs.
+                                            </p>
                                         </div>
                                     </div>
-                                <!-- </div>
+                                    <!-- </div>
                                 <div class="col-md-3 col-12 item">
                                     <div class="card mb-30">
                                         <div class="card-icon rounded-pill">
@@ -510,9 +526,9 @@
                                         </div>
                                     </div>
                                 </div>  -->
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div class="btn-groups gap-25 mt-20" data-aos="fade-up">
+                            <!-- <div class="btn-groups gap-25 mt-20" data-aos="fade-up">
                             <a href="about.html" class="btn btn-lg btn-primary bg-gradient rounded-pill"
                                 title="Download App" target="_self">Download App
                             </a>
@@ -523,10 +539,10 @@
                                 <span>Video Tutorial</span>
                             </a>
                         </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- About-area end -->
 
@@ -660,6 +676,139 @@
         </div>
     </section> -->
     <!-- Testimonial-area end -->
+
+    <!-- Faq-area start -->
+    <div class="faq-area pt-100 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <!-- <div class="col-lg-7" data-aos="fade-up">
+                            <div class="accordion mb-10" id="faqAccordion">
+                                <div class="accordion-item mb-30">
+                                    <h6 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            1. What is Teeno App?
+                                        </button>
+                                    </h6>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugiat quisquam, consequuntur cumque blanditiis magni quasi expedita ducimus nam dicta. At totam laboriosam sed excepturi ea voluptas quaerat vitae quas exercitationem modi! Porro beatae expedita assumenda! Nemo tempora facilis dolorem, mollitia.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-30">
+                                    <h6 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+                                            aria-controls="collapseTwo">
+                                            2. How to Purchase this App
+                                        </button>
+                                    </h6>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-30">
+                                    <h6 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="true" aria-controls="collapseThree">
+                                            3. How do I Make a Premium User?
+                                        </button>
+                                    </h6>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-30">
+                                    <h6 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="true" aria-controls="collapseFour">
+                                            4. How to Debug this App?
+                                        </button>
+                                    </h6>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-30">
+                                    <h6 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                            aria-expanded="true" aria-controls="collapseFive">
+                                            5. Can I make an Appointment?
+                                        </button>
+                                    </h6>
+                                    <div id="collapseFive" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-12" data-aos="fade-up">
+                            <div class="faq-form p-30 radius-lg bg-primary mb-40">
+                                <div class="content mb-20">
+                                    <h3 class="title color-white">Do you have any questions?</h3>
+                                    <p class="text color-white">We have several powerful plans to showcase your business and get discovered.</p>
+                                </div>
+                                <form id="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-20">
+                                                <input type="text" name="name" class="form-control" id="name" required placeholder="Your name*" />
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-20">
+                                                <input type="email" name="email" class="form-control" id="email" required placeholder="Your email*" />
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-12">
+                                            <div class="form-group mb-20">
+                                                <textarea name="message" id="message" class="form-control" cols="30" rows="8" placeholder="Your Message..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="g-recaptcha" data-sitekey="6Lem-y4pAAAAAOZCsL1SVFiXyDDIIqTyjDrkFUlK"></div>
+                                        <br>
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-lg btn-primary bg-dark color-white" title="Send message">Send Your Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Faq-area end -->
 
     <!-- Blog-area start -->
     <section class="blog-area blog-3 pt-100">
@@ -799,7 +948,7 @@
                                 of the moment, so blinded by desire that they cannot foresee.</p>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    <!-- <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
                             <h5>Useful Links</h5>
                             <ul class="footer-links">
@@ -817,7 +966,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-widget" data-aos="fade-up" data-aos-delay="200">
                             <h5>Features</h5>
@@ -888,10 +1037,10 @@
                 <div class="copy-right-content mt-20">
                     <span>
                         Copyright <i class="fal fa-copyright"></i><span id="footerDate"></span> <a href="index.html"
-                            target="_self" title="UI UX Powerhouse" class="color-primary">UI UX Powerhouse</a>. All Rights Reserved
+                            target="_self" title="UI UX Powerhouse" class="color-primary">UI UX Powerhouse</a>. All
+                        Rights Reserved
                     </span>
                 </div>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8vql2ygO6xFVj7F0iDrpWLX-cu-amQbfwS6z__Dd2-weZfQ/viewform?embedded=true" width="640" height="915" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </footer>
@@ -915,6 +1064,7 @@
             </div>
         </div>
     </div>
+
     <!-- Cookie bar end -->
 
     <!-- Go to Top -->
