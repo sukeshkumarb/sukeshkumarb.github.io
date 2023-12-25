@@ -5540,7 +5540,7 @@ Authentication CSS
 ----------------------------------------- */
 .blog-details-area .item-single {
   overflow: hidden;
-  background: var(--color-white);
+  /* background: var(--color-white); */
 }
 .blog-details-area .item-single .image {
   position: relative;

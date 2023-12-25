@@ -201,7 +201,7 @@
                                 </ul>
                             </li>-->
                             <li class="nav-item">
-                                <a class="nav-link toggle" href="#blog-section">Blog
+                                <a class="nav-link toggle" href="blogs.html">Blog
                                     <!-- <i class="fal fa-plus"></i> -->
                                 </a>
                                 <!-- <ul class="menu-dropdown">
@@ -243,19 +243,19 @@
 
     <!-- Page title start-->
     <section class="hero-banner hero-banner-4">
-        <div class="page-title-area pb-100 bg-light bg-img" data-bg-image="assets/images/page-title-bg-1.jpg">
+        <div class="page-title-area pb-100 bg-light bg-img" data-bg-image="assets/images/testimonial-bg-2.jpg"
+            style="padding-top: 90px;">
             <div class="container">
                 <div class="content text-center">
                     <h2>Latest Blogs</h2>
-                    <nav aria-label="breadcrumb">
+                    <!-- <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Blogs</li>
                         </ol>
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
-            <!-- Bg colors -->
             <svg class="mw-100 bg bg-1" data-src="assets/images/shape/shape-1.svg" data-unique-ids="disabled"
                 data-cache="disabled"></svg>
             <svg class="mw-100 bg bg-2" data-src="assets/images/shape/shape-1.svg" data-unique-ids="disabled"
@@ -264,130 +264,171 @@
     </section>
     <!-- Page title end-->
 
-      <!-- Blog-area start -->
-      <div class="blog-area blog-1 ptb-100">
-        <div class="container">
+    <!-- Blog-area start -->
+    <div class="blog-area blog-1 ptb-20">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
+                <div class="col-md-8">
+                    <div class="row" id="blog-posts">
+                        
+                    </div>
+                    <script id="blog-template" type="text/x-handlebars-template">
+                        {{#each blogs}}
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                          <article class="card mb-25 radius-md">
+                            <div class="card-img">
+                              <a href="blogs.html?title={{slugify title}}" target="_self" title="{{title}}"
                                 class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/blogs/1.webp"
-                                    data-src="assets/blogs/1.webp" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    Step by Step Guide to Teeno Application
+                                <img class="lazyload" src="{{bannerImage}}" data-src="{{bannerImage}}"
+                                  alt="{{title}}">
+                              </a>
+                            </div>
+                            <div class="card-content radius-md p-25 text-center bg-white">
+                              <h5 class="card-title lc-2 mb-15">
+                                <a href="blogs.html?title={{slugify title}}" target="_self" title="{{title}}">
+                                  {{title}}
                                 </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
+                              </h5>
+                              <a href="blogs.html?title={{slugify title}}" class="btn-text color-primary" target="_self"
+                                title="Read More">Read More</a>
+                            </div>
+                          </article>
                         </div>
-                    </article>
+                        {{/each}}
+                      </script>
+
+                    <div class="blog-details-area pb-60">
+                        <div class="row px-5" id="blog-detail" style="display: none;">
+                            <script id="blog-detail-template" type="text/x-handlebars-template">
+                            <div class="col-lg-12">
+                              <div class="blog-description mb-40">
+                                <article class="item-single">
+                                  <div class="image radius-md">
+                                    <div class="lazy-container ratio ratio-2-3">
+                                      <!-- Use the actual image path for the src if you're not using lazy loading -->
+                                      <img class="lazyload" src="assets/images/placeholder.png" data-src="{{bannerImage}}" alt="Blog Image">
+                                    </div>
+                                    <!-- Omitting Share Now button unless it's functional -->
+                                  </div>
+                                  <div class="content">
+                                    <ul class="info-list">
+                                      <li><i class="fal fa-user"></i>{{author}}</li>
+                                      <li><i class="fal fa-calendar"></i>{{postedOn}}</li>
+                                      <!-- Generate the tags list -->
+                                      <li><i class="fal fa-tag"></i>{{#join tags separator=", "}}{{this}}{{/join}}</li>
+                                    </ul>
+                                    <h4 class="title">
+                                      {{title}}
+                                    </h4>
+                                    <div>
+                                      {{{body}}}
+                                    </div>
+                                  </div>
+                                </article>
+                              </div>
+                              <!-- Assuming comments and comment form are static, if dynamic they'll need their own template or JS handling -->
+                              <div class="comments">...</div>
+                            </div>
+                          </script>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
-                                class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/images/placeholder.png"
-                                    data-src="assets/images/blog/blog-5.jpg" alt="Blog Image">
-                            </a>
+                <div class="col-md-4">
+                    <aside class="widget-area">
+                        <div class="widget widget-search mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">Search Posts</h4>
+                            <form class="search-form radius-md">
+                                <input type="search" class="search-input" placeholder="Search Here">
+                                <button class="btn-search" type="submit">
+                                    <i class="far fa-search"></i>
+                                </button>
+                            </form>
                         </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    Never Miss a Single
-                                    Notification
-                                </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
+                        <div class="widget widget-post mb-30 p-30 border radius-md" id="recent-posts-widget">
+                            <h4 class="title mb-15">Recent Posts</h4>
+                            <div id="recent-posts-list">
+                                <!-- Recent posts will be rendered here using JavaScript -->
+                            </div>
+
+                            <script id="recent-posts-template" type="text/x-handlebars-template">
+                              {{#each recentPosts}}
+                                <article class="article-item mb-30">
+                                  <div class="image">
+                                    <a href="blogs.html?title={{slugify title}}" class="lazy-container ratio ratio-5-4">
+                                      <img class="lazyload" src="assets/images/placeholder.png" data-src="{{bannerImage}}" alt="{{title}}">
+                                    </a>
+                                  </div>
+                                  <div class="content">
+                                    <h6 class="lc-2">
+                                      <a href="blogs.html?title={{slugify title}}">{{title}}</a>
+                                    </h6>
+                                    <ul class="info-list">
+                                      <li><i class="fal fa-user"></i>{{author}}</li>
+                                      <li><i class="fal fa-calendar"></i>{{formatDate postedOn}}</li>
+                                    </ul>
+                                  </div>
+                                </article>
+                              {{/each}}
+                            </script>
                         </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
-                                class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/images/placeholder.png"
-                                    data-src="assets/images/blog/blog-2.jpg" alt="Blog Image">
-                            </a>
+                        <div class="widget widget-blog-categories mb-30 p-30 border radius-md"
+                            id="blog-categories-widget">
+                            <h4 class="title mb-15">Categories</h4>
+                            <ul class="list-unstyled m-0" id="category-list">
+                                <!-- Categories will be rendered here using JavaScript -->
+                            </ul>
+
+                            <script id="category-template" type="text/x-handlebars-template">
+                              {{#each categories}}
+                                <li class="d-flex align-items-center justify-content-between">
+                                  <a href="javascript:void(0);" class="category-item" data-category="{{@key}}">
+                                    <i class="fal fa-folder"></i>{{@key}}
+                                  </a>
+                                  <span class="tqy">({{this.length}})</span>
+                                </li>
+                              {{/each}}
+                            </script>
                         </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    Teeno Application Allow to Send Message
-                                </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
+
+                        <div class="widget widget-tags mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">Tags</h4>
+                            <div class="tags-group d-flex flex-wrap gap-2">
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">UI/UX</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">App</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">Figma</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">Branding</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">Web</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">iOS</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">Android</a>
+                                <a href="freelancers.html" class="px-3 py-1 bg-light radius-sm font-xsm" title="Link"
+                                    target="_self">Digital</a>
+                            </div>
                         </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
-                                class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/images/placeholder.png"
-                                    data-src="assets/images/blog/blog-6.jpg" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    Always Send Push Notifications
-                                </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
-                                class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/images/placeholder.png"
-                                    data-src="assets/images/blog/blog-3.jpg" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    No Text Messages Ever Totally ignored
-                                </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="card mb-25 radius-md">
-                        <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link"
-                                class="lazy-container ratio ratio-1-1">
-                                <img class="lazyload" src="assets/images/placeholder.png"
-                                    data-src="assets/images/blog/blog-7.jpg" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="card-content radius-md p-25 text-center bg-white">
-                            <h5 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    The Teeno App Enabling Message Sending
-                                </a>
-                            </h5>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read
-                                More</a>
-                        </div>
-                    </article>
+                        <!-- <div class="widget widget-social-link mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">Follow Us</h4>
+                            <div class="social-link style-2 gap-3">
+                                <a href="https://www.instagram.com/" target="_blank" title="instagram"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.dribbble.com/" target="_blank" title="dribbble"><i
+                                        class="fab fa-dribbble"></i></a>
+                                <a href="https://www.twitter.com/" target="_blank" title="twitter"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="https://www.youtube.com/" target="_blank" title="youtube"><i
+                                        class="fab fa-youtube"></i></a>
+                                <a href="https://www.facebook.com/" target="_blank" title="facebook"><i
+                                        class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div> -->
+                        <!-- spacer -->
+                        <div class="pb-10 d-none d-lg-block"></div>
+                    </aside>
                 </div>
             </div>
             <nav class="pagination-nav mt-10" data-aos="fade-up">
@@ -411,7 +452,7 @@
     </div>
     <!-- Blog-area end -->
 
- 
+
 
     <!-- Screenshot-area start -->
     <!-- <section class="screenshot-area pb-100">
@@ -645,8 +686,9 @@
                                 <div class="row">
                                     <div class="col-12 text-left">
                                         <!-- show contact email -->
-                                        <p class="text color-white">Reach out at: 
-                                           <b><a href="mailto:consult@uiuxpowerhouse.com" class="bg-light">consult@uiuxpowerhouse.com</a></b> 
+                                        <p class="text color-white">Reach out at:
+                                            <b><a href="mailto:consult@uiuxpowerhouse.com"
+                                                    class="bg-light">consult@uiuxpowerhouse.com</a></b>
                                         </p>
                                     </div>
                                 </div>
@@ -704,7 +746,7 @@
     <!-- Faq-area end -->
 
     <!-- Blog-area start -->
-    <section class="blog-area blog-3 pt-100" id="blog-section">
+    <!-- <section class="blog-area blog-3 pt-100" id="blog-section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -782,7 +824,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Blog-area end -->
 
     <!-- Newsletter area start -->
@@ -964,7 +1006,6 @@
     <!-- Go to Top -->
     <div class="go-top"><i class="fal fa-angle-up"></i></div>
     <!-- Go to Top -->
-
     <!-- Jquery JS -->
     <script src="assets/js/vendors/jquery.min.js"></script>
     <!-- Bootstrap JS -->
@@ -975,6 +1016,8 @@
     <script src="assets/js/vendors/jquery.nice-select.min.js"></script>
     <!-- Magnific Popup JS -->
     <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+
     <!-- Swiper Slider JS -->
     <script src="assets/js/vendors/swiper-bundle.min.js"></script>
     <!-- Lazysizes -->
@@ -987,6 +1030,7 @@
     <script src="assets/js/vendors/aos.min.js"></script>
     <!-- Main script JS -->
     <script src="assets/js/script.js"></script>
+    <script src="blogs/blogs.js"></script>
 </body>
 
 </html>
