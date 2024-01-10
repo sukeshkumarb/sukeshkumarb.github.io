@@ -26,6 +26,16 @@ $(document).ready(function () {
         return new Date(dateString).toLocaleDateString(undefined, options);
     }
 
+    Handlebars.registerHelper('each_upto', function (array, max, options) {
+        if (!array || array.length == 0)
+            return options.inverse(this);
+
+        var result = [];
+        for (var i = 0; i < max && i < array.length; ++i)
+            result.push(options.fn(array[i]));
+        return result.join('');
+    });
+
 
     // Fetches blog data, adds slug for each blog, and renders it
     function fetchBlogsData(callback) {
@@ -34,6 +44,12 @@ $(document).ready(function () {
                 blog.slug = createSlug(blog.title); // Add slug property to each blog
                 return blog;
             });
+
+            // Sort blogs by date in descending order
+            blogsData.sort(function (a, b) {
+                return new Date(b.postedOn) - new Date(a.postedOn);
+            });
+
             if (typeof callback === "function") {
                 callback(); // Callback to handle query parameters after data is loaded
             }
@@ -44,7 +60,6 @@ $(document).ready(function () {
     // Renders blogs using Handlebars
     function renderBlogs(blogs) {
         var template = $('#blog-template').html();
-        console.log(template)
 
         var compiledTemplate = Handlebars.compile(template);
         var renderedHTML = compiledTemplate({ blogs: blogs });

@@ -858,75 +858,44 @@
                 <div class="col-12">
                     <div class="col-12">
                         <div class="section-title title-inline mb-50" data-aos="fade-up">
-                            <h2 class="title">Read Our Blog Post</h2>
-                            <button class="btn btn-lg btn-primary bg-gradient rounded-pill" type="button"
-                                aria-label="Read Now">Read More</button>
+                            <h2 class="title">Latest Blog Posts</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                            <article class="card mb-30">
-                                <div class="card-img">
-                                    <a href="blog-details.html" target="_self" title="Link"
-                                        class="lazy-container ratio ratio-5-4">
-                                        <img class="lazyload" src="assets/images/placeholder.png"
-                                            data-src="assets/images/blog/blog-13.jpg" alt="Blog Image">
-                                    </a>
-                                </div>
-                                <div class="card-content radius-md p-25 text-center radius-md">
-                                    <h5 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
-                                            Blog posts coming soon...
-                                        </a>
-                                    </h5>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
-                                        title="Read More">Read More</a>
-                                </div>
-                            </article>
+                        <div class="row" id="blog-posts">
+                            <!-- Blogs goes here -->
                         </div>
-                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                            <article class="card mb-30">
+                        <script id="blog-template" type="text/x-handlebars-template">
+                            {{#each_upto blogs 3}}
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                              <article class="card mb-25 radius-md">
                                 <div class="card-img">
-                                    <a href="blog-details.html" target="_self" title="Link"
-                                        class="lazy-container ratio ratio-5-4">
-                                        <img class="lazyload" src="assets/images/placeholder.png"
-                                            data-src="assets/images/blog/blog-14.jpg" alt="Blog Image">
+                                  <a href="blogs.html?title={{slugify title}}" target="_self" title="{{title}}"
+                                    class="lazy-container ratio ratio-1-1">
+                                    <img class="lazyload" src="{{bannerImage}}" data-src="{{bannerImage}}"
+                                      alt="{{title}}">
+                                  </a>
+                                </div>
+                                <div class="card-content radius-md p-25 text-center bg-white">
+                                  <h5 class="card-title lc-2 mb-15">
+                                    <a href="blogs.html?title={{slugify title}}" target="_self" title="{{title}}">
+                                      {{title}}
                                     </a>
+                                  </h5>
+                                  <a href="blogs.html?title={{slugify title}}" class="btn-text color-primary" target="_self"
+                                    title="Read More">Read More</a>
                                 </div>
-                                <div class="card-content radius-md p-25 text-center radius-md">
-                                    <h5 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
-                                            Blog posts coming soon...
-                                        </a>
-                                    </h5>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
-                                        title="Read More">Read More</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                            <article class="card mb-30">
-                                <div class="card-img">
-                                    <a href="blog-details.html" target="_self" title="Link"
-                                        class="lazy-container ratio ratio-5-4">
-                                        <img class="lazyload" src="assets/images/placeholder.png"
-                                            data-src="assets/images/blog/blog-15.jpg" alt="Blog Image">
-                                    </a>
-                                </div>
-                                <div class="card-content radius-md p-25 text-center radius-md">
-                                    <h5 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
-                                            Blog posts coming soon...
-                                        </a>
-                                    </h5>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self"
-                                        title="Read More">Read More</a>
-                                </div>
-                            </article>
-                        </div>
+                              </article>
+                            </div>
+                            {{/each_upto}}
+                        </script>
                     </div>
+                </div>
+                <div class="col-12 my-5 text-center">
+                    <button class="btn btn-lg btn-primary bg-gradient rounded-pill" type="button"
+                    aria-label="Read Now" onclick="window.location.href='blogs.html'">Explore More Topics</button>
                 </div>
             </div>
         </div>
@@ -1115,6 +1084,8 @@
 
     <!-- Jquery JS -->
     <script src="assets/js/vendors/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+
     <!-- Bootstrap JS -->
     <script src="assets/js/vendors/bootstrap.min.js"></script>
     <!-- Counter JS -->
@@ -1135,6 +1106,8 @@
     <script src="assets/js/vendors/aos.min.js"></script>
     <!-- Main script JS -->
     <script src="assets/js/script.js"></script>
+    <script src="blogs/blogs.js"></script>
+
 </body>
 
 </html>
