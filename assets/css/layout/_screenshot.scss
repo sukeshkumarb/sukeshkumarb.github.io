@@ -1,0 +1,98 @@
+/* -----------------------------------------
+    Screenshot CSS
+----------------------------------------- */
+.screenshot-area {
+    position: relative;
+    overflow: hidden;
+
+    .screenshot-slider-1 {
+        .swiper-slide {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: linear-gradient(180deg, rgba($color: var(--color-black-rgb), $alpha: .03) 50.06%, rgba($color: var(--color-black-rgb), $alpha: .85) 97.53%);
+                z-index: 2;
+            }
+        }
+
+        .swiper-pagination {
+            width: auto;
+            height: auto;
+            left: 0;
+            right: 0;
+            max-width: fit-content;
+            margin-inline: auto;
+            padding: 30px 25px 60px;
+            bottom: -50px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+
+            .swiper-pagination-bullet {
+                background-color: var(--bg-white);
+                opacity: .5;
+                transform: translateY(-5px);
+        
+                &-active {
+                    width: 10px;
+                }
+                &-active,
+                &:hover {
+                    background-color: var(--bg-white);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .swiper-scrollbar {
+        z-index: 999;
+        background-color: rgba(var(--color-primary-rgb), .5);
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: static;
+        border-radius: 0;
+        
+        .swiper-scrollbar-drag{
+            background-color: var(--color-primary);
+        }
+    }
+
+    .screenshot-slider {
+        .swiper-slide{
+            overflow: hidden;
+        }
+
+        &#screenshot-slider-4 {
+            .swiper-slide{
+                transform-origin: bottom !important;
+                img{
+                    transform-origin: bottom !important;
+                }
+            }
+        }
+
+        &.shadow-none{
+            .swiper-slide{
+                overflow: unset;
+                *:not(img){
+                    width: 0;
+                }
+            }
+            img{
+                filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 10px 10px);
+            }
+        }
+    }
+
+    &.screenshot-2 {
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center bottom;
+    }
+}

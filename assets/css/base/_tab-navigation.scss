@@ -1,0 +1,57 @@
+/* -----------------------------------------
+    Nav Tabs CSS
+----------------------------------------- */
+.tab-switch{
+    
+    .text {
+        color: var(--text-dark);
+        font-weight: var(--font-medium);
+
+        &.active {
+            color: var(--color-primary);
+        }
+    }
+
+    .tab-switch-toggle {
+        position: relative;
+        display: inline-block;
+        width: 64px;
+        height: 28px;
+        margin: 0 10px;
+        .switch-toggle-slider{
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            background-color: var(--color-primary);
+            transition: .4s;
+            &::before{
+                position: absolute;
+                content: "";
+                height: 18px;
+                width: 18px;
+                left: 5px;
+                bottom: 5px;
+                border-radius: 50%;
+                background-color: var(--bg-white);
+                transition: .4s;
+            }
+        }
+        input{
+            opacity: 0;
+            width: 0;
+            height: 0;
+            &:checked{
+                + .switch-toggle-slider{
+                    background-color: var(--color-primary);
+                    &::before{
+                        transform: translateX(37px);
+                    }
+                }
+            }
+        }
+    }
+}

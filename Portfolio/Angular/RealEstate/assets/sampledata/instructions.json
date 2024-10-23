@@ -1,0 +1,32 @@
+[
+    {
+        "type": "To Install",
+        "text": "1. Open the zip folder and navigate to src folder.  Install Node JS with latest STABLE Version with cmd 'npm install -g'" 
+    },
+    {
+        "type": "To Install",
+        "text": "2. Install Angular CLI by running the command in cmd 'npm install -g @angular/cl'" 
+    },
+    {
+        "type": "To Install",
+        "text": " 3. Install the application using command 'npm install'" 
+    },
+    {
+        "type": "To Install",
+        "text": "4. If there are no errors, applicaiton will be automatically served in localhost:4200" 
+    },{
+        "type": "Normal",
+        "text": "This app is built on top of Angular 6. Angular installation is required to run it locally. "
+    },{
+        "type": "Normal",
+        "text": "Site consists of 3 tabs => Home Page, Search Page(actual app), Observations(for documentation)"
+    },
+    {
+        "type": "Normal",
+        "text": "Clicking on button leads in home page leads to Search page"
+    },
+    {
+        "type": "Mobile View",
+        "text": "Only Search page is optimized"
+    }
+]

@@ -1,0 +1,141 @@
+/* -----------------------------------------
+    Overview CSS
+----------------------------------------- */
+.overview-area {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 300px;
+
+    .overview {
+        .card {
+            gap: 24px;
+            flex-direction: row;
+            background-color: transparent;
+
+            .card-icon {
+                flex: 0 0 auto;
+                width: 30px;
+                text-align: center;
+                color: var(--color-primary);
+                font-size: 30px;
+            }
+
+            $colors: ("1"#7e4efe,
+                "2"#F6416C,
+                "3"#50DD9D,
+                "4"#3C8CE7,
+                "5"#28C76F,
+                "6"#499C21,
+                "7"#F1C40F,
+                "8"#E67E22,
+                "9"#E74C3C,
+                "10"#3C8CE7);
+
+            @each $i,
+            $color in $colors {
+                &:nth-child(#{$i}) {
+                    .card-icon {
+                        color: $color;
+                    }
+                }
+            }
+        }
+
+        .image {
+            position: relative;
+
+            img {
+                filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1))
+            }
+        }
+
+        @media #{$lg} {
+            .pt-90, .pt-80 {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .features {
+        .card {
+            gap: 24px;
+            flex-direction: row;
+            padding: 30px 30px 50px;
+            overflow: hidden;
+            z-index: 1;
+            background-color: transparent;
+
+            &::before{
+                position: absolute;
+                content: '';
+                top: -20px;
+                left: -20px;
+                bottom: 0;
+                right: 0;
+                width: calc(100% + 20px);
+                height: calc(100% - 20px);
+                border-radius: 10px;
+                transform: rotateZ(5deg);
+                z-index: -1;
+                background-color: var(--bg-white);
+            }
+            &::after{
+                position: absolute;
+                content: '';
+                top: -15px;
+                left: 5px;
+                bottom: 0;
+                right: 0;
+                width: calc(100% + 5px);
+                height: 100%;
+                border-radius: 20px;
+                transform: rotateZ(5deg);
+                background-color: var(--bg-white);
+                z-index: -2;
+            }
+
+            .card-icon {
+                flex: 0 0 auto;
+                text-align: center;
+                color: var(--color-primary);
+                font-size: 48px;
+            }
+        }
+
+        $colors: ("1"#7e4efe,
+            "2"#7e4efe,
+            "3"#50DD9D,
+            "4"#F6416C,
+            "5"#28C76F,
+            "6"#499C21,
+            "7"#F1C40F,
+            "8"#E67E22,
+            "9"#E74C3C,
+            "10"#3C8CE7);
+
+        @each $i,
+        $color in $colors {
+            .item:nth-child(#{$i}) {
+                // .card::before {
+                //     background-color: $color;
+                // }
+
+                .card-icon {
+                    color: $color;
+                }
+            }
+        }
+    }
+
+    .bg-shape {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center bottom;
+    }
+}

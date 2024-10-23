@@ -1,0 +1,20 @@
+// Transition
+@mixin transition($property, $duration, $timing-function) {
+    transition: $property $duration $timing-function;
+}
+// Flex Box
+@mixin make-flex($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+// Center Alignment
+@mixin pxy-center {
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin gradient-directional($deg, $start-color, $start-percent, $end-color, $end-percent) {
+    background-image: linear-gradient($deg, $start-color $start-percent, $end-color $end-percent) !important;
+}

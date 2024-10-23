@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="../../../images/favicon.ico?v=2" rel="shortcut icon">
+  <title>Odometer & Generate PDF</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-minimal.css" />
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/odometer-theme-minimal.css" rel="stylesheet">
+</head>
+
+<style>
+  input[type='number'] {
+    max-width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 0.6rem;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  .advanced-calc {
+    cursor: pointer;
+    color: #000;
+    background: #ccc;
+    box-shadow: 2px 2px #ddd;
+    padding: 5px 10px;
+    border:3px solid #fff;
+  }
+
+  .advanced-calc:hover{
+   border:3px solid #ddd;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  ::-webkit-input-placeholder {
+    font-weight: normal;
+  }
+
+  ::-moz-placeholder {
+    font-weight: normal;
+  }
+
+  input:-ms-input-placeholder {
+    font-weight: normal;
+  }
+
+  #odometer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e50000;
+  }
+
+  #savValodometer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #33CC66;
+  }
+
+  .odometer .odometer-inside:before {
+    content: "$";
+    display: inline-block;
+    vertical-align: sup;
+    opacity: .6;
+    font-size: .85em;
+    margin-right: .12em
+  }
+</style>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Odometer Example</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase mb-5">Interactive Form</h1>
+        <h2 class="text-white-50 mx-auto mt-2 ">Key Components</h2>
+        <h4 class="text-white-50"> Odometer (numbers sliding)</h4>
+        <h4 class="text-white-50"> Export the content to PDF</h4>
+        <br>
+        <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">This is a One pager responsive website built with Bootstrap 4 </h2>
+          <p class="text-white-50"> This portfolio example demonstrates an interactive form with formulae implemented in Javascript. Data is generated dynamically based on user input.</p>
+        </div>
+      </div>
+      <!-- <img src="img/ipad.png" class="img-fluid" alt=""> -->
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container-fluid">
+
+      <!-- Simple calculation Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="row  px-5">
+            <div class="col-md-4 px-3 text-center">
+              <div class="form-group">
+                <label for="employeeCnt" class="control-label font-weight-bold">How many people are on your team?</label>
+                <div class="px-4">
+                  <input type="number" class="form-control" id="employeeCnt" placeholder="10"> &nbsp; employees
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-4 px-3 text-center">
+              <div class="form-group">
+                <label for="employeeSalary" class="control-label font-weight-bold">What is their average salary?</label>
+                <div class="px-4">
+                  $
+                  <input type="number" class="form-control" id="employeeSalary" placeholder="22"> 000
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="form-group">
+                <label for="attritionrate" class="control-label font-weight-bold">What is your rate of attrition?</label>
+                <div>
+                  <input type="number" class="form-control" id="attritionrate" placeholder="5">&nbsp; employees per year
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+
+      <div class="row align-items-left no-gutters mb-4 mb-lg-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="col-md-10 px-5">
+            <div class="row  px-5">
+              <div class="advanced-calc" id="simple-calcdiv">
+                Advanced calculation
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Calculation Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5" id="advanced-calcdiv" style="display:none;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="row  px-5">
+            <div class="col-md-3 px-4 text-center">
+              <div class="form-group">
+                <label for="adv1" class="control-label font-weight-bold">What does it cost to find new talent?</label>
+                <div>
+                  <input type="number" class="form-control" id="adv1" placeholder="15"> &nbsp; percent of salary
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 px-4 text-center">
+              <div class="form-group">
+                <label for="adv2" class="control-label font-weight-bold">How long does it take to fill a position?</label>
+                <div>
+                  <input type="number" class="form-control" id="adv2" placeholder="30"> &nbsp; days
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 px-4 text-center">
+              <div class="form-group">
+                <label for="adv3" class="control-label font-weight-bold">How long does it take to ramp up a new hire?</label>
+                <div>
+                  <input type="number" class="form-control" id="adv3" placeholder="45">&nbsp; days
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 px-4 text-center">
+              <div class="form-group">
+                <label for="adv4" class="control-label font-weight-bold">Value an individual produces?</label>
+                <div>
+                  <input type="number" class="form-control" id="adv4" placeholder="2">&nbsp; times their salary
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+
+      <div class="row align-items-left no-gutters mb-4 mb-lg-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center" id="totalCost" style="display:none;">
+          <div>
+            <h2>Annual Cost of Employee Turnover</h2>
+            <div id="odometer" class="odometer"></div>
+          </div>
+          <br>
+          <br>
+          <div id="savingsVal">
+            <h2>With a powerful recognition program, you could save as much as
+            </h2>
+            <div id="savValodometer" class="odometer"></div>
+            <p>on employee turnover every year.</p>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-2"> </div>
+            <div class="col-md-8">
+              <i class="far fa-paper-plane fa-2x mb-2"></i>
+              <h2 class="mb-5">Generating PDF...!</h2>
+
+              <form class="form-inline d-flex">
+                <!-- <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address..."
+                  style="width:300px; height:60px;"> -->
+                <button type="button" class="btn btn-primary mx-auto" onclick="generatePDF()">Download PDF Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section bg-black">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Address</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">Berlin, Germany</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-envelope text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Email</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">
+                <a href="mailto:sukesh@sukeshkb.com?Subject=Hello%20Sukesh">sukesh@sukeshkb.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social d-flex justify-content-center">
+        <a href="#" class="mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+        Do hit me with an email, will revert back in 24 hours :)
+    </div>
+  </footer>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/font-awesome/js/all.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+  <script src="http://github.hubspot.com/odometer/odometer.js"></script>
+
+  <script> 
+    $("#simple-calcdiv").click(function () {
+      $("#advanced-calcdiv").slideToggle(500);
+    });
+
+    var employeeSal = 1;
+    var employeeCnt = 1;
+    var attritionrate = 1;
+    var adv1 = 15;
+    var adv2 = 30;
+    var adv3 = 45;
+    var adv4 = 2;
+    var turnoverNumber;
+    var savingsVal;
+
+    function generatePDF() {
+      employeeSal = $("#employeeSalary").val();
+      employeeCnt = $("#employeeCnt").val();
+      attritionrate = $("#attritionrate").val();
+      adv1 = $("#adv1").val();
+      adv2 = $("#adv2").val();
+      adv3 = $("#adv3").val();
+      adv4 = $("#adv4").val();
+      turnoverNumber = (employeeSal * attritionrate) * (1000 * (adv1 * 0.01) + (adv2 * 2.74 * adv4) + (adv3 * 1.4 * adv4));
+      turnoverNumber = Math.round(parseInt(turnoverNumber));
+      savingsVal = Math.round(0.45 * turnoverNumber);
+      turnoverNumber = turnoverNumber.toLocaleString('en-US');
+      savingsVal = savingsVal.toLocaleString('en-US');
+
+      //PDF begins
+      var doc = new jsPDF('p', 'pt', 'a4');
+
+
+      doc.setFontSize(19);
+      doc.text(110, 100, 'Report from Sukesh - A company logo');
+
+      doc.addImage(bgImage, 'JPEG', 15, 120, 570, 400)
+      doc.setFontSize(15);
+      doc.text(180, 150, 'Annual Cost of Employee Turnover');
+      doc.setFontSize(17);
+      doc.setTextColor(229, 0, 0);
+      doc.text(250, 175, "$" + turnoverNumber);
+
+      doc.setTextColor(0, 0, 0);
+      doc.setFontSize(13);
+      doc.text(225, 230, 'Calculation Values:');
+
+      doc.setFontSize(10);
+      doc.text(40, 260, 'Team Size:');
+      doc.text(170, 260, employeeCnt.toString() + ' employees');
+      doc.text(40, 280, 'Average Annual Salary:');
+      doc.text(170, 280, '$' + employeeSal.toString() + ' k');
+      doc.text(40, 300, 'Average Attrition Rate:');
+      doc.text(170, 300, attritionrate.toString() + " per year");
+
+      doc.text(290, 260, 'Annual Value Employees Produce:');
+      doc.text(460, 260, adv4 + ' x salary');
+      doc.text(290, 280, 'Mean Time to Fill Open Position:');
+      doc.text(460, 280, adv2 + ' days');
+      doc.text(290, 300, 'Time to Reach Full Productivity:');
+      doc.text(460, 300, adv3 + ' days');
+      doc.text(290, 320, 'Cost to Fill Position:');
+      doc.text(460, 320, adv1 + '% of salary');
+
+      doc.setFontSize(13);
+      doc.text(270, 350, 'Savings:');
+      doc.setFontSize(11);
+      doc.text(80, 370, 'With a powerful recognition program, you could save as much as:');
+      doc.setFontSize(17);
+      doc.setTextColor(0, 178, 0);
+      doc.text(265, 390, "$" + savingsVal);
+      doc.setFontSize(11);
+      doc.setTextColor(0, 0, 0);
+      doc.text(210, 410, 'on employee turnover every year.');
+
+      doc.setFontSize(14);
+      doc.text(60, 450, 'A company can provide your organization big savings and a substantial ROI.');
+      doc.setFontSize(11);
+      doc.text(60, 470, 'Please feel free to contact us via our  ');
+      doc.setTextColor(50, 50, 255);
+      doc.textWithLink('contact page,', 240, 470, { url: 'www.sukeshkb.com' });
+      doc.setTextColor(0, 0, 0);
+      doc.text(310, 470, 'email at')
+      doc.setTextColor(50, 50, 255);
+      doc.textWithLink('sukesh@sukeshkb.com', 470, 470, { url: 'sukesh@sukeshkb.com' });
+
+
+      //2nd page
+      doc.addPage('a4', 'p');
+
+      doc.setTextColor(0, 0, 0);
+      doc.setFontSize(18);
+      doc.text(250, 50, 'References');
+      doc.setFontType("bold");
+      doc.setFontSize(15);
+      doc.text(40, 90, 'How long can you expect to retain employees?');
+      doc.setFontType("italic");
+      doc.setFontSize(13);
+      doc.text(40, 110, 'Tenure varies by industry but 1 year is a good starting point.');
+      doc.setFontType("italic");
+      doc.setFontSize(11);
+      doc.setTextColor(50, 50, 255);
+      doc.setFontType("normal");
+      doc.textWithLink('Bureau of Labor Statistics', 40, 130, { url: 'https://www.bls.gov/news.release/tenure.nr0.htm' });
+
+      doc.setTextColor(0, 0, 0);
+      doc.setFontType("bold");
+      doc.setFontSize(15);
+      doc.text(40, 180, 'How long does it take to fill a position?');
+      doc.setFontType("italic");
+      doc.setFontSize(13);
+      doc.text(40, 200, 'The average is 36 days.');
+      doc.setFontSize(11);
+      doc.setTextColor(50, 50, 255);
+      doc.setFontType("normal");
+      doc.textWithLink('Society of Human Resource Management', 40, 220, { url: 'https://www.shrm.org/hr-today/trends-and-forecasting/research-and-surveys/Documents/2017-Talent-Acquisition-Benchmarking.pdf' });
+
+      doc.setTextColor(0, 0, 0);
+      doc.setFontType("bold");
+      doc.setFontSize(15);
+      doc.text(40, 260, 'How much can a employee retention management program reduce turnover?');
+      doc.setFontType("italic");
+      doc.setFontSize(13);
+      doc.text(40, 280, 'It can range from 25% to 65%');
+      doc.setFontSize(11);
+      doc.setTextColor(50, 50, 255);
+      doc.setFontType("normal");
+      doc.textWithLink('Harvard Business Review', 40, 300, { url: 'https://hbr.org/2013/07/employee-engagement-does-more' });
+
+      doc.setTextColor(0, 0, 0);
+      doc.setFontType("bold");
+      doc.setFontSize(15);
+      doc.text(40, 340, 'From the experts:');
+      doc.setFontSize(13);
+      doc.setTextColor(50, 50, 255);
+      doc.setFontType("normal");
+      doc.setFontSize(12);
+      
+
+      doc.save('Estimation.pdf');
+    }
+
+    window.odometerOptions = {
+      format: '(,ddd).ddd'
+    };
+
+    $(document).ready(function () {
+      $("#adv1").val(adv1);
+      $("#adv2").val(adv2);
+      $("#adv3").val(adv3);
+      $("#adv4").val(adv4);
+
+      $("#employeeCnt, #employeeSalary").keyup(function () {
+        employeeCnt = $("#employeeCnt").val();
+        if (employeeCnt > 0) {
+          attritionrate = employeeCnt / 2;
+          $("#attritionrate").val(attritionrate);
+        }
+      });
+
+      $("#employeeCnt, #employeeSalary, #attritionrate, #adv1, #adv2, #adv3, #adv4").keyup(function () {
+        employeeSal = $("#employeeSalary").val();
+        employeeCnt = $("#employeeCnt").val();
+        attritionrate = $("#attritionrate").val();
+        adv1 = $("#adv1").val();
+        adv2 = $("#adv2").val();
+        adv3 = $("#adv3").val();
+        adv4 = $("#adv4").val();
+
+        if (employeeSal > 0 && employeeCnt > 0) {
+          $("#totalCost, #signup").show();
+          turnoverNumber = (employeeSal * attritionrate) * (1000 * (adv1 * 0.01) + (adv2 * 2.74 * adv4) + (adv3 * 1.4 * adv4));
+          turnoverNumber = Math.round(parseInt(turnoverNumber));
+          savingsVal = Math.round(0.45 * turnoverNumber);
+          turnoverNumber = turnoverNumber.toLocaleString('en-US');
+          savingsVal = savingsVal.toLocaleString('en-US');
+          setTimeout(function () {
+            odometer.innerHTML = turnoverNumber;
+            savValodometer.innerHTML = savingsVal;
+          }, 1000);
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

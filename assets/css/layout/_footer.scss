@@ -1,0 +1,189 @@
+/* -----------------------------------------
+	Footer CSS
+----------------------------------------- */
+.footer-area {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 40px 40px 0 0;
+    @media #{$lg} {
+        border-radius: 15px 15px 0 0;
+    }
+
+    :is(p, a, span) {
+        color: var(--text-medium);
+        font-size: 14px;
+    }
+    .footer-widget {
+        margin-bottom: 30px;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .navbar-brand {
+            margin: 0;
+            margin-bottom: 28px;
+            padding: 0;
+        }
+
+        h5 {
+            text-transform: capitalize;
+            margin-bottom: 25px;
+            @media #{$xsm} {
+                margin-bottom: 20px;
+            }
+        }
+
+        p {
+            margin-bottom: 25px;
+        }
+    }
+
+    .footer-links {
+        li {
+            position: relative;
+            overflow: hidden;
+            font-size: 14px;
+            &:not(:last-child){
+                margin-bottom: 14px;
+                @media #{$xsm} {
+                    margin-bottom: 10px;
+                }
+            }
+
+            a {
+                display: block;
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    .footer-links{
+        a {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            transition: all .3s linear;
+        }
+    }
+
+    .copy-right-area {
+        text-align: center;
+    }
+
+    .border-top{
+        --border-color: var(--border-color-2);
+        border-top-style: dashed !important;
+    }
+
+    .social-link {
+        --size: 35px;
+        gap: 15px;
+        a{
+            color: var(--color-primary);
+            background-color: rgba($color: var(--color-primary-rgb), $alpha: .2);
+            border-radius: 50%;
+            &:hover {
+                background-color: var(--color-primary);
+                color: var(--text-white);
+            }
+        }
+    }
+
+    .newsletter-form {
+        input {
+            background: transparent;
+            height: 50px;
+            border-color: rgba($color: var(--color-white-rgb), $alpha: .2);
+        }
+
+        .btn {
+            top: 5px;
+            right: 0;
+            left: 0;
+            width: 60px;
+            padding: 0;
+            margin-inline-end: 5px;
+            margin-inline-start: auto;
+            height: calc(100% - 10px);
+            position: absolute;
+        }
+    }
+
+    &.mt-negative{
+        padding-top: 200px;
+        margin-top: -100px;
+    }
+
+    .bg-img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+    }
+}
+
+.footer-2 {
+    position: relative;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border-radius: 0;
+
+    &.mt-negative{
+        margin-top: -30px;
+        padding-top: 30px;
+        background-position-y: 30px;
+        @media #{$xsm} {
+            background-position-y: bottom;
+        }
+    }
+    .contact-area {
+        .contact-form{
+            padding: 70px 60px;
+
+            @media #{$sm} {
+                padding: 40px;
+            }
+
+            @media #{$tiny} {
+                padding: 30px;
+            }
+        }
+
+        .form-control {
+            border-radius: 0;
+            border-width: 0;
+            border-color: var(--color-secondary);
+            border-bottom-width: 1px;
+            padding-inline-start: 0;
+        }
+    
+        textarea.form-control {
+            min-height: 65px;
+        }
+    }
+
+    .social-link{
+        --size: 40px;
+        a{
+            background-color: var(--bg-white);
+        }
+    }
+
+    .copy-right-area{
+        .copy-right-content {
+            *{
+                color: var(--text-white);
+            }
+        }
+    }
+}
+.footer-3{
+    @extend .footer-2;
+}
+  

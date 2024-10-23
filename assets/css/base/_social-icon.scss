@@ -1,0 +1,43 @@
+/* -----------------------------------------
+    Social Link CSS
+----------------------------------------- */
+.social-link {
+    --size: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    a {
+        text-align: center;
+        width: var(--size);
+        height: var(--size);
+        line-height: var(--size);
+        background-color: var(--color-primary);
+        color: var(--text-white);
+        font-size: var(--font-base);
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &:hover {
+            color: var(--text-white);
+            background-color: var(--color-primary);
+        }
+    }
+
+    &.style-2{
+        a{
+            border-radius: 50%;
+            background-color: rgba(var(--color-primary-rgb), 0.1);
+            color: var(--color-primary);
+        }
+    }
+
+    &.size-md{
+        --size: 30px;
+        --font-base: 14px;
+    }
+    &.size-lg{
+        --size: 50px;
+    }
+}

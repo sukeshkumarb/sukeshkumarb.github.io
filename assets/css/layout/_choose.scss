@@ -1,0 +1,67 @@
+/* -----------------------------------------
+    Choose CSS
+----------------------------------------- */
+.choose-area {
+    position: relative;
+    overflow: hidden;
+
+    .card {
+        .card-text {
+            flex: auto;
+        }
+    }
+
+    .card-icon {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        color: var(--color-primary);
+        box-shadow: 0px 8px 20px rgba(39, 39, 39, 0.08);
+    }
+
+    .image {
+        position: relative;
+    }
+
+    .client {
+        @include make-flex(center, start);
+        gap: 15px;
+
+        .client-img {
+            max-width: 60px;
+        }
+    }
+
+    .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        li {
+            position: relative;
+
+            i{
+                color: var(--color-primary);
+                margin-inline-end: 5px;
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 25px;
+                height: 25px;
+                transform: translateY(-50%);
+                line-height: 25px;
+                text-align: center;
+                color: var(--text-white);
+                font-size: 12px;
+                background-color: var(--color-primary);
+                border-radius: 50%;
+            }
+        }
+    }
+}
