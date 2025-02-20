@@ -484,5 +484,41 @@
         ],
         "bannerImage": "blogs/images/fonts.png",
         "author": "UI UX Powerhouse"
-      }
+      },
+      {
+        "title": "Neumorphism vs. Skeuomorphism: Which UI Style Works Best?",
+        "body": "<p>Neumorphism and Skeuomorphism are two distinct UI design styles—Skeuomorphism mimics real-world objects for familiarity, while Neumorphism offers a modern, soft-shadowed aesthetic; choosing the best depends on usability, accessibility, and design goals.</p>",
+        "postedOn": "02-19-2025",
+        "tags": [
+            "UI Design",
+            "Neumorphism",
+            "Skeuomorphism",
+            "User Experience"
+        ],
+        "categories": [
+            "Design Trends",
+            "UI/UX"
+        ],
+        "bannerImage": "blogs/images/fonts.png",
+        "author": "UI UX Powerhouse"
+    },
+    {
+        "title": "Core Web Vitals: How to Improve Your Website’s Ranking",
+        "body": "<p>Google's Core Web Vitals—LCP, FID, and CLS—are key factors for website performance and SEO; improving them through image optimization, lazy loading, JavaScript minimization, and CDN usage enhances user experience and search rankings.</p>",
+        "postedOn": "02-19-2025",
+        "tags": [
+            "SEO",
+            "Core Web Vitals",
+            "Website Performance",
+            "Google Ranking"
+        ],
+        "categories": [
+            "Web Development",
+            "SEO"
+        ],
+        "bannerImage": "blogs/images/fonts.png",
+        "author": "UI UX Powerhouse"
+    }
+
+    
 ]
