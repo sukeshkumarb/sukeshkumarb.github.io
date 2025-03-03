@@ -167,5 +167,17 @@ $(document).ready(function () {
         // Optionally update the URL or page content to reflect the category filter
     });
 
+    // Initialize AOS without affecting image loading
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            once: true,
+            disable: 'mobile'
+        });
+    });
+
+    // Initialize lazysizes with custom config
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    lazySizesConfig.loadMode = 1; // Loads immediately when they enter the viewport
+    lazySizesConfig.expFactor = 4; // Load images earlier (default is 1.5)
 
 });
