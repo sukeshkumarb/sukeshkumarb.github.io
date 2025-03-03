@@ -688,39 +688,42 @@ $(window).on("load", function () {
 })
 
 
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
     e.preventDefault();
+
     var recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse.length === 0) {
-        $(".error").show();
+        $(".error").text("Please complete the reCAPTCHA.").show();
         $(".success-msg").hide();
         return;
     } else {
         $(".error").hide();
         $(".success-msg").hide();
     }
-    
-    var formData = new FormData();
-    formData.append('name', this.name.value);
-    formData.append('email', this.email.value);
-    formData.append('message', this.message.value);
-    
-    fetch('https://script.google.com/macros/s/AKfycbyBsFtCEyNABIXIHZ9spw1zild1qxiPILOQvmrcsBNZ2WlwgUGs9RNllNttAs6QB-iz/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    })
-    .then(() => {
-        // Clear form
-        this.name.value = '';
-        this.email.value = '';
-        this.message.value = '';
-        grecaptcha.reset();
-        $(".success-msg").show();
-        $(".success-msg").hide(15000);
-    })
-    .catch(error => {
+
+    var formData = new FormData(this);
+    formData.append('recaptcha', recaptchaResponse);
+
+    try {
+        let response = await fetch('https://script.google.com/macros/s/AKfycbzmsNZJK6KzzDxCy0TBlTvBRAj3l6jltoDzx9lt8OBBdPdlTuLvN5L7yb201Fckc5GVag/exec', {
+            method: 'POST',
+            body: formData
+        });
+
+        let result = await response.json();
+
+        if (result.status === 'success') {
+            // Clear form
+            this.reset();
+            grecaptcha.reset();
+            $(".success-msg").text("Form submitted successfully! Data added to Google Sheets.").show();
+            setTimeout(() => { $(".success-msg").fadeOut(); }, 15000);
+        } else {
+            throw new Error(result.message || "Unknown error occurred.");
+        }
+    } catch (error) {
         console.error('Error:', error);
-        $(".error").show();
-    });
+        $(".error").text("An error occurred while submitting the form. Please try again.").show();
+    }
 });
+
