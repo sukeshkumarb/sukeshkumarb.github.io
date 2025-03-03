@@ -692,7 +692,6 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse.length === 0) {
-        // alert("Please complete the reCAPTCHA.");
         $(".error").show();
         $(".success-msg").hide();
         return;
@@ -700,24 +699,28 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
         $(".error").hide();
         $(".success-msg").hide();
     }
-    var formData = {
-        'name': this.name.value,
-        'email': this.email.value,
-        'message': this.message.value
-    };
+    
+    var formData = new FormData();
+    formData.append('name', this.name.value);
+    formData.append('email', this.email.value);
+    formData.append('message', this.message.value);
+    
     fetch('https://script.google.com/macros/s/AKfycbyBsFtCEyNABIXIHZ9spw1zild1qxiPILOQvmrcsBNZ2WlwgUGs9RNllNttAs6QB-iz/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    }).then(response => {
+        body: formData
+    })
+    .then(() => {
+        // Clear form
         this.name.value = '';
         this.email.value = '';
         this.message.value = '';
         grecaptcha.reset();
         $(".success-msg").show();
         $(".success-msg").hide(15000);
-    }).catch(error => console.error('Error:', error));
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        $(".error").show();
+    });
 });
