@@ -716,7 +716,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
             // Clear form
             this.reset();
             grecaptcha.reset();
-            $(".success-msg").text("Form submitted successfully! Data added to Google Sheets.").show();
+            $(".success-msg").text("Form submitted successfully! You will hear from us soon.").show();
             setTimeout(() => { $(".success-msg").fadeOut(); }, 15000);
         } else {
             throw new Error(result.message || "Unknown error occurred.");
