@@ -19,6 +19,37 @@ function generateImageName(title) {
 
 // Add this near the top of your file
 const NUM_POSTS_TO_GENERATE = 3;
+const SIMILARITY_THRESHOLD = 0.6; // Adjust this value between 0 and 1 as needed
+
+// Function to check if the new topic is similar to existing titles
+function isTitleSimilar(newTitle, existingTitles) {
+  const normalizedNewTitle = newTitle.toLowerCase();
+  
+  // Check for exact duplicates first
+  if (existingTitles.some(title => title.toLowerCase() === normalizedNewTitle)) {
+    return true;
+  }
+  
+  // Check for significant word overlap
+  const newTitleWords = new Set(normalizedNewTitle.split(/\W+/).filter(word => word.length > 3));
+  
+  for (const existingTitle of existingTitles) {
+    const existingTitleWords = new Set(existingTitle.toLowerCase().split(/\W+/).filter(word => word.length > 3));
+    
+    // Calculate Jaccard similarity
+    const intersection = new Set([...newTitleWords].filter(word => existingTitleWords.has(word)));
+    const union = new Set([...newTitleWords, ...existingTitleWords]);
+    
+    if (union.size === 0) continue;
+    
+    const similarity = intersection.size / union.size;
+    if (similarity >= SIMILARITY_THRESHOLD) {
+      return true;
+    }
+  }
+  
+  return false;
+}
 
 async function generateMultiplePosts() {
   try {
@@ -27,30 +58,61 @@ async function generateMultiplePosts() {
     const blogsData = fs.readFileSync(blogsFilePath, 'utf8');
     const blogs = JSON.parse(blogsData);
     
+    // Extract existing titles for similarity checking
+    const existingTitles = blogs.map(blog => blog.title);
+    
     console.log(`Generating ${NUM_POSTS_TO_GENERATE} blog posts...`);
     
     // Generate multiple posts
     for (let i = 0; i < NUM_POSTS_TO_GENERATE; i++) {
       console.log(`\nGenerating blog post ${i+1}/${NUM_POSTS_TO_GENERATE}...`);
       
-      // Topic generation and blog creation (existing code from generateBlogPost)
-      const topicResponse = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system", 
-            content: "You are an expert in UI/UX design and AI technologies. Generate an interesting, cutting-edge topic for a blog post that discusses the intersection of AI and UI/UX design."
-          },
-          {
-            role: "user", 
-            content: "Generate a compelling blog post topic related to UI/UX and artificial intelligence that would be interesting for designers and developers."
-          }
-        ],
-        temperature: 0.8
-      });
+      let topic;
+      let isUnique = false;
+      let attempts = 0;
+      const MAX_ATTEMPTS = 5;
       
-      const topic = topicResponse.choices[0].message.content.trim();
-      console.log(`Topic generated: ${topic}`);
+      // Keep generating topics until we find a unique one
+      while (!isUnique && attempts < MAX_ATTEMPTS) {
+        attempts++;
+        
+        // Topic generation with enhanced diversity prompting
+        const topicResponse = await openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system", 
+              content: "You are an expert in UI/UX design and AI technologies. Generate an interesting, cutting-edge topic for a blog post that discusses the intersection of AI and UI/UX design. Be specific and unique - avoid general topics that might have been covered repeatedly."
+            },
+            {
+              role: "user", 
+              content: `Generate a highly specific and unique blog post topic related to UI/UX and artificial intelligence that would be interesting for designers and developers. 
+              
+              Ensure the topic is novel and hasn't likely been covered in standard blogs about:
+              - AI-powered design tools
+              - General UX principles with AI
+              - Basic AI integration in interfaces
+              
+              Instead, focus on emerging trends, specific use cases, or innovative intersections of these fields.`
+            }
+          ],
+          temperature: 0.9  // Increased temperature for more creativity
+        });
+        
+        topic = topicResponse.choices[0].message.content.trim();
+        console.log(`Topic generated (attempt ${attempts}): ${topic}`);
+        
+        // Check if the topic is similar to existing titles
+        isUnique = !isTitleSimilar(topic, existingTitles);
+        
+        if (!isUnique) {
+          console.log(`Topic is too similar to existing posts. Generating a new one...`);
+        }
+      }
+      
+      if (!isUnique) {
+        console.log(`Warning: Could not generate a unique topic after ${MAX_ATTEMPTS} attempts. Using the last generated topic.`);
+      }
       
       // Add the 750-word limit to your prompt
       const blogResponse = await openai.chat.completions.create({
@@ -139,6 +201,9 @@ async function generateMultiplePosts() {
         author: "UI UX Powerhouse",
         bannerImage: generateImageName(title)
       };
+      
+      // Add to existing titles for future similarity checks in this batch
+      existingTitles.push(title);
       
       // Instead of writing to file each time, just add to the blogs array
       if (Array.isArray(blogs)) {
