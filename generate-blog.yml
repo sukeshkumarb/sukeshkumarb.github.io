@@ -1,0 +1,39 @@
+name: Generate Daily Blog Post
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs at 9 AM UTC daily
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  generate-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install openai
+          
+      - name: Generate blog post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node blog-generator.js
+        
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+      - name: Commit and push changes
+        run: |
+          git add sukeshkumarb.github.io/blogs/blogs.json
+          git commit -m "Add daily blog post [automated]" || echo "No changes to commit"
+          git push
