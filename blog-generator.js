@@ -23,7 +23,7 @@ async function generateBlogPost() {
     
     // Get topics from UI/UX and AI
     const topicResponse = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system", 
@@ -42,7 +42,7 @@ async function generateBlogPost() {
     
     // Generate full blog post
     const blogResponse = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system", 
@@ -70,7 +70,7 @@ async function generateBlogPost() {
     
     // Generate tags
     const tagsResponse = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system", 
@@ -90,7 +90,7 @@ async function generateBlogPost() {
     
     // Generate categories
     const categoriesResponse = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system", 
