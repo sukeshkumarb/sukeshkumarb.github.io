@@ -34,6 +34,6 @@ jobs:
           
       - name: Commit and push changes
         run: |
-          git add sukeshkumarb.github.io/blogs/blogs.json
+          git add blogs/blogs.json
           git commit -m "Add daily blog post [automated]" || echo "No changes to commit"
           git push
