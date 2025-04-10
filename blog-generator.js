@@ -128,7 +128,7 @@ async function generateBlogPost() {
     };
     
     // Read the existing blogs.json file
-    const blogsFilePath = path.join(process.cwd(), 'sukeshkumarb.github.io', 'blogs', 'blogs.json');
+    const blogsFilePath = path.join(process.cwd(), 'blogs', 'blogs.json');
     const blogsData = fs.readFileSync(blogsFilePath, 'utf8');
     
     // Parse the JSON
