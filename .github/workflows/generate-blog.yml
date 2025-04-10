@@ -2,7 +2,9 @@ name: Generate Daily Blog Post
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs at 9 AM UTC daily
+    - cron: '0 9 * * *'  # Once daily at 9 AM UTC (3 posts at once)
+    # OR
+    # - cron: '0 9,13,17 * * *'  # Three times daily (one post each time)
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
