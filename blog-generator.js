@@ -82,18 +82,76 @@ async function generateMultiplePosts() {
           messages: [
             {
               role: "system", 
-              content: "You are an expert in UI/UX design and AI technologies. Generate an interesting, cutting-edge topic for a blog post that discusses the intersection of AI and UI/UX design. Be specific and unique - avoid general topics that might have been covered repeatedly."
+              content: "You are an expert in UI/UX design, frontend web development, and modern web technologies. Generate an interesting, cutting-edge topic for a blog post that covers UI/UX design principles, frontend development techniques, or the integration of AI in web interfaces. Be specific and unique - avoid general topics that might have been covered repeatedly."
             },
             {
               role: "user", 
-              content: `Generate a highly specific and unique blog post topic related to UI/UX and artificial intelligence that would be interesting for designers and developers. 
+              content: `Generate a highly specific and unique blog post topic related to UI/UX design, frontend web development, or the integration of AI in web interfaces that would be interesting for designers and developers. 
               
-              Ensure the topic is novel and hasn't likely been covered in standard blogs about:
-              - AI-powered design tools
-              - General UX principles with AI
-              - Basic AI integration in interfaces
+              Your website focuses on UI/UX and frontend web development, so topics should cover a wide range of areas including:
               
-              Instead, focus on emerging trends, specific use cases, or innovative intersections of these fields.`
+              UI/UX Design Topics:
+              - Modern UI/UX design principles and techniques
+              - User research and usability testing
+              - Information architecture and content strategy
+              - Visual design and branding
+              - Interaction design patterns
+              - Mobile-first and responsive design
+              - Accessibility and inclusive design
+              - Design systems and component libraries
+              - User journey mapping and experience design
+              - Microinteractions and animation in UI
+              
+              Frontend Development Topics:
+              - Frontend frameworks and libraries (React, Vue, Angular, etc.)
+              - CSS techniques (Grid, Flexbox, Custom Properties, etc.)
+              - JavaScript best practices and patterns
+              - Web performance optimization
+              - Progressive Web Apps (PWAs)
+              - Web accessibility implementation
+              - Cross-browser compatibility
+              - Web animation techniques
+              - State management in frontend applications
+              - API integration and data fetching
+              - Form validation and user input handling
+              - Web security best practices
+              - Testing frontend applications
+              - Build tools and bundlers
+              - Web components and custom elements
+              
+              AI Integration Topics (but not exclusively):
+              - AI-powered UI components
+              - Machine learning in user interfaces
+              - Natural language processing for web applications
+              - Computer vision in web interfaces
+              - AI-assisted design tools
+              - Personalization algorithms in web experiences
+              - AI for accessibility improvements
+              - AI-powered content generation for websites
+              - AI for performance optimization
+              - AI for user behavior analysis
+              - AI-powered chatbots and virtual assistants
+              - AI for form validation and error prevention
+              - AI-driven A/B testing and optimization
+              - AI for image and media optimization
+              - AI for code generation and development assistance
+              - AI for automated UI testing
+              - AI for predictive analytics in web applications
+              - AI for voice user interfaces (VUI)
+              - AI for gesture recognition in web interfaces
+              - AI for real-time translation in web applications
+              - AI for recommendation engines in e-commerce
+              - AI for fraud detection in web applications
+              - AI for sentiment analysis in user feedback
+              - AI for automated accessibility testing
+              - AI for dynamic content personalization
+              - AI for intelligent search functionality
+              - AI for automated UI/UX improvements
+              - AI for code review and quality assurance
+              - AI for automated documentation generation
+              - AI for intelligent form autofill and validation
+              
+              Ensure the topic is novel and hasn't likely been covered in standard blogs. Focus on emerging trends, specific use cases, or innovative approaches in these fields.`
             }
           ],
           temperature: 0.9  // Increased temperature for more creativity
@@ -120,7 +178,7 @@ async function generateMultiplePosts() {
         messages: [
           {
             role: "system", 
-            content: `You are an expert content writer for uiuxpowerhouse.com, creating in-depth, valuable blog posts about UI/UX design and AI technology. Write in a professional but engaging tone. Include practical insights and forward-thinking ideas.`
+            content: `You are an expert content writer for uiuxpowerhouse.com, creating in-depth, valuable blog posts about UI/UX design, frontend web development, and modern web technologies. Write in a professional but engaging tone. Include practical insights, code examples where appropriate, and forward-thinking ideas. Your content should be informative, actionable, and reflect current best practices in the industry.`
           },
           {
             role: "user", 
@@ -130,7 +188,18 @@ async function generateMultiplePosts() {
             
             Format the content as HTML with proper headings (h1, h2, h3), paragraphs, and lists. 
             Include 3-4 sections with meaningful subheadings.
-            Include relevant examples or practical applications where appropriate.
+            
+            For technical topics, include relevant code examples or snippets that demonstrate the concepts.
+            For design topics, include descriptions of design principles and visual elements.
+            For all topics, include practical applications and real-world examples where appropriate.
+            
+            The content should be:
+            - Informative and educational
+            - Well-structured with clear sections
+            - Include practical tips and best practices
+            - Reference current trends and technologies
+            - Avoid overly technical jargon unless necessary
+            - Include a brief introduction and conclusion
             
             The output should be clean HTML that can be directly included in a JSON field.
             Wrap the entire content in <html><head><title>TITLE</title></head><body>CONTENT</body></html> tags.
@@ -174,7 +243,28 @@ async function generateMultiplePosts() {
           {
             role: "user", 
             content: `Generate 2-3 broad categories for a blog post with this title: "${topic}". 
-            Choose from these options: Design, Technology, Web Development, User Experience, AI, Research, Collaboration, Animation, UI/UX.
+            Choose from these options: 
+            - Design (UI Design, Visual Design, Interaction Design)
+            - User Experience (UX Research, Usability, Information Architecture)
+            - Frontend Development (JavaScript, React, Vue, Angular)
+            - CSS (Styling, Layout, Animation)
+            - Web Performance (Optimization, Loading Speed, Core Web Vitals)
+            - Accessibility (WCAG, Inclusive Design, Assistive Technology)
+            - Web Components (Custom Elements, Shadow DOM, Component Libraries)
+            - Progressive Web Apps (PWA, Service Workers, Offline Support)
+            - AI Integration (Machine Learning, NLP, Computer Vision)
+            - AI Development (AI Tools, Frameworks, Libraries)
+            - AI Applications (Chatbots, Assistants, Automation)
+            - AI for Design (AI Design Tools, Generative Design)
+            - AI for Development (Code Generation, Testing, Documentation)
+            - AI for UX (Personalization, Analytics, Optimization)
+            - Web Security (Authentication, Authorization, Data Protection)
+            - Testing (Unit Testing, E2E Testing, Performance Testing)
+            - Build Tools (Bundlers, Task Runners, Package Managers)
+            - Responsive Design (Mobile-First, Breakpoints, Fluid Layouts)
+            - API Integration (REST, GraphQL, Data Fetching)
+            - State Management (Redux, Context API, State Machines)
+            
             Return only the categories as a comma-separated list with no additional text.`
           }
         ],
