@@ -126,11 +126,41 @@
 
 
 	// Page loading animation
-	 $(window).on('load', function() {
+	// $(window).on('load', function() {
+  //       $('#js-preloader').addClass('loaded');
+  //   });
 
-        $('#js-preloader').addClass('loaded');
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#js-preloader').addClass('loaded');
 
-    });
+    // Lazy loading images
+    const lazyImages = document.querySelectorAll('img.lazy');
+
+    if ('IntersectionObserver' in window) {
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            // Optional: Remove the class to prevent re-processing and to help with styling if needed
+            lazyImage.classList.remove('lazy'); 
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers that don't support IntersectionObserver
+      // This will load all images after a short delay, not true lazy loading but better than nothing
+      lazyImages.forEach(function(lazyImage) {
+        lazyImage.src = lazyImage.dataset.src;
+        lazyImage.classList.remove('lazy');
+      });
+    }
+  });
 
 	
 
