@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/templatemo-digimedia-v1.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    
+    <!-- Removed black border styles as requested -->
 <!--
 
 TemplateMo 568 DigiMedia
@@ -407,12 +409,12 @@ https://templatemo.com/tm-568-digimedia
             <div class="row">
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="text" name="project" class="project" placeholder="Ihre Projektadresse..." autocomplete="on" required>
+                  <input type="text" name="project" class="project" id="project" placeholder="Ihre Projektadresse..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="email" name="email" class="email" placeholder="Ihre E-Mail-Adresse..." autocomplete="on" required>
+                  <input type="email" name="email" class="email" id="quote-email" placeholder="Ihre E-Mail-Adresse..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-4 col-sm-4">
@@ -421,6 +423,7 @@ https://templatemo.com/tm-568-digimedia
                 </fieldset>
               </div>
             </div>
+            <div id="quote-message" style="margin-top: 20px; display: none; text-align: center;"></div>
           </form>
         </div>
       </div>
@@ -659,6 +662,7 @@ https://templatemo.com/tm-568-digimedia
                       <fieldset>
                         <button type="submit" id="form-submit" class="main-button ">Nachricht senden</button>
                       </fieldset>
+                      <div id="form-message" style="margin-top: 20px; display: none;"></div>
                     </div>
                   </div>
                 </div>
@@ -690,6 +694,96 @@ https://templatemo.com/tm-568-digimedia
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
+  
+  <script>
+    // Contact form submission
+    document.getElementById('contact').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formMessage = document.getElementById('form-message');
+      formMessage.style.display = 'block';
+      formMessage.innerHTML = '<div style="color: #ff7b00; text-align: center;">Nachricht wird gesendet...</div>';
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value || 'Neue Anfrage von der TAPETAK Website';
+      const message = document.getElementById('message').value;
+      
+      // Using FormSubmit service - a simple solution for static sites
+      fetch('https://formsubmit.co/ajax/info@tapetak.de', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success === "true" || data.success === true) {
+          formMessage.innerHTML = '<div style="color: green; text-align: center;">Ihre Nachricht wurde erfolgreich gesendet! Wir werden uns so schnell wie möglich bei Ihnen melden.</div>';
+          // Clear all form fields individually since reset is not working
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('subject').value = '';
+          document.getElementById('message').value = '';
+        } else {
+          formMessage.innerHTML = '<div style="color: red; text-align: center;">Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie uns direkt unter info@tapetak.de.</div>';
+        }
+      })
+      .catch(error => {
+        formMessage.innerHTML = '<div style="color: red; text-align: center;">Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie uns direkt unter info@tapetak.de.</div>';
+        console.error('Error:', error);
+      });
+    });
+    
+    // Free quote form submission
+    document.getElementById('search').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const quoteMessage = document.getElementById('quote-message');
+      quoteMessage.style.display = 'block';
+      quoteMessage.innerHTML = '<div style="color: #ff7b00;">Anfrage wird gesendet...</div>';
+      
+      const projectAddress = document.getElementById('project').value;
+      const email = document.getElementById('quote-email').value;
+      const subject = 'Projektanfrage: ' + projectAddress;
+      const message = 'Jemand möchte für folgendes Projekt kontaktiert werden:\n\nProjektadresse: ' + projectAddress + '\nE-Mail: ' + email;
+      
+      // Using FormSubmit service
+      fetch('https://formsubmit.co/ajax/info@tapetak.de', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          subject: subject,
+          message: message
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success === "true" || data.success === true) {
+          quoteMessage.innerHTML = '<div style="color: green;">Ihre Anfrage wurde erfolgreich gesendet! Wir werden uns so schnell wie möglich bei Ihnen melden.</div>';
+          document.getElementById('project').value = '';
+          document.getElementById('quote-email').value = '';
+        } else {
+          quoteMessage.innerHTML = '<div style="color: red;">Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie uns direkt unter info@tapetak.de.</div>';
+        }
+      })
+      .catch(error => {
+        quoteMessage.innerHTML = '<div style="color: red;">Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie uns direkt unter info@tapetak.de.</div>';
+        console.error('Error:', error);
+      });
+    });
+  </script>
 
 </body>
 </html>
