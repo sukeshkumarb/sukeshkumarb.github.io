@@ -95,6 +95,22 @@
             width: 200px;
         }
         
+        .activity img {
+            width: 50px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+            vertical-align: middle;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .activity img:hover {
+            transform: scale(1.1);
+        }
+        
         .cable-car {
             background-color: #e3f2fd;
             border-left: 4px solid #2196F3;
@@ -239,9 +255,93 @@
                 width: 22px;
             }
         }
+        
+        /* Lightbox Modal Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .lightbox-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .lightbox-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-info" class="lightbox-info"></div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>🏔️ 7-Day Königscard Vacation Itinerary</h1>
@@ -270,7 +370,10 @@
                     </tr>
                     <tr>
                         <td class="time">9:00 AM</td>
-                        <td class="activity cable-car"><i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">MUST-SEE</span>Alpspitzbahn Nesselwang (Cable Car)</td>
+                        <td class="activity cable-car">
+                            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=100&h=70&fit=crop" alt="Cable Car">
+                            <i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">MUST-SEE</span>Alpspitzbahn Nesselwang (Cable Car)
+                        </td>
                         <td class="location">Alpspitzweg 5, 87484 Nesselwang</td>
                         <td class="comments">Spectacular Alpine views, hiking trails at summit. One of the most scenic cable cars in the region.</td>
                         <td class="distance">15 km</td>
@@ -279,7 +382,10 @@
                     </tr>
                     <tr>
                         <td class="time">12:00 PM</td>
-                        <td class="activity"><i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Lunch at mountain restaurant</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=70&fit=crop" alt="Mountain Restaurant">
+                            <i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Lunch at mountain restaurant
+                        </td>
                         <td class="location">Mountain station</td>
                         <td class="comments">Traditional Alpine cuisine with panoramic views</td>
                         <td class="distance">0 km</td>
@@ -287,7 +393,10 @@
                     </tr>
                     <tr>
                         <td class="time">1:30 PM</td>
-                        <td class="activity kids-fun"><i class="fas fa-child" style="color: #ff5722; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Allgäulino Wertach (Kids Adventure Park)</td>
+                        <td class="activity kids-fun">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=100&h=70&fit=crop" alt="Kids Adventure Park">
+                            <i class="fas fa-child" style="color: #ff5722; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Allgäulino Wertach (Kids Adventure Park)
+                        </td>
                         <td class="location">Alpenstraße 20, 87497 Wertach</td>
                         <td class="comments">Perfect afternoon activity! Climbing, slides, and outdoor activities - let the kids burn energy after lunch</td>
                         <td class="distance">18 km</td>
@@ -295,7 +404,10 @@
                     </tr>
                     <tr>
                         <td class="time">3:30 PM</td>
-                        <td class="activity thermal-bath"><i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i>Alpspitz-Bade-Center Nesselwang (Thermal Bath)</td>
+                        <td class="activity thermal-bath">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=100&h=70&fit=crop" alt="Thermal Bath">
+                            <i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i>Alpspitz-Bade-Center Nesselwang (Thermal Bath - only 3 hours)
+                        </td>
                         <td class="location">Badeseeweg 11, 87484 Nesselwang</td>
                         <td class="comments">Modern wellness facility with thermal pools and saunas. Perfect after mountain activities and kids adventure.</td>
                         <td class="distance">21 km</td>
@@ -303,7 +415,10 @@
                     </tr>
                     <tr>
                         <td class="time">6:00 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
                         <td class="comments">Rest and preparation for tomorrow</td>
                         <td class="distance">15 km</td>
@@ -312,20 +427,26 @@
 
                     <!-- Day 2 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 2 - Sunday, July 13th: Austrian Alps & Lakes Triple Experience (Daily: 105 km | Running Total: 174 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 2 - Sunday, July 13th: Austrian Alps & Lakes Experience (Daily: 90 km | Running Total: 159 km)</td>
                     </tr>
                     <tr>
                         <td class="time">9:00 AM</td>
-                        <td class="activity cable-car"><i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Bergwelt Hahnenkamm (Cable Car)</td>
+                        <td class="activity cable-car">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=70&fit=crop" alt="Hahnenkamm Cable Car">
+                            <i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Bergwelt Hahnenkamm (Cable Car)
+                        </td>
                         <td class="location">Bergbahnstraße 18, 6604 Höfen, Austria</td>
                         <td class="comments">Famous Hahnenkamm downhill ski slope area with breathtaking Tyrolean Alps views.</td>
                         <td class="distance">35 km</td>
                         <td class="total-distance">104 km</td>
-                        <td class="maps-link" rowspan="6"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Bergbahnstra%C3%9Fe+18,+6604+H%C3%B6fen,+Austria/Fischer+am+See+1,+6611+Heiterwang,+Austria/Am+M%C3%BChlbach+55,+6691+Jungholz,+Austria/Wimberg+11,+87616+Wald" target="_blank">📍 Day 2 Route</a></td>
+                        <td class="maps-link" rowspan="5"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Bergbahnstra%C3%9Fe+18,+6604+H%C3%B6fen,+Austria/Fischer+am+See+1,+6611+Heiterwang,+Austria/Wimberg+11,+87616+Wald" target="_blank">📍 Day 2 Route</a></td>
                     </tr>
                     <tr>
                         <td class="time">11:30 AM</td>
-                        <td class="activity"><i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Mountain experience & early lunch</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=100&h=70&fit=crop" alt="Mountain Hiking">
+                            <i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Mountain experience & early lunch
+                        </td>
                         <td class="location">Hahnenkamm summit</td>
                         <td class="comments">Explore the legendary downhill course area with alpine restaurant</td>
                         <td class="distance">0 km</td>
@@ -333,7 +454,10 @@
                     </tr>
                     <tr>
                         <td class="time">1:00 PM</td>
-                        <td class="activity boat-tour"><i class="fas fa-ship" style="color: #00bcd4; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Schifffahrt Heiterwanger See & Plansee (Boat Tour)</td>
+                        <td class="activity boat-tour">
+                            <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=100&h=70&fit=crop" alt="Lake Boat Tour">
+                            <i class="fas fa-ship" style="color: #00bcd4; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Schifffahrt Heiterwanger See & Plansee (Boat Tour)
+                        </td>
                         <td class="location">Fischer am See 1, 6611 Heiterwang, Austria</td>
                         <td class="comments">FREE with Königscard! Fjord-like alpine lakes at 1,000m altitude - colors change from deep blue to emerald green</td>
                         <td class="distance">20 km</td>
@@ -341,36 +465,38 @@
                     </tr>
                     <tr>
                         <td class="time">3:00 PM</td>
-                        <td class="activity"><i class="fas fa-water" style="color: #03a9f4; margin-right: 8px;"></i>Scenic lake cruise with 3 landing stages</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=70&fit=crop" alt="Lake Cruise">
+                            <i class="fas fa-water" style="color: #03a9f4; margin-right: 8px;"></i>Scenic lake cruise with 3 landing stages
+                        </td>
                         <td class="location">21km shoreline tour</td>
                         <td class="comments">MS Margarethe or MS Wilhelm - breathtaking mountain reflections and hiking opportunities</td>
                         <td class="distance">0 km</td>
                         <td class="total-distance">124 km</td>
                     </tr>
-                    <tr>
-                        <td class="time">4:30 PM</td>
-                        <td class="activity"><i class="fas fa-swimmer" style="color: #03a9f4; margin-right: 8px;"></i>Jungholz Outdoor Pool (Optional Swimming)</td>
-                        <td class="location">Am Mühlbach 55, 6691 Jungholz, Austria</td>
-                        <td class="comments">Alpine outdoor pool with mountain backdrop - refreshing end to Austrian adventure (weather permitting)</td>
-                        <td class="distance">15 km</td>
-                        <td class="total-distance">139 km</td>
-                    </tr>
+
                     <tr>
                         <td class="time">6:00 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
-                        <td class="comments">Triple Austrian experience: mountains, lakes & swimming - ultimate flexibility day!</td>
-                        <td class="distance">35 km</td>
-                        <td class="total-distance">174 km</td>
+                        <td class="comments">Perfect Austrian experience: mountains and lakes - ultimate flexibility day!</td>
+                        <td class="distance">50 km</td>
+                        <td class="total-distance">159 km</td>
                     </tr>
 
                     <!-- Day 3 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 3 - Monday, July 14th: Lake Cruise & Thermal Bath (Daily: 105 km | Running Total: 279 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 3 - Monday, July 14th: Lake Cruise & Thermal Bath (Daily: 105 km | Running Total: 264 km)</td>
                     </tr>
                     <tr>
                         <td class="time">9:30 AM</td>
-                        <td class="activity boat-tour"><i class="fas fa-ship" style="color: #00bcd4; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Schifffahrten auf dem Forggensee (Lake Cruise)</td>
+                        <td class="activity boat-tour">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=70&fit=crop" alt="Forggensee Cruise">
+                            <i class="fas fa-ship" style="color: #00bcd4; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Schifffahrten auf dem Forggensee (Lake Cruise)
+                        </td>
                         <td class="location">Weidachstraße 86, 87629 Füssen</td>
                         <td class="comments">Scenic lake cruise with spectacular Neuschwanstein Castle views from the water - perfect morning adventure</td>
                         <td class="distance">25 km</td>
@@ -379,7 +505,10 @@
                     </tr>
                     <tr>
                         <td class="time">12:00 PM</td>
-                        <td class="activity"><i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Lunch in Füssen</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&h=70&fit=crop" alt="Füssen Restaurant">
+                            <i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Lunch in Füssen
+                        </td>
                         <td class="location">Füssen Altstadt</td>
                         <td class="comments">Traditional restaurant with castle views - perfect break between activities</td>
                         <td class="distance">3 km</td>
@@ -387,15 +516,21 @@
                     </tr>
                     <tr>
                         <td class="time">2:00 PM</td>
-                        <td class="activity thermal-bath"><i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">OUTSTANDING</span>Kristall Therme Schwangau (Thermal Bath)</td>
+                        <td class="activity thermal-bath">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=100&h=70&fit=crop" alt="Kristall Therme">
+                            <i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">OUTSTANDING</span>Kristall Therme Schwangau (Thermal Bath - only 2 hours)
+                        </td>
                         <td class="location">Am Ehberg 16, 87645 Schwangau</td>
-                        <td class="comments">Premium spa with Alpine views near Neuschwanstein Castle area - perfect relaxation after boat cruise</td>
+                        <td class="comments">Premium spa with Alpine views near Neuschwanstein Castle area - perfect relaxation after boat cruise (only 2 hours with Königscard)</td>
                         <td class="distance">5 km</td>
                         <td class="total-distance">207 km</td>
                     </tr>
                     <tr>
                         <td class="time">5:30 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
                         <td class="comments">Perfect combination: scenic lake cruise + thermal relaxation - ideal day flow!</td>
                         <td class="distance">72 km</td>
@@ -404,162 +539,213 @@
 
                     <!-- Day 4 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 4 - Tuesday, July 15th: Wank Mountain + Royal Palace Experience (Daily: 145 km | Running Total: 424 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 4 - Tuesday, July 15th: Austrian Adventure & Cable Car (Daily: 115 km | Running Total: 379 km)</td>
                     </tr>
                     <tr>
                         <td class="time">9:00 AM</td>
-                        <td class="activity cable-car"><i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Wankbahn (Cable Car)</td>
-                        <td class="location">Wankbahnstraße 2, 82467 Garmisch-Partenkirchen</td>
-                        <td class="comments">FREE with Königscard! Stunning panoramic views of Zugspitze and surrounding Alps from Wank summit</td>
-                        <td class="distance">55 km</td>
-                        <td class="total-distance">334 km</td>
-                        <td class="maps-link" rowspan="4"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Wankbahnstra%C3%9Fe+2,+82467+Garmisch-Partenkirchen/Schlo%C3%9F+Linderhof,+82488+Ettal/Wimberg+11,+87616+Wald" target="_blank">📍 Day 4 Route</a></td>
+                        <td class="activity cable-car">
+                            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=100&h=70&fit=crop" alt="Almkopfbahn">
+                            <i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Almkopfbahn Bichlbach / Sonnenbahn (Cable Car)
+                        </td>
+                        <td class="location">Bichlbach 149 / Sonnenstraße 15, 6621 Bichlbach, Austria</td>
+                        <td class="comments">Family-friendly Austrian mountain experience with playground and easy hiking trails - choose between Almkopfbahn or Sonnenbahn</td>
+                        <td class="distance">50 km</td>
+                        <td class="total-distance">314 km</td>
+                        <td class="maps-link" rowspan="4"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Bichlbach+149,+6621+Bichlbach,+Austria/Thermal+1,+6600+Reutte,+Austria/Wimberg+11,+87616+Wald" target="_blank">📍 Day 4 Route</a></td>
                     </tr>
                     <tr>
-                        <td class="time">11:30 AM</td>
-                        <td class="activity"><i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Wank summit hiking & mountain restaurant</td>
-                        <td class="location">Wank summit (1780m)</td>
-                        <td class="comments">360° Alpine panorama with Zugspitze views, easy summit trails, and traditional Bavarian mountain hut</td>
+                        <td class="time">12:30 PM</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=70&fit=crop" alt="Austrian Mountain Hut">
+                            <i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Mountain lunch & alpine playground
+                        </td>
+                        <td class="location">Almkopfbahn / Sonnenbahn mountain station</td>
+                        <td class="comments">Traditional Austrian mountain hut with kids playground area</td>
                         <td class="distance">0 km</td>
-                        <td class="total-distance">334 km</td>
+                        <td class="total-distance">314 km</td>
                     </tr>
                     <tr>
-                        <td class="time">1:30 PM</td>
-                        <td class="activity"><i class="fas fa-crown" style="color: #9c27b0; margin-right: 8px;"></i><span class="must-see">ROYAL</span>Königshäuschen Palace & Garden Linderhof</td>
-                        <td class="location">Schloss Linderhof, 82488 Ettal</td>
-                        <td class="comments">FREE with Königscard! Ludwig II's ornate rococo palace with stunning gardens - more relaxed palace visit</td>
+                        <td class="time">3:00 PM</td>
+                        <td class="activity thermal-bath">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=100&h=70&fit=crop" alt="Alpentherme Ehrenberg">
+                            <i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i>Alpentherme Ehrenberg (Thermal Bath)
+                        </td>
+                        <td class="location">Thermal 1, 6600 Reutte, Austria</td>
+                        <td class="comments">Austrian thermal spa with mountain views - perfect after cable car adventure</td>
                         <td class="distance">15 km</td>
-                        <td class="total-distance">349 km</td>
+                        <td class="total-distance">329 km</td>
                     </tr>
                     <tr>
-                        <td class="time">5:00 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="time">5:30 PM</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
-                        <td class="comments">More relaxed mountain and royal palace day - perfect pacing without rushing</td>
-                        <td class="distance">75 km</td>
-                        <td class="total-distance">424 km</td>
+                        <td class="comments">Perfect Austrian mountain day with reasonable driving</td>
+                        <td class="distance">50 km</td>
+                        <td class="total-distance">379 km</td>
                     </tr>
 
                     <!-- Day 5 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 5 - Wednesday, July 16th: Herzogstand Mountain & Thermal Experience (Daily: 130 km | Running Total: 554 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 5 - Wednesday, July 16th: Herzogstand Mountain & Thermal Experience (Daily: 130 km | Running Total: 509 km)</td>
                     </tr>
                     <tr>
                         <td class="time">8:30 AM</td>
-                        <td class="activity cable-car"><i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Herzogstandbahn (Cable Car)</td>
+                        <td class="activity cable-car">
+                            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=100&h=70&fit=crop" alt="Herzogstandbahn">
+                            <i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Herzogstandbahn (Cable Car)
+                        </td>
                         <td class="location">Seestraße 18, 82431 Kochel am See</td>
                         <td class="comments">Famous cable car with breathtaking Lake Walchen views and Alpine panorama - one of Bavaria's most scenic rides</td>
                         <td class="distance">65 km</td>
-                        <td class="total-distance">489 km</td>
+                        <td class="total-distance">444 km</td>
                         <td class="maps-link" rowspan="4"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Seestraße+18,+82431+Kochel+am+See/Schmiedstraße+7,+82431+Kochel+am+See/Wimberg+11,+87616+Wald" target="_blank">📍 Day 5 Route</a></td>
                     </tr>
                     <tr>
                         <td class="time">11:30 AM</td>
-                        <td class="activity"><i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Mountain hiking & lunch</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=100&h=70&fit=crop" alt="Herzogstand Summit">
+                            <i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Mountain hiking & lunch
+                        </td>
                         <td class="location">Herzogstand summit (1731m)</td>
                         <td class="comments">Summit experience with 360° Alpine views - legendary Bavaria panorama</td>
                         <td class="distance">0 km</td>
-                        <td class="total-distance">489 km</td>
+                        <td class="total-distance">444 km</td>
                     </tr>
                     <tr>
                         <td class="time">2:00 PM</td>
-                        <td class="activity thermal-bath"><i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">OUTSTANDING</span>Kristall Therme Kochel See (Thermal Bath)</td>
+                        <td class="activity thermal-bath">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=100&h=70&fit=crop" alt="Kochel See Therme">
+                            <i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">OUTSTANDING</span>Kristall Therme Kochel See (Thermal Bath) - Only Wednesday for kids
+                        </td>
                         <td class="location">Schmiedstraße 7, 82431 Kochel am See</td>
                         <td class="comments">Premium lakeside thermal spa with Alpine views - perfect relaxation after mountain adventure</td>
                         <td class="distance">15 km</td>
-                        <td class="total-distance">504 km</td>
+                        <td class="total-distance">459 km</td>
                     </tr>
                     <tr>
                         <td class="time">5:00 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
                         <td class="comments">Spectacular mountain and thermal day - mid-vacation highlight experience</td>
                         <td class="distance">50 km</td>
-                        <td class="total-distance">554 km</td>
+                        <td class="total-distance">509 km</td>
                     </tr>
 
                     <!-- Day 6 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 6 - Thursday, July 17th: Austrian Adventure & Cable Car (Daily: 115 km | Running Total: 669 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 6 - Thursday, July 17th: Wank Mountain + Royal Palace Experience (Daily: 145 km | Running Total: 654 km)</td>
                     </tr>
                     <tr>
                         <td class="time">9:00 AM</td>
-                        <td class="activity cable-car"><i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Almkopfbahn Bichlbach / Sonnenbahn (Cable Car)</td>
-                        <td class="location">Bichlbach 149 / Sonnenstraße 15, 6621 Bichlbach, Austria</td>
-                        <td class="comments">Family-friendly Austrian mountain experience with playground and easy hiking trails - choose between Almkopfbahn or Sonnenbahn</td>
-                        <td class="distance">50 km</td>
-                        <td class="total-distance">604 km</td>
-                        <td class="maps-link" rowspan="4"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Bichlbach+149,+6621+Bichlbach,+Austria/Thermal+1,+6600+Reutte,+Austria/Wimberg+11,+87616+Wald" target="_blank">📍 Day 6 Route</a></td>
+                        <td class="activity cable-car">
+                            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=100&h=70&fit=crop" alt="Wankbahn Cable Car">
+                            <i class="fas fa-mountain" style="color: #2196F3; margin-right: 8px;"></i><span class="must-see">SPECTACULAR</span>Wankbahn (Cable Car)
+                        </td>
+                        <td class="location">Wankbahnstraße 2, 82467 Garmisch-Partenkirchen</td>
+                        <td class="comments">FREE with Königscard! Stunning panoramic views of Zugspitze and surrounding Alps from Wank summit</td>
+                        <td class="distance">55 km</td>
+                        <td class="total-distance">564 km</td>
+                        <td class="maps-link" rowspan="4"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Wankbahnstra%C3%9Fe+2,+82467+Garmisch-Partenkirchen/Schlo%C3%9F+Linderhof,+82488+Ettal/Wimberg+11,+87616+Wald" target="_blank">📍 Day 6 Route</a></td>
                     </tr>
                     <tr>
-                        <td class="time">12:30 PM</td>
-                        <td class="activity"><i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Mountain lunch & alpine playground</td>
-                        <td class="location">Almkopfbahn / Sonnenbahn mountain station</td>
-                        <td class="comments">Traditional Austrian mountain hut with kids playground area</td>
+                        <td class="time">11:30 AM</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=100&h=70&fit=crop" alt="Wank Summit">
+                            <i class="fas fa-hiking" style="color: #795548; margin-right: 8px;"></i>Wank summit hiking & mountain restaurant
+                        </td>
+                        <td class="location">Wank summit (1780m)</td>
+                        <td class="comments">360° Alpine panorama with Zugspitze views, easy summit trails, and traditional Bavarian mountain hut</td>
                         <td class="distance">0 km</td>
-                        <td class="total-distance">604 km</td>
+                        <td class="total-distance">564 km</td>
                     </tr>
                     <tr>
-                        <td class="time">3:00 PM</td>
-                        <td class="activity thermal-bath"><i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i>Alpentherme Ehrenberg (Thermal Bath)</td>
-                        <td class="location">Thermal 1, 6600 Reutte, Austria</td>
-                        <td class="comments">Austrian thermal spa with mountain views - perfect after cable car adventure</td>
+                        <td class="time">1:30 PM</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1520637836862-4d197d17c52a?w=100&h=70&fit=crop" alt="Linderhof Palace">
+                            <i class="fas fa-crown" style="color: #9c27b0; margin-right: 8px;"></i><span class="must-see">ROYAL</span>Königshäuschen Palace & Garden Linderhof
+                        </td>
+                        <td class="location">Schloss Linderhof, 82488 Ettal</td>
+                        <td class="comments">FREE with Königscard! Ludwig II's ornate rococo palace with stunning gardens - more relaxed palace visit</td>
                         <td class="distance">15 km</td>
-                        <td class="total-distance">619 km</td>
+                        <td class="total-distance">579 km</td>
                     </tr>
                     <tr>
-                        <td class="time">5:30 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="time">5:00 PM</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
-                        <td class="comments">Perfect Austrian mountain day with reasonable driving</td>
-                        <td class="distance">50 km</td>
-                        <td class="total-distance">669 km</td>
+                        <td class="comments">More relaxed mountain and royal palace day - perfect pacing without rushing</td>
+                        <td class="distance">75 km</td>
+                        <td class="total-distance">654 km</td>
                     </tr>
 
                     <!-- Day 7 -->
                     <tr>
-                        <td colspan="7" class="day-header">🗓️ DAY 7 - Friday, July 18th: Kids Adventure Final Day (Daily: 83 km | Final Total: 752 km)</td>
+                        <td colspan="7" class="day-header">🗓️ DAY 7 - Friday, July 18th: Kids Adventure Final Day (Daily: 83 km | Final Total: 737 km)</td>
                     </tr>
                     <tr>
                         <td class="time">10:00 AM</td>
-                        <td class="activity kids-fun"><i class="fas fa-child" style="color: #ff5722; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Allgäulino Wertach (Kids Adventure Park)</td>
+                        <td class="activity kids-fun">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=100&h=70&fit=crop" alt="Kids Adventure Final">
+                            <i class="fas fa-child" style="color: #ff5722; margin-right: 8px;"></i><span class="must-see">FAMILY FUN</span>Allgäulino Wertach (Kids Adventure Park)
+                        </td>
                         <td class="location">Alpenstraße 20, 87497 Wertach</td>
                         <td class="comments">Perfect final adventure! Climbing, slides, and outdoor activities - let the kids burn energy before the journey home</td>
                         <td class="distance">18 km</td>
-                        <td class="total-distance">687 km</td>
+                        <td class="total-distance">672 km</td>
                         <td class="maps-link" rowspan="5"><a href="https://www.google.com/maps/dir/Wimberg+11,+87616+Wald/Alpenstra%C3%9Fe+20,+87497+Wertach/Local+village+center/Wimberg+11,+87616+Wald" target="_blank">📍 Day 7 Route</a></td>
                     </tr>
                     <tr>
                         <td class="time">1:00 PM</td>
-                        <td class="activity"><i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Final lunch & souvenir shopping</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=100&h=70&fit=crop" alt="Final Lunch">
+                            <i class="fas fa-utensils" style="color: #ff9800; margin-right: 8px;"></i>Final lunch & souvenir shopping
+                        </td>
                         <td class="location">Wertach village center</td>
                         <td class="comments">Traditional final meal at Wertach - last-minute souvenir shopping in this charming Alpine village</td>
                         <td class="distance">2 km</td>
-                        <td class="total-distance">689 km</td>
+                        <td class="total-distance">674 km</td>
                     </tr>
                     <tr>
                         <td class="time">2:30 PM</td>
-                        <td class="activity"><i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=70&fit=crop" alt="Accommodation">
+                            <i class="fas fa-home" style="color: #4caf50; margin-right: 8px;"></i>Return to accommodation
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
                         <td class="comments">Return home with happy, tired kids - perfect end to adventure week</td>
                         <td class="distance">18 km</td>
-                        <td class="total-distance">707 km</td>
+                        <td class="total-distance">692 km</td>
                     </tr>
                     <tr>
                         <td class="time">3:30 PM</td>
-                        <td class="activity thermal-bath"><i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">RELAXING</span>Final thermal bath (optional)</td>
+                        <td class="activity thermal-bath">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=100&h=70&fit=crop" alt="Final Thermal Bath">
+                            <i class="fas fa-hot-tub" style="color: #e91e63; margin-right: 8px;"></i><span class="must-see">RELAXING</span>Final thermal bath (optional)
+                        </td>
                         <td class="location">Nearby wellness facility</td>
                         <td class="comments">Optional final relaxation for parents while kids rest - unwind before departure</td>
                         <td class="distance">25 km</td>
-                        <td class="total-distance">732 km</td>
+                        <td class="total-distance">717 km</td>
                     </tr>
                     <tr>
                         <td class="time">6:00 PM</td>
-                        <td class="activity"><i class="fas fa-suitcase" style="color: #795548; margin-right: 8px;"></i>Final preparations & departure</td>
+                        <td class="activity">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=100&h=70&fit=crop" alt="Departure">
+                            <i class="fas fa-suitcase" style="color: #795548; margin-right: 8px;"></i>Final preparations & departure
+                        </td>
                         <td class="location">Wimberg 11, Wald</td>
                         <td class="comments">Pack belongings and prepare for journey home - perfect end with kids adventure + optional relaxation!</td>
                         <td class="distance">20 km</td>
-                        <td class="total-distance">752 km</td>
+                        <td class="total-distance">737 km</td>
                     </tr>
                 </tbody>
             </table>
@@ -574,9 +760,9 @@
                     <ul>
                         <li><strong><i class="fas fa-mountain" style="color: #2196F3;"></i> Cable Cars:</strong> 5 different mountain railways ✓</li>
                         <li><strong><i class="fas fa-hot-tub" style="color: #e91e63;"></i> Thermal Baths:</strong> 4 different facilities ✓</li>
-                                                <li><strong><i class="fas fa-ship" style="color: #00bcd4;"></i> Boat Tours:</strong> 1 lake cruise (maximum allowed) ✓</li>
+                        <li><strong><i class="fas fa-ship" style="color: #00bcd4;"></i> Boat Tours:</strong> 1 lake cruise (maximum allowed) ✓</li>
                         <li><strong><i class="fas fa-child" style="color: #ff5722;"></i> Kids Fun Parks:</strong> 1 adventure park ✓</li>
-                        <li><strong><i class="fas fa-swimmer" style="color: #03a9f4;"></i> Swimming Pools:</strong> 2 family-friendly facilities ✓</li>
+                        <li><strong><i class="fas fa-swimmer" style="color: #03a9f4;"></i> Swimming Pools:</strong> 1 family-friendly facility ✓</li>
                         <li><strong><i class="fas fa-water" style="color: #03a9f4;"></i> Kneipp Therapy:</strong> 1 natural water therapy ✓</li>
                     </ul>
                 </div>
@@ -588,4 +774,4 @@
                         <li><strong>Hahnenkamm</strong> - Famous Austrian ski mountain ⭐⭐⭐⭐⭐</li>
                         <li><strong>Brauneck</strong> - Classic Bavarian experience ⭐⭐⭐⭐</li>
                         <li><strong>Blombergbahn</strong> - Family fun with toboggan ⭐⭐⭐⭐</li>
-                        <li><strong>Alpspitzbahn</strong
+                        <li><strong>Alpspitzbahn</strong>
