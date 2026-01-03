@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Accessibility person icon -->
+  <g transform="translate(600, 280)">
+    <circle cx="0" cy="-80" r="45" fill="#ffffff"/>
+    <circle cx="0" cy="-80" r="35" fill="none" stroke="#4facfe" stroke-width="8"/>
+    <ellipse cx="0" cy="20" rx="80" ry="90" fill="#ffffff"/>
+    <rect x="-140" y="-10" width="110" height="20" rx="10" fill="#ffffff"/>
+    <rect x="30" y="-10" width="110" height="20" rx="10" fill="#ffffff"/>
+    <rect x="-45" y="80" width="35" height="80" rx="10" fill="#ffffff"/>
+    <rect x="10" y="80" width="35" height="80" rx="10" fill="#ffffff"/>
+  </g>
+  
+  <!-- ARIA labels -->
+  <rect x="190" y="140" width="190" height="55" rx="8" fill="#ffffff" opacity="0.95"/>
+  <text x="285" y="175" font-family="Arial" font-size="20" font-weight="bold" fill="#4facfe" text-anchor="middle">role="button"</text>
+  
+  <rect x="820" y="140" width="190" height="55" rx="8" fill="#ffffff" opacity="0.95"/>
+  <text x="915" y="175" font-family="Arial" font-size="20" font-weight="bold" fill="#4facfe" text-anchor="middle">aria-label</text>
+  
+  <rect x="190" y="430" width="210" height="55" rx="8" fill="#ffffff" opacity="0.95"/>
+  <text x="295" y="465" font-family="Arial" font-size="20" font-weight="bold" fill="#4facfe" text-anchor="middle">tabindex="0"</text>
+  
+  <rect x="800" y="430" width="210" height="55" rx="8" fill="#ffffff" opacity="0.95"/>
+  <text x="905" y="465" font-family="Arial" font-size="20" font-weight="bold" fill="#4facfe" text-anchor="middle">aria-live</text>
+  
+  <!-- Screen reader waves -->
+  <g transform="translate(170, 280)" opacity="0.6">
+    <path d="M -50 0 Q -50 -30 -70 -30" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M -50 0 Q -50 30 -70 30" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M -70 -50 Q -90 -50 -90 -70" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M -70 50 Q -90 50 -90 70" fill="none" stroke="#ffffff" stroke-width="4"/>
+  </g>
+  
+  <g transform="translate(1030, 280)" opacity="0.6">
+    <path d="M 50 0 Q 50 -30 70 -30" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M 50 0 Q 50 30 70 30" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M 70 -50 Q 90 -50 90 -70" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <path d="M 70 50 Q 90 50 90 70" fill="none" stroke="#ffffff" stroke-width="4"/>
+  </g>
+  
+  <text x="600" y="70" font-family="Arial" font-size="30" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing Advanced Voice Interaction Patterns in Web A...</text>
+</svg>

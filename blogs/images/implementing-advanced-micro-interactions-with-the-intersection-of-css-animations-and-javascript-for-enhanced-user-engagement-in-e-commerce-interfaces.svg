@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Motion path -->
+  <path d="M 200 300 Q 400 150 600 300 T 1000 300" 
+        fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="10,10" opacity="0.5"/>
+  
+  <!-- Animated elements at different positions -->
+  <circle cx="250" cy="270" r="30" fill="#ffffff" opacity="0.3"/>
+  <circle cx="400" cy="200" r="35" fill="#ffffff" opacity="0.5"/>
+  <circle cx="600" cy="300" r="40" fill="#ffffff" opacity="0.9"/>
+  <circle cx="800" cy="200" r="35" fill="#ffffff" opacity="0.5"/>
+  <circle cx="950" cy="270" r="30" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Motion indicators -->
+  <g transform="translate(600, 300)">
+    <path d="M -80 0 L -40 0" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+    <path d="M -40 0 L -50 -10 M -40 0 L -50 10" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+    
+    <path d="M 40 0 L 80 0" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+    <path d="M 80 0 L 70 -10 M 80 0 L 70 10" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+  </g>
+  
+  <!-- Easing curve visualization -->
+  <rect x="300" y="400" width="600" height="120" rx="8" fill="#ffffff" opacity="0.2"/>
+  <path d="M 320 500 Q 500 420 880 420" 
+        fill="none" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="320" cy="500" r="6" fill="#ffffff"/>
+  <circle cx="880" cy="420" r="6" fill="#ffffff"/>
+  
+  <text x="600" y="100" font-family="Arial" font-size="32" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing Advanced Micro-Interactions with the Interse...</text>
+</svg>

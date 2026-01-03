@@ -255,7 +255,7 @@
                                     <script>
                                         const urlParams = new URLSearchParams(window.location.search);
                                         const blogTitle = urlParams.get('title');
-                                        const userFriendlyTitle = blogTitle?.replace(/-/g, ' ');
+                                        const userFriendlyTitle = blogTitle ? blogTitle.replace(/-/g, ' ') : 'All Blogs';
                                         document.write(userFriendlyTitle);
                                     </script>
                                 </li>

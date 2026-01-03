@@ -1,0 +1,13 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="600" fill="#111827"/><rect x="150" y="187.83888171965373" width="60" height="162.16111828034627" fill="#10b981" opacity="0.6"/>
+                    <rect x="170" y="167.83888171965373" width="60" height="162.16111828034627" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="270" y="186.80381547410434" width="60" height="163.19618452589566" fill="#10b981" opacity="0.6"/>
+                    <rect x="290" y="166.80381547410434" width="60" height="163.19618452589566" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="390" y="170.97035135284386" width="60" height="179.02964864715614" fill="#10b981" opacity="0.6"/>
+                    <rect x="410" y="150.97035135284386" width="60" height="179.02964864715614" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="510" y="170.9355948945813" width="60" height="179.0644051054187" fill="#10b981" opacity="0.6"/>
+                    <rect x="530" y="150.9355948945813" width="60" height="179.0644051054187" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="630" y="158.84781223099935" width="60" height="191.15218776900065" fill="#10b981" opacity="0.6"/>
+                    <rect x="650" y="138.84781223099935" width="60" height="191.15218776900065" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="750" y="190.2142271057528" width="60" height="159.7857728942472" fill="#10b981" opacity="0.6"/>
+                    <rect x="770" y="170.2142271057528" width="60" height="159.7857728942472" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="870" y="256.67324166352046" width="60" height="93.32675833647954" fill="#10b981" opacity="0.6"/>
+                    <rect x="890" y="236.67324166352046" width="60" height="93.32675833647954" fill="#34d399" opacity="0.4" transform="skewY(-20)"/><rect x="990" y="186.58078590615332" width="60" height="163.41921409384668" fill="#10b981" opacity="0.6"/>
+                    <rect x="1010" y="166.58078590615332" width="60" height="163.41921409384668" fill="#34d399" opacity="0.4" transform="skewY(-20)"/>
+        <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Implementing Multi-Factor Authentication UX Patterns for ...</text>
+        <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#10b981" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+    </svg>

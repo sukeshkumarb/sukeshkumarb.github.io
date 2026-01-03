@@ -17,8 +17,124 @@ function formatDate() {
 // Generate a random image name
 function generateImageName(title) {
   const sanitized = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
-  return `blogs/images/${sanitized}.png`;
+  return `blogs/images/${sanitized}.svg`;
 }
+
+// ===== IMAGE GENERATION FUNCTIONS =====
+
+// Helper to escape XML characters
+function escapeXml(str) {
+  return str.replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":"&apos;"}[c]));
+}
+
+// Truncate title for display
+function truncate(str, len) {
+  return str.length > len ? str.substring(0, len-3) + '...' : str;
+}
+
+// Seeded random generator for consistent visuals per title
+function seededRandom(seed) {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash) + seed.charCodeAt(i);
+    hash |= 0;
+  }
+  return function() {
+    hash = Math.sin(hash++) * 10000;
+    return hash - Math.floor(hash);
+  };
+}
+
+// Color palettes for variety
+const colorPalettes = [
+  { bg: '#0f172a', primary: '#38bdf8', secondary: '#818cf8', accent: '#f472b6' },
+  { bg: '#111827', primary: '#10b981', secondary: '#34d399', accent: '#fbbf24' },
+  { bg: '#1e1b4b', primary: '#f43f5e', secondary: '#fb7185', accent: '#22d3ee' },
+  { bg: '#171717', primary: '#f59e0b', secondary: '#fbbf24', accent: '#ec4899' },
+  { bg: '#0c4a6e', primary: '#7dd3fc', secondary: '#38bdf8', accent: '#f43f5e' },
+  { bg: '#2e1065', primary: '#d8b4fe', secondary: '#a855f7', accent: '#4ade80' }
+];
+
+// Visual design generators
+const generators = [
+  // Circuit Logic
+  (rand, color) => {
+    const paths = Array.from({length: 10}).map(() => {
+      const x = rand()*1200, y = rand()*400;
+      return `<path d="M ${x} ${y} L ${x+rand()*100-50} ${y+50} L ${x+rand()*100-50} ${y+100}" stroke="${color.primary}" fill="none" opacity="0.4"/>
+              <circle cx="${x}" cy="${y}" r="3" fill="${color.accent}"/>`;
+    });
+    return `<rect width="1200" height="600" fill="${color.bg}"/>${paths.join('')}`;
+  },
+  // Isometric Skyscrapers
+  (rand, color) => {
+    const towers = Array.from({length: 8}).map((_, i) => {
+      const x = 150 + i*120, h = 50 + rand()*200;
+      return `<rect x="${x}" y="${350-h}" width="60" height="${h}" fill="${color.primary}" opacity="0.6"/>`;
+    });
+    return `<rect width="1200" height="600" fill="${color.bg}"/>${towers.join('')}`;
+  },
+  // DNA Helix
+  (rand, color) => {
+    const dots = Array.from({length: 20}).map((_, i) => {
+      const y = 50 + i*15;
+      const x1 = 600 + Math.sin(i*0.5)*100;
+      const x2 = 600 - Math.sin(i*0.5)*100;
+      return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${color.primary}" opacity="0.3"/>
+              <circle cx="${x1}" cy="${y}" r="4" fill="${color.accent}"/>
+              <circle cx="${x2}" cy="${y}" r="4" fill="${color.secondary}"/>`;
+    });
+    return `<rect width="1200" height="600" fill="${color.bg}"/>${dots.join('')}`;
+  },
+  // Radial Orbits
+  (rand, color) => {
+    return `<rect width="1200" height="600" fill="${color.bg}"/>
+            <circle cx="600" cy="200" r="40" fill="${color.accent}"/>
+            ${[60, 100, 150].map(r => `
+              <circle cx="600" cy="200" r="${r}" fill="none" stroke="${color.primary}" stroke-width="1" opacity="0.5"/>
+              <circle cx="${600 + r * Math.cos(rand()*6)}" cy="${200 + r * Math.sin(rand()*6)}" r="8" fill="${color.secondary}"/>
+            `).join('')}`;
+  },
+  // Drafting Blueprint
+  (rand, color) => {
+    const lines = Array.from({length: 12}).map((_, i) => `<line x1="${i*100}" y1="0" x2="${i*100}" y2="400" stroke="${color.primary}" opacity="0.1"/>`);
+    return `<rect width="1200" height="600" fill="${color.bg}"/>
+            ${lines.join('')}
+            <rect x="300" y="100" width="600" height="200" fill="none" stroke="${color.accent}" stroke-width="2"/>
+            <text x="310" y="120" font-family="monospace" font-size="12" fill="${color.accent}">W: 600px</text>`;
+  },
+  // Bokeh Particles
+  (rand, color) => {
+    const particles = Array.from({length: 30}).map(() => 
+      `<circle cx="${rand()*1200}" cy="${rand()*400}" r="${10+rand()*40}" fill="${color.primary}" opacity="0.1"/>`
+    );
+    return `<rect width="1200" height="600" fill="${color.bg}"/>${particles.join('')}`;
+  }
+];
+
+// Main function to generate banner image
+function generateBannerImage(title, outputPath) {
+  const rand = seededRandom(title);
+  const palette = colorPalettes[Math.floor(rand() * colorPalettes.length)];
+  const gen = generators[Math.floor(rand() * generators.length)];
+  
+  const svg = `<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+    ${gen(rand, palette)}
+    <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">${escapeXml(truncate(title, 60))}</text>
+    <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="${palette.primary}" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+  </svg>`;
+  
+  // Ensure directory exists
+  const dir = path.dirname(outputPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  
+  fs.writeFileSync(outputPath, svg, 'utf8');
+  console.log(`  ✅ Banner image created: ${outputPath}`);
+}
+
+// ===== END IMAGE GENERATION FUNCTIONS =====
 
 // Add this near the top of your file
 const NUM_POSTS_TO_GENERATE = 3;
@@ -273,8 +389,12 @@ async function generateMultiplePosts() {
         tags: tags,
         categories: categories,
         author: "UI UX Powerhouse",
-        bannerImage: generateImageName(title) // Generates path like 'blogs/images/my-topic-title.png'
+        bannerImage: generateImageName(title) // Generates path like 'blogs/images/my-topic-title.svg'
       };
+
+      // Generate the actual banner image file
+      const imagePath = path.join(process.cwd(), newBlogPost.bannerImage);
+      generateBannerImage(title, imagePath);
 
       // Add to existing titles for future similarity checks in this batch
       existingTitles.push(title);

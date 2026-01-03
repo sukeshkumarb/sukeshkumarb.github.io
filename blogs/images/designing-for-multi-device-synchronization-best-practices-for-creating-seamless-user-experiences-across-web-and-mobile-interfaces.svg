@@ -1,0 +1,13 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1200" height="600" fill="#0c4a6e"/><rect x="150" y="251.90480320859479" width="60" height="98.09519679140521" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="170" y="231.90480320859479" width="60" height="98.09519679140521" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="270" y="288.2475525326299" width="60" height="61.752447467370075" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="290" y="268.2475525326299" width="60" height="61.752447467370075" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="390" y="171.77828535313893" width="60" height="178.22171464686107" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="410" y="151.77828535313893" width="60" height="178.22171464686107" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="510" y="159.95444266854975" width="60" height="190.04555733145025" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="530" y="139.95444266854975" width="60" height="190.04555733145025" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="630" y="165.18592353713757" width="60" height="184.81407646286243" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="650" y="145.18592353713757" width="60" height="184.81407646286243" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="750" y="225.30150281304486" width="60" height="124.69849718695514" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="770" y="205.30150281304486" width="60" height="124.69849718695514" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="870" y="229.4155794334074" width="60" height="120.5844205665926" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="890" y="209.4155794334074" width="60" height="120.5844205665926" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="990" y="167.63267207970785" width="60" height="182.36732792029215" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="1010" y="147.63267207970785" width="60" height="182.36732792029215" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/>
+            <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Designing for Multi-Device Synchronization: Best Practice...</text>
+            <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#7dd3fc" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+        </svg>

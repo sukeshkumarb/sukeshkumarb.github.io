@@ -1,0 +1,13 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="600" fill="#0c4a6e"/><rect x="150" y="268.81790598617954" width="60" height="81.18209401382046" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="170" y="248.81790598617954" width="60" height="81.18209401382046" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="270" y="115.18190382612374" width="60" height="234.81809617387626" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="290" y="95.18190382612374" width="60" height="234.81809617387626" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="390" y="277.3028447458273" width="60" height="72.69715525417269" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="410" y="257.3028447458273" width="60" height="72.69715525417269" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="510" y="275.2151768864678" width="60" height="74.78482311353218" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="530" y="255.21517688646782" width="60" height="74.78482311353218" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="630" y="219.53186429600464" width="60" height="130.46813570399536" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="650" y="199.53186429600464" width="60" height="130.46813570399536" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="750" y="272.6490985807686" width="60" height="77.35090141923138" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="770" y="252.64909858076862" width="60" height="77.35090141923138" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="870" y="109.73990823895292" width="60" height="240.26009176104708" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="890" y="89.73990823895292" width="60" height="240.26009176104708" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/><rect x="990" y="263.3687757147527" width="60" height="86.6312242852473" fill="#7dd3fc" opacity="0.6"/>
+                    <rect x="1010" y="243.3687757147527" width="60" height="86.6312242852473" fill="#38bdf8" opacity="0.4" transform="skewY(-20)"/>
+        <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Implementing Contextual Tooltips in Data-Heavy Dashboards...</text>
+        <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#7dd3fc" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+    </svg>

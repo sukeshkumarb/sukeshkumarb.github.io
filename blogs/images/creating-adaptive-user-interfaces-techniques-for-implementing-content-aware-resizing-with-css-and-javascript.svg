@@ -1,0 +1,16 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="600" fill="#2e1065"/>
+                <circle cx="600" cy="200" r="40" fill="#4ade80"/>
+                
+                    <circle cx="600" cy="200" r="60" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="618.5552265278376" cy="259.37856860785115" r="8" fill="#a855f7"/>
+                
+                    <circle cx="600" cy="200" r="100" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="515.5763111694226" cy="295.3900358107445" r="8" fill="#a855f7"/>
+                
+                    <circle cx="600" cy="200" r="150" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="497.9410423241105" cy="117.79194935786425" r="8" fill="#a855f7"/>
+                
+        <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Creating Adaptive User Interfaces: Techniques for Impleme...</text>
+        <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#d8b4fe" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+    </svg>

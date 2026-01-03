@@ -1,0 +1,12 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1200" height="600" fill="#f8fafc"/>
+            <path d="M0 450 Q 300 350 600 450 T 1200 350 V 600 H 0 Z" fill="#e0f2fe"/>
+            <path d="M0 500 Q 300 400 600 500 T 1200 400 V 600 H 0 Z" fill="#bae6fd"/>
+            <g transform="translate(150, 100)">
+                <rect x="0" y="0" width="900" height="300" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+                <line x1="50" y1="250" x2="850" y2="250" stroke="#cbd5e1" stroke-width="1"/>
+                <rect x="80" y="226" width="40" height="24" rx="4" fill="#0ea5e9"/><rect x="155" y="202" width="40" height="48" rx="4" fill="#0ea5e9"/><rect x="230" y="178" width="40" height="72" rx="4" fill="#0ea5e9"/><rect x="305" y="154" width="40" height="96" rx="4" fill="#0ea5e9"/><rect x="380" y="130" width="40" height="120" rx="4" fill="#0ea5e9"/><rect x="455" y="106" width="40" height="144" rx="4" fill="#0ea5e9"/><rect x="530" y="82" width="40" height="168" rx="4" fill="#0ea5e9"/><rect x="605" y="58" width="40" height="192" rx="4" fill="#0ea5e9"/><rect x="680" y="34" width="40" height="216" rx="4" fill="#0ea5e9"/><rect x="755" y="10" width="40" height="240" rx="4" fill="#0ea5e9"/>
+                <polyline points="80,180 200,120 350,150 500,80 650,110 800,50" fill="none" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <text x="600" y="480" font-family="Segoe UI, Arial" font-size="36" font-weight="800" fill="#0f172a" text-anchor="middle">Implementing Advanced Time-Series Data Visualization...</text>
+        </svg>

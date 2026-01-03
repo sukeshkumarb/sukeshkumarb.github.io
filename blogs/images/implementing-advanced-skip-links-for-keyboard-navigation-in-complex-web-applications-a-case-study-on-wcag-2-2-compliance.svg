@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#30cfd0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#330867;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Browser window -->
+  <rect x="180" y="70" width="840" height="450" rx="8" fill="#ffffff"/>
+  <rect x="180" y="70" width="840" height="40" rx="8" fill="#f5f5f5"/>
+  <circle cx="200" cy="90" r="6" fill="#ff5f56"/>
+  <circle cx="220" cy="90" r="6" fill="#ffbd2e"/>
+  <circle cx="240" cy="90" r="6" fill="#27c93f"/>
+  
+  <!-- Navigation sections -->
+  <rect x="200" y="130" width="800" height="80" fill="#e8f4fd" stroke="#30cfd0" stroke-width="3"/>
+  <text x="600" y="175" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Section 1 - Visible</text>
+  
+  <rect x="200" y="230" width="800" height="80" fill="#e8f4fd" stroke="#30cfd0" stroke-width="3"/>
+  <text x="600" y="275" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Section 2 - Visible</text>
+  
+  <rect x="200" y="330" width="800" height="80" fill="#f5f5f5" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="600" y="375" font-family="Arial" font-size="20" fill="#999" text-anchor="middle">Section 3 - Below Fold</text>
+  
+  <rect x="200" y="430" width="800" height="80" fill="#f5f5f5" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="600" y="475" font-family="Arial" font-size="20" fill="#999" text-anchor="middle">Section 4 - Below Fold</text>
+  
+  <!-- Nav indicators -->
+  <g transform="translate(100, 240)">
+    <circle cx="0" cy="0" r="8" fill="#30cfd0"/>
+    <circle cx="0" cy="50" r="8" fill="#30cfd0"/>
+    <circle cx="0" cy="100" r="6" fill="#ddd"/>
+    <circle cx="0" cy="150" r="6" fill="#ddd"/>
+    <line x1="0" y1="8" x2="0" y2="42" stroke="#30cfd0" stroke-width="2"/>
+    <line x1="0" y1="58" x2="0" y2="92" stroke="#30cfd0" stroke-width="2"/>
+  </g>
+  
+  <!-- Observer icon -->
+  <g transform="translate(1080, 260)">
+    <circle cx="0" cy="0" r="40" fill="#ffffff" opacity="0.2"/>
+    <circle cx="0" cy="0" r="30" fill="#ffffff" opacity="0.3"/>
+    <circle cx="0" cy="0" r="20" fill="#ffffff" opacity="0.5"/>
+    <path d="M -5 0 L 5 0 M 0 -5 L 0 5" stroke="#ffffff" stroke-width="3"/>
+  </g>
+  
+  <text x="600" y="565" font-family="Arial" font-size="26" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing Advanced Skip Links for Keyboard Navigation in Co...</text>
+</svg>

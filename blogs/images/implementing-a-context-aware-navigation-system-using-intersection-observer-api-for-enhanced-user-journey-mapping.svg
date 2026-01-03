@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#30cfd0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#330867;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Browser window mockup -->
+  <rect x="200" y="80" width="800" height="420" rx="8" fill="#ffffff"/>
+  <rect x="200" y="80" width="800" height="40" rx="8" fill="#f5f5f5"/>
+  <circle cx="220" cy="100" r="6" fill="#ff5f56"/>
+  <circle cx="240" cy="100" r="6" fill="#ffbd2e"/>
+  <circle cx="260" cy="100" r="6" fill="#27c93f"/>
+  
+  <!-- Navigation sections with intersection -->
+  <rect x="220" y="140" width="760" height="80" fill="#e8f4fd" stroke="#30cfd0" stroke-width="3"/>
+  <text x="600" y="185" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Section 1 - Visible</text>
+  
+  <rect x="220" y="240" width="760" height="80" fill="#e8f4fd" stroke="#30cfd0" stroke-width="3"/>
+  <text x="600" y="285" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Section 2 - Visible</text>
+  
+  <rect x="220" y="340" width="760" height="80" fill="#f5f5f5" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="600" y="385" font-family="Arial" font-size="20" fill="#999" text-anchor="middle">Section 3 - Not Visible</text>
+  
+  <!-- Navigation dots/indicators -->
+  <g transform="translate(100, 250)">
+    <circle cx="0" cy="0" r="8" fill="#30cfd0"/>
+    <circle cx="0" cy="40" r="8" fill="#30cfd0"/>
+    <circle cx="0" cy="80" r="6" fill="#ddd"/>
+    <line x1="0" y1="8" x2="0" y2="32" stroke="#30cfd0" stroke-width="2"/>
+    <line x1="0" y1="48" x2="0" y2="72" stroke="#30cfd0" stroke-width="2"/>
+    <line x1="0" y1="86" x2="0" y2="110" stroke="#ddd" stroke-width="2" stroke-dasharray="3,3"/>
+  </g>
+  
+  <!-- Observer API icon -->
+  <g transform="translate(1050, 250)">
+    <circle cx="0" cy="0" r="40" fill="#ffffff" opacity="0.2"/>
+    <circle cx="0" cy="0" r="30" fill="#ffffff" opacity="0.3"/>
+    <circle cx="0" cy="0" r="20" fill="#ffffff" opacity="0.5"/>
+    <path d="M -5 0 L 5 0 M 0 -5 L 0 5" stroke="#ffffff" stroke-width="3"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="555" font-family="Arial" font-size="26" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing a Context-Aware Navigation System Using Intersect...</text>
+</svg>

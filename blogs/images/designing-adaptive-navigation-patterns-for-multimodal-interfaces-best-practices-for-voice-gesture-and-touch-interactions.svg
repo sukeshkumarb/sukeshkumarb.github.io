@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+  
+  <!-- Geometric shapes -->
+  <polygon points="200,100 400,100 300,300" fill="#b31b1e" opacity="0.7"/>
+  <polygon points="800,200 1000,200 1100,400 700,400" fill="#4a81d2" opacity="0.7"/>
+  <rect x="400" y="350" width="200" height="200" fill="#b31b1e" opacity="0.5" transform="rotate(45 500 450)"/>
+  
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="34" font-weight="bold" 
+        fill="#333333" text-anchor="middle">Designing Adaptive Navigation Patterns for Multimodal Interfac...</text>
+</svg>

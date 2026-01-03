@@ -1,0 +1,8 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        
+            <rect width="1200" height="600" fill="#f8fafc"/>
+            <rect x="100" y="100" width="1000" height="350" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+            <rect x="150" y="287.65564155946777" width="60" height="112.34435844053223" fill="#c084fc" rx="4"/><rect x="235" y="251.87591437040737" width="60" height="148.12408562959263" fill="#c084fc" rx="4"/><rect x="320" y="265.18235939274746" width="60" height="134.81764060725254" fill="#c084fc" rx="4"/><rect x="405" y="191.1266569110012" width="60" height="208.8733430889988" fill="#c084fc" rx="4"/><rect x="490" y="162.69932964642067" width="60" height="237.30067035357933" fill="#c084fc" rx="4"/><rect x="575" y="245.65616473537375" width="60" height="154.34383526462625" fill="#c084fc" rx="4"/><rect x="660" y="255.480120771972" width="60" height="144.519879228028" fill="#c084fc" rx="4"/><rect x="745" y="180.04846973025224" width="60" height="219.95153026974776" fill="#c084fc" rx="4"/><rect x="830" y="303.7771925823108" width="60" height="96.22280741768918" fill="#c084fc" rx="4"/><rect x="915" y="150.56408620675938" width="60" height="249.43591379324062" fill="#c084fc" rx="4"/>
+        
+        <text x="600" y="520" font-family="Segoe UI, Arial" font-size="38" font-weight="800" fill="#f8fafc" text-anchor="middle">Designing Responsive Data Visualization Dashboards with S...</text>
+    </svg>

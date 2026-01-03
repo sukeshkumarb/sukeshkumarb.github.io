@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#fecfef;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Desktop -->
+  <rect x="80" y="140" width="440" height="280" rx="8" fill="#2c3e50"/>
+  <rect x="90" y="150" width="420" height="240" fill="#ffffff"/>
+  <rect x="90" y="150" width="420" height="30" fill="#f5f5f5"/>
+  <rect x="270" y="400" width="60" height="8" rx="4" fill="#34495e"/>
+  <rect x="230" y="408" width="140" height="20" rx="10" fill="#2c3e50"/>
+  <rect x="120" y="190" width="110" height="70" fill="#ff6b81"/>
+  <rect x="250" y="190" width="110" height="70" fill="#74b9ff"/>
+  <rect x="380" y="190" width="110" height="70" fill="#55efc4"/>
+  
+  <!-- Tablet -->
+  <rect x="600" y="170" width="280" height="360" rx="12" fill="#2c3e50"/>
+  <rect x="615" y="200" width="250" height="300" fill="#ffffff"/>
+  <circle cx="740" cy="515" r="15" fill="#34495e"/>
+  <rect x="640" y="220" width="90" height="60" fill="#ff6b81"/>
+  <rect x="750" y="220" width="90" height="60" fill="#74b9ff"/>
+  
+  <!-- Mobile -->
+  <rect x="960" y="200" width="180" height="320" rx="16" fill="#2c3e50"/>
+  <rect x="975" y="230" width="150" height="260" fill="#ffffff"/>
+  <circle cx="1050" cy="510" r="12" fill="#34495e"/>
+  <rect x="995" y="245" width="110" height="50" fill="#ff6b81"/>
+  
+  <!-- Connecting lines -->
+  <path d="M 520 280 Q 560 280 600 300" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.5"/>
+  <path d="M 880 370 Q 920 370 960 380" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.5"/>
+  
+  <text x="600" y="90" font-family="Arial" font-size="32" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing Scroll-Triggered Microinteractions for ...</text>
+</svg>

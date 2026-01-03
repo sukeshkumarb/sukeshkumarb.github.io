@@ -1,0 +1,8 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        
+            <rect width="1200" height="600" fill="#f8fafc"/>
+            <rect x="100" y="100" width="1000" height="350" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+            <rect x="150" y="187.42435210904205" width="60" height="212.57564789095795" fill="#94a3b8" rx="4"/><rect x="235" y="240.7620967438561" width="60" height="159.2379032561439" fill="#94a3b8" rx="4"/><rect x="320" y="286.48010486260773" width="60" height="113.51989513739227" fill="#94a3b8" rx="4"/><rect x="405" y="286.94291211704694" width="60" height="113.05708788295306" fill="#94a3b8" rx="4"/><rect x="490" y="173.81393770501745" width="60" height="226.18606229498255" fill="#94a3b8" rx="4"/><rect x="575" y="349.58943622914376" width="60" height="50.41056377085624" fill="#94a3b8" rx="4"/><rect x="660" y="194.6448998998676" width="60" height="205.3551001001324" fill="#94a3b8" rx="4"/><rect x="745" y="333.8684335228777" width="60" height="66.1315664771223" fill="#94a3b8" rx="4"/><rect x="830" y="345.03213593925466" width="60" height="54.96786406074534" fill="#94a3b8" rx="4"/><rect x="915" y="226.3098909672408" width="60" height="173.6901090327592" fill="#94a3b8" rx="4"/>
+        
+        <text x="600" y="520" font-family="Segoe UI, Arial" font-size="38" font-weight="800" fill="#f8fafc" text-anchor="middle">Implementing Accessible Data Visualization Techniques for...</text>
+    </svg>

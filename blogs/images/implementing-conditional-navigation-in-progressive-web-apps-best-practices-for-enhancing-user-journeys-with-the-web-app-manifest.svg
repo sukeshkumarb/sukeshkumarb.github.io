@@ -1,0 +1,13 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="600" fill="#171717"/><rect x="150" y="261.3473364575839" width="60" height="88.65266354241612" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="170" y="241.34733645758388" width="60" height="88.65266354241612" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="270" y="106.19223022040387" width="60" height="243.80776977959613" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="290" y="86.19223022040387" width="60" height="243.80776977959613" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="390" y="246.43754470162094" width="60" height="103.56245529837906" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="410" y="226.43754470162094" width="60" height="103.56245529837906" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="510" y="139.8650725144762" width="60" height="210.1349274855238" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="530" y="119.8650725144762" width="60" height="210.1349274855238" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="630" y="247.41260159898957" width="60" height="102.58739840101043" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="650" y="227.41260159898957" width="60" height="102.58739840101043" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="750" y="198.87775675633748" width="60" height="151.12224324366252" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="770" y="178.87775675633748" width="60" height="151.12224324366252" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="870" y="206.9679406625255" width="60" height="143.0320593374745" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="890" y="186.9679406625255" width="60" height="143.0320593374745" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/><rect x="990" y="125.37338186873512" width="60" height="224.62661813126488" fill="#f59e0b" opacity="0.6"/>
+                    <rect x="1010" y="105.37338186873512" width="60" height="224.62661813126488" fill="#fbbf24" opacity="0.4" transform="skewY(-20)"/>
+        <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Implementing Conditional Navigation in Progressive Web Ap...</text>
+        <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#f59e0b" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+    </svg>

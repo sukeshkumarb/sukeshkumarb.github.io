@@ -1,0 +1,26 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0f172a"/>
+                    <stop offset="100%" style="stop-color:#1e293b"/>
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="1200" height="600" fill="url(#g)"/>
+            <g opacity="0.4">
+                <circle cx="600" cy="250" r="180" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="10 5"/>
+                <circle cx="600" cy="250" r="120" fill="none" stroke="#818cf8" stroke-width="1" stroke-dasharray="5 10"/>
+            </g>
+            <g filter="url(#glow)">
+                <circle cx="600" cy="250" r="15" fill="#38bdf8"/>
+                <line x1="600" y1="250" x2="750" y2="250" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="750" cy="250" r="10" fill="#818cf8"/><line x1="600" y1="250" x2="675" y2="379.9038105676658" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="675" cy="379.9038105676658" r="10" fill="#818cf8"/><line x1="600" y1="250" x2="525" y2="379.9038105676658" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="525" cy="379.9038105676658" r="10" fill="#818cf8"/><line x1="600" y1="250" x2="450" y2="250.00000000000003" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="450" cy="250.00000000000003" r="10" fill="#818cf8"/><line x1="600" y1="250" x2="524.9999999999999" y2="120.09618943233423" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="524.9999999999999" cy="120.09618943233423" r="10" fill="#818cf8"/><line x1="600" y1="250" x2="675" y2="120.0961894323342" stroke="#38bdf8" stroke-width="2" opacity="0.5"/>
+                            <circle cx="675" cy="120.0961894323342" r="10" fill="#818cf8"/>
+            </g>
+            <text x="600" y="500" font-family="Segoe UI, Arial" font-size="34" font-weight="700" fill="#f8fafc" text-anchor="middle">Implementing AR Navigation Interfaces with WebXR: Be...</text>
+            <text x="600" y="540" font-family="Segoe UI, Arial" font-size="18" fill="#94a3b8" text-anchor="middle">ARTIFICIAL INTELLIGENCE • NEURAL DESIGN</text>
+        </svg>

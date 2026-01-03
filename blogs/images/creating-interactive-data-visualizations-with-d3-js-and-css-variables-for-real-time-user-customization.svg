@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#1a1a1a"/>
+  
+  <!-- Colorful shapes -->
+  <circle cx="250" cy="200" r="80" fill="#667eea"/>
+  <rect x="450" y="120" width="160" height="160" fill="#f093fb"/>
+  <polygon points="850,120 950,220 850,320 750,220" fill="#43e97b"/>
+  
+  <circle cx="300" cy="450" r="60" fill="#4facfe"/>
+  <rect x="500" y="390" width="120" height="120" fill="#fa709a"/>
+  <polygon points="850,390 920,450 850,510 780,450" fill="#feca57"/>
+  
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="34" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Creating Interactive Data Visualizations with D3.js and CSS Variabl...</text>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#fafafa"/>
+  
+  <!-- Outlined shapes -->
+  <circle cx="300" cy="300" r="120" fill="none" stroke="#667eea" stroke-width="4"/>
+  <rect x="500" y="180" width="240" height="240" fill="none" stroke="#f093fb" stroke-width="4"/>
+  <polygon points="900,180 1020,300 900,420 780,300" fill="none" stroke="#43e97b" stroke-width="4"/>
+  
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+        fill="#333333" text-anchor="middle">Implementing Adaptive Design Patterns for Gesture-Based Naviga...</text>
+</svg>

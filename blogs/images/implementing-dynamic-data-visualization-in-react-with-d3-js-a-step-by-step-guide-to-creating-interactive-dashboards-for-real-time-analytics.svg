@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Dashboard cards -->
+  <rect x="80" y="100" width="320" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  <rect x="440" y="100" width="320" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  <rect x="800" y="100" width="320" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Bar chart -->
+  <rect x="110" y="180" width="50" height="70" fill="#667eea"/>
+  <rect x="180" y="150" width="50" height="100" fill="#667eea"/>
+  <rect x="250" y="170" width="50" height="80" fill="#667eea"/>
+  <rect x="320" y="140" width="50" height="110" fill="#667eea"/>
+  
+  <!-- Line chart -->
+  <polyline points="470,230 520,190 570,210 620,170 670,180 720,150" 
+            fill="none" stroke="#f5576c" stroke-width="4"/>
+  <circle cx="470" cy="230" r="6" fill="#f5576c"/>
+  <circle cx="520" cy="190" r="6" fill="#f5576c"/>
+  <circle cx="570" cy="210" r="6" fill="#f5576c"/>
+  <circle cx="620" cy="170" r="6" fill="#f5576c"/>
+  <circle cx="670" cy="180" r="6" fill="#f5576c"/>
+  <circle cx="720" cy="150" r="6" fill="#f5576c"/>
+  
+  <!-- Pie chart -->
+  <circle cx="960" cy="180" r="65" fill="#43e97b"/>
+  <path d="M 960 115 A 65 65 0 0 1 1025 180 L 960 180 Z" fill="#38f9d7"/>
+  <path d="M 960 180 L 1025 180 A 65 65 0 0 1 960 245 Z" fill="#f093fb"/>
+  
+  <!-- Bottom metrics -->
+  <rect x="80" y="320" width="1040" height="120" rx="12" fill="#ffffff" opacity="0.9"/>
+  <text x="250" y="370" font-family="Arial" font-size="36" font-weight="bold" fill="#667eea">24.5K</text>
+  <text x="250" y="405" font-family="Arial" font-size="16" fill="#666">Total Views</text>
+  <text x="600" y="370" font-family="Arial" font-size="36" font-weight="bold" fill="#f5576c">87%</text>
+  <text x="600" y="405" font-family="Arial" font-size="16" fill="#666">Engagement</text>
+  <text x="950" y="370" font-family="Arial" font-size="36" font-weight="bold" fill="#43e97b">3.2s</text>
+  <text x="950" y="405" font-family="Arial" font-size="16" fill="#666">Load Time</text>
+  
+  <text x="600" y="520" font-family="Arial" font-size="26" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Implementing Dynamic Data Visualization in React with D3....</text>
+</svg>

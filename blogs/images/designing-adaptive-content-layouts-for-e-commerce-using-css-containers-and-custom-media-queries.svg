@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="600" fill="#0a0a0a"/>
+  
+  <!-- Neon shapes -->
+  <rect x="100" y="100" width="1000" height="400" fill="none" stroke="#ffff00" 
+        stroke-width="4" filter="url(#glow)"/>
+  <line x1="200" y1="300" x2="1000" y2="300" stroke="#ffff00" stroke-width="3" filter="url(#glow)"/>
+  
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="36" font-weight="bold" 
+        fill="#ffff00" text-anchor="middle" filter="url(#glow)">Designing Adaptive Content Layouts for E-commerce Using C...</text>
+</svg>

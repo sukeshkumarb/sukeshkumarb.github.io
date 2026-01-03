@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Dashboard Cards -->
+  <rect x="80" y="120" width="300" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  <rect x="420" y="120" width="300" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  <rect x="760" y="120" width="300" height="180" rx="12" fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Chart elements in first card - Bar chart -->
+  <rect x="110" y="180" width="40" height="80" fill="#667eea"/>
+  <rect x="170" y="150" width="40" height="110" fill="#667eea"/>
+  <rect x="230" y="200" width="40" height="60" fill="#667eea"/>
+  <rect x="290" y="160" width="40" height="100" fill="#667eea"/>
+  
+  <!-- Chart in second card - Line chart -->
+  <polyline points="450,250 490,200 530,220 570,180 610,190 650,160" 
+            fill="none" stroke="#f5576c" stroke-width="4"/>
+  <circle cx="450" cy="250" r="6" fill="#f5576c"/>
+  <circle cx="490" cy="200" r="6" fill="#f5576c"/>
+  <circle cx="530" cy="220" r="6" fill="#f5576c"/>
+  <circle cx="570" cy="180" r="6" fill="#f5576c"/>
+  <circle cx="610" cy="190" r="6" fill="#f5576c"/>
+  <circle cx="650" cy="160" r="6" fill="#f5576c"/>
+  
+  <!-- Chart in third card - Pie chart -->
+  <circle cx="910" cy="200" r="70" fill="#43e97b"/>
+  <path d="M 910 130 A 70 70 0 0 1 980 200 L 910 200 Z" fill="#38f9d7"/>
+  <path d="M 910 200 L 980 200 A 70 70 0 0 1 910 270 Z" fill="#f093fb"/>
+  
+  <!-- Tooltip/Help icon -->
+  <circle cx="1100" cy="150" r="20" fill="#ffffff" opacity="0.9"/>
+  <text x="1100" y="160" font-family="Arial" font-size="24" font-weight="bold" 
+        fill="#667eea" text-anchor="middle">?</text>
+  
+  <!-- Bottom info cards -->
+  <rect x="80" y="340" width="500" height="120" rx="12" fill="#ffffff" opacity="0.9"/>
+  <rect x="620" y="340" width="440" height="120" rx="12" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Metric indicators -->
+  <text x="180" y="390" font-family="Arial" font-size="42" font-weight="bold" fill="#667eea">87%</text>
+  <text x="180" y="430" font-family="Arial" font-size="18" fill="#666">User Engagement</text>
+  
+  <text x="420" y="390" font-family="Arial" font-size="42" font-weight="bold" fill="#f5576c">2.4s</text>
+  <text x="420" y="430" font-family="Arial" font-size="18" fill="#666">Load Time</text>
+  
+  <text x="840" y="390" font-family="Arial" font-size="42" font-weight="bold" fill="#43e97b">98.2</text>
+  <text x="840" y="430" font-family="Arial" font-size="18" fill="#666">Performance Score</text>
+  
+  <!-- Title at bottom -->
+  <text x="600" y="540" font-family="Arial" font-size="28" font-weight="bold" 
+        fill="#ffffff" text-anchor="middle">Designing Contextual Help for Data-Heavy Dashboards: Best...</text>
+</svg>

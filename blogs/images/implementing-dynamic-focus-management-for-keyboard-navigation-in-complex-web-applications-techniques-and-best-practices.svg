@@ -1,0 +1,16 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="600" fill="#2e1065"/>
+                <circle cx="600" cy="200" r="40" fill="#4ade80"/>
+                
+                    <circle cx="600" cy="200" r="60" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="563.0276435187262" cy="242.78128350408724" r="8" fill="#a855f7"/>
+                
+                    <circle cx="600" cy="200" r="100" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="539.2232282288561" cy="248.34291171228784" r="8" fill="#a855f7"/>
+                
+                    <circle cx="600" cy="200" r="150" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.5"/>
+                    <circle cx="454.06748369011916" cy="76.4143599776809" r="8" fill="#a855f7"/>
+                
+        <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Implementing Dynamic Focus Management for Keyboard Naviga...</text>
+        <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#d8b4fe" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+    </svg>

@@ -1,0 +1,16 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1200" height="600" fill="#171717"/>
+                <circle cx="600" cy="200" r="40" fill="#ec4899"/>
+                
+                    <circle cx="600" cy="200" r="60" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+                    <circle cx="540.2908828002721" cy="184.62153673707417" r="8" fill="#fbbf24"/>
+                
+                    <circle cx="600" cy="200" r="100" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+                    <circle cx="501.8464704484505" cy="225.7066987658802" r="8" fill="#fbbf24"/>
+                
+                    <circle cx="600" cy="200" r="150" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+                    <circle cx="451.7020070999188" cy="53.59408654766523" r="8" fill="#fbbf24"/>
+                
+            <text x="600" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">Implementing Scroll-Linked Animations with Intersection O...</text>
+            <text x="600" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#f59e0b" text-anchor="middle" style="letter-spacing: 4px; text-transform: uppercase;">UI UX Powerhouse • Specialized Series</text>
+        </svg>
