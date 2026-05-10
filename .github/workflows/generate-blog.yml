@@ -22,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: |
           npm init -y
-          npm install openai
+          npm install @google/generative-ai
           
       - name: Generate blog post
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node blog-generator.js
         
       - name: Configure Git

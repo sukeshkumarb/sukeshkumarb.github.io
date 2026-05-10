@@ -1,9 +1,20 @@
 const fs = require('fs');
-const { OpenAI } = require('openai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const path = require('path');
 
-// Initialize OpenAI client
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Initialize Gemini client
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const gemini = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+
+// Helper to call Gemini with system + user messages
+async function geminiChat(systemPrompt, userPrompt, temperature = 0.7) {
+  const result = await gemini.generateContent({
+    contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
+    systemInstruction: systemPrompt,
+    generationConfig: { temperature }
+  });
+  return result.response.text().trim();
+}
 
 // Current date formatting function
 function formatDate() {
@@ -216,17 +227,10 @@ async function generateMultiplePosts() {
       while (!isUnique && attempts < MAX_ATTEMPTS) {
         attempts++;
 
-        // --- Updated Topic Generation Section ---
-        const topicResponse = await openai.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [
-              {
-                role: "system",
-                content: `You are an expert content strategist specializing in UI/UX design, frontend development, and modern web technologies, including their practical application and integration (like AI). Your goal is to generate *diverse* and *highly specific* blog post topics suitable for an audience of experienced designers and developers.`
-              },
-              {
-                role: "user",
-                content: `Generate **one** highly specific and unique blog post topic for uiuxpowerhouse.com.
+        // --- Topic Generation Section ---
+        topic = await geminiChat(
+          `You are an expert content strategist specializing in UI/UX design, frontend development, and modern web technologies, including their practical application and integration (like AI). Your goal is to generate *diverse* and *highly specific* blog post topics suitable for an audience of experienced designers and developers.`,
+          `Generate **one** highly specific and unique blog post topic for uiuxpowerhouse.com.
 
                 **Crucially, aim for significant diversity across different requests.** Avoid repeatedly generating topics focused *only* on abstract AI concepts (like 'empathetic AI' or 'emotional design interfaces') unless it involves a *very concrete*, novel technical implementation or a specific, uncommon design pattern analysis.
 
@@ -246,16 +250,10 @@ async function generateMultiplePosts() {
                 * It should feel **fresh and insightful**, avoiding commonly rehashed subjects.
                 * It must be relevant to **experienced** UI/UX designers or frontend developers.
 
-                **Output only the suggested blog post title as a single line of text.**`
-              }
-            ],
-            // Slightly reduced temperature might help focus, but keep it relatively high for creativity
-            temperature: 0.85
-          });
-        // --- End of Updated Topic Generation Section ---
-
-
-        topic = topicResponse.choices[0].message.content.trim();
+                **Output only the suggested blog post title as a single line of text.**`,
+          0.85
+        );
+        // --- End of Topic Generation Section ---
         // Remove potential quotes around the topic
         topic = topic.replace(/^"|"$/g, '');
         console.log(`Topic generated (attempt ${attempts}): ${topic}`);
@@ -272,17 +270,9 @@ async function generateMultiplePosts() {
         console.log(`Warning: Could not generate a unique topic after ${MAX_ATTEMPTS} attempts. Using the last generated topic: "${topic}"`);
       }
 
-      // Add the 750-word limit to your prompt
-      const blogResponse = await openai.chat.completions.create({
-        model: "gpt-4o-mini", // Using the cheaper model
-        messages: [
-          {
-            role: "system",
-            content: `You are an expert content writer for uiuxpowerhouse.com, creating in-depth, valuable blog posts about UI/UX design, frontend web development, and modern web technologies. Write in a professional but engaging tone. Include practical insights, code examples where appropriate, and forward-thinking ideas. Your content should be informative, actionable, and reflect current best practices in the industry.`
-          },
-          {
-            role: "user",
-            content: `Write a comprehensive blog post on the topic: "${topic}".
+      const blogContent = await geminiChat(
+        `You are an expert content writer for uiuxpowerhouse.com, creating in-depth, valuable blog posts about UI/UX design, frontend web development, and modern web technologies. Write in a professional but engaging tone. Include practical insights, code examples where appropriate, and forward-thinking ideas. Your content should be informative, actionable, and reflect current best practices in the industry.`,
+        `Write a comprehensive blog post on the topic: "${topic}".
 
             The blog MUST BE LIMITED TO approximately 750 WORDS MAXIMUM. Aim for clarity and conciseness while being thorough.
 
@@ -306,46 +296,23 @@ async function generateMultiplePosts() {
             - Explain technical terms concisely if necessary.
             - Maintain a professional yet engaging tone.
 
-            Output ONLY the HTML content for the blog post body. Do NOT include \`<html>\`, \`<head>\`, \`<title>\`, or \`<body>\` tags. Do NOT include any JavaScript.`
-          }
-        ],
-        temperature: 0.7,
-        // max_tokens: 2000 // Keeping max_tokens relatively high allows flexibility, the prompt enforces word limit.
-      });
-
-      const blogContent = blogResponse.choices[0].message.content.trim();
+            Output ONLY the HTML content for the blog post body. Do NOT include \`<html>\`, \`<head>\`, \`<title>\`, or \`<body>\` tags. Do NOT include any JavaScript.`,
+        0.7
+      );
 
       // Generate tags
-      const tagsResponse = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: "You are an expert in SEO and content categorization. Generate relevant tags for a blog post."
-          },
-          {
-            role: "user",
-            content: `Generate 6-8 relevant, specific tags for a blog post titled: "${topic}". Consider the key concepts, technologies, and disciplines mentioned or implied.
-            Return only the tags as a comma-separated list (e.g., tag1, tag2, tag3) with no introductory text or explanations.`
-          }
-        ],
-        temperature: 0.7
-      });
-
-      const tagsString = tagsResponse.choices[0].message.content.trim();
-      const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0); // Filter empty tags
+      const tagsString = await geminiChat(
+        "You are an expert in SEO and content categorization. Generate relevant tags for a blog post.",
+        `Generate 6-8 relevant, specific tags for a blog post titled: "${topic}". Consider the key concepts, technologies, and disciplines mentioned or implied.
+            Return only the tags as a comma-separated list (e.g., tag1, tag2, tag3) with no introductory text or explanations.`,
+        0.7
+      );
+      const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
 
       // Generate categories
-      const categoriesResponse = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: "You are an expert in content categorization. Select relevant categories for a blog post from a predefined list."
-          },
-          {
-            role: "user",
-            content: `Based on the blog post title: "${topic}", select 2-3 *most relevant* broad categories from the list below.
+      const categoriesString = await geminiChat(
+        "You are an expert in content categorization. Select relevant categories for a blog post from a predefined list.",
+        `Based on the blog post title: "${topic}", select 2-3 *most relevant* broad categories from the list below.
 
             Available Categories:
             - Design (UI Design, Visual Design, Interaction Design)
@@ -369,14 +336,10 @@ async function generateMultiplePosts() {
             - API Integration (REST, GraphQL, Data Fetching)
             - State Management (Redux, Context API, State Machines)
 
-            Return only the selected category names as a comma-separated list (e.g., Frontend Development, Web Performance) with no introductory text or explanations.`
-          }
-        ],
-        temperature: 0.5 // Lower temperature for more deterministic category selection
-      });
-
-      const categoriesString = categoriesResponse.choices[0].message.content.trim();
-      const categories = categoriesString.split(',').map(category => category.trim()).filter(category => category.length > 0); // Filter empty categories
+            Return only the selected category names as a comma-separated list (e.g., Frontend Development, Web Performance) with no introductory text or explanations.`,
+        0.5
+      );
+      const categories = categoriesString.split(',').map(category => category.trim()).filter(category => category.length > 0);
 
       // Use the generated (and potentially deduplicated) topic as the title
       const title = topic;
