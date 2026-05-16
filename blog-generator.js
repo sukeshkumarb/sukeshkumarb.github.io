@@ -35,27 +35,26 @@ function generateImageName(title) {
 
 // ===== IMAGE GENERATION FUNCTIONS =====
 
-// Generate a banner image using Imagen 3 and save it as a PNG
+// Generate a banner image using Gemini 2.0 Flash native image generation and save as PNG
 async function generateBannerImage(title, outputPath) {
   const imagePrompt =
-    `A visually striking, professional 16:9 blog banner image for an article titled: "${title}". ` +
+    `A visually striking, professional blog banner image for an article titled: "${title}". ` +
     `The image should be modern, tech-focused, and abstract — using bold colors, clean geometry, ` +
     `or conceptual illustration. Dark background. No text or letters in the image. ` +
     `Style: futuristic digital art, suitable for a UI/UX and frontend development blog.`;
 
-  const response = await genAI.models.generateImages({
-    model: 'imagen-3.0-generate-002',
-    prompt: imagePrompt,
+  const response = await genAI.models.generateContent({
+    model: 'gemini-2.0-flash-preview-image-generation',
+    contents: [{ role: 'user', parts: [{ text: imagePrompt }] }],
     config: {
-      numberOfImages: 1,
-      aspectRatio: '16:9',
-      outputMimeType: 'image/png'
+      responseModalities: ['IMAGE']
     }
   });
 
-  const imageData = response.generatedImages?.[0]?.image?.data;
-  if (!imageData) {
-    throw new Error(`Imagen returned no image data for title: "${title}"`);
+  const parts = response.candidates?.[0]?.content?.parts ?? [];
+  const imagePart = parts.find(p => p.inlineData?.mimeType?.startsWith('image/'));
+  if (!imagePart) {
+    throw new Error(`Gemini returned no image data for title: "${title}"`);
   }
 
   const dir = path.dirname(outputPath);
@@ -63,7 +62,7 @@ async function generateBannerImage(title, outputPath) {
     fs.mkdirSync(dir, { recursive: true });
   }
 
-  fs.writeFileSync(outputPath, Buffer.from(imageData, 'base64'));
+  fs.writeFileSync(outputPath, Buffer.from(imagePart.inlineData.data, 'base64'));
   console.log(`  ✅ Banner image created: ${outputPath}`);
 }
 
