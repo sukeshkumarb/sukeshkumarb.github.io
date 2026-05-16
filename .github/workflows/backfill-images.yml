@@ -1,0 +1,128 @@
+name: Backfill Missing Blog Images
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120 # 2 hour cap for 377 images
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install @google/genai
+
+      - name: Run backfill script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          cat << 'EOF' > backfill-images.js
+          const fs = require('fs');
+          const { GoogleGenAI } = require('@google/genai');
+          const path = require('path');
+
+          const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+          function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+          }
+
+          function generateImageName(title) {
+            const sanitized = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+            return `blogs/images/${sanitized}.png`;
+          }
+
+          async function generateBannerImage(title, outputPath) {
+            const imagePrompt =
+              `A visually striking, professional blog banner image for an article titled: "${title}". ` +
+              `The image should be modern, tech-focused, and abstract — using bold colors, clean geometry, ` +
+              `or conceptual illustration. Dark background. No text or letters in the image. ` +
+              `Style: futuristic digital art, suitable for a UI/UX and frontend development blog.`;
+
+            const response = await genAI.models.generateContent({
+              model: 'gemini-2.5-flash-image',
+              contents: [{ role: 'user', parts: [{ text: imagePrompt }] }],
+              config: { responseModalities: ['IMAGE'] }
+            });
+
+            const parts = response.candidates?.[0]?.content?.parts ?? [];
+            const imagePart = parts.find(p => p.inlineData?.mimeType?.startsWith('image/'));
+            if (!imagePart) throw new Error('No image data returned');
+
+            const dir = path.dirname(outputPath);
+            if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(outputPath, Buffer.from(imagePart.inlineData.data, 'base64'));
+          }
+
+          async function backfill() {
+            const blogsFilePath = path.join(process.cwd(), 'blogs', 'blogs.json');
+            const blogs = JSON.parse(fs.readFileSync(blogsFilePath, 'utf8'));
+
+            const missing = blogs.filter(b => !fs.existsSync(path.join(process.cwd(), b.bannerImage)));
+            console.log(`Found ${missing.length} posts with missing images out of ${blogs.length} total.\n`);
+
+            let success = 0;
+            let failed = 0;
+
+            for (let i = 0; i < missing.length; i++) {
+              const post = missing[i];
+              const newImagePath = generateImageName(post.title);
+              const absolutePath = path.join(process.cwd(), newImagePath);
+
+              if (fs.existsSync(absolutePath)) {
+                const blogIndex = blogs.findIndex(b => b.title === post.title);
+                if (blogIndex !== -1) blogs[blogIndex].bannerImage = newImagePath;
+                success++;
+                continue;
+              }
+
+              process.stdout.write(`[${i + 1}/${missing.length}] ${post.title.substring(0, 70)}... `);
+
+              try {
+                await generateBannerImage(post.title, absolutePath);
+                const blogIndex = blogs.findIndex(b => b.title === post.title);
+                if (blogIndex !== -1) blogs[blogIndex].bannerImage = newImagePath;
+                console.log('✅');
+                success++;
+
+                if ((i + 1) % 10 === 0) {
+                  fs.writeFileSync(blogsFilePath, JSON.stringify(blogs, null, 2), 'utf8');
+                  console.log(`  💾 Progress saved (${i + 1}/${missing.length})`);
+                }
+
+                if (i < missing.length - 1) await sleep(4000);
+              } catch (err) {
+                console.log(`❌ ${err.message}`);
+                failed++;
+                await sleep(10000);
+              }
+            }
+
+            fs.writeFileSync(blogsFilePath, JSON.stringify(blogs, null, 2), 'utf8');
+            console.log(`\nDone! ${success} succeeded, ${failed} failed.`);
+          }
+
+          backfill().catch(err => { console.error(err.message); process.exit(1); });
+          EOF
+          node backfill-images.js
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push images
+        run: |
+          git add blogs/images/ blogs/blogs.json
+          git commit -m "Backfill AI-generated banner images for all posts [automated]" || echo "Nothing to commit"
+          git push

@@ -6,8 +6,9 @@ node_modules/
 .env.local
 .env.*.local
 
-# Test files
+# Test/utility scripts
 test-image-gen.js
+backfill-images.js
 
 # OS files
 .DS_Store
