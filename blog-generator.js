@@ -69,7 +69,7 @@ async function generateBannerImage(title, outputPath) {
 // ===== END IMAGE GENERATION FUNCTIONS =====
 
 // Add this near the top of your file
-const NUM_POSTS_TO_GENERATE = 3;
+const NUM_POSTS_TO_GENERATE = 1;
 const SIMILARITY_THRESHOLD = 0.6; // Adjust this value between 0 and 1 as needed
 
 // Function to check if the new topic is similar to existing titles
