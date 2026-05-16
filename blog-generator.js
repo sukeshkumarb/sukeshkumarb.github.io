@@ -44,7 +44,7 @@ async function generateBannerImage(title, outputPath) {
     `Style: futuristic digital art, suitable for a UI/UX and frontend development blog.`;
 
   const response = await genAI.models.generateContent({
-    model: 'gemini-2.0-flash-preview-image-generation',
+    model: 'gemini-2.5-flash-image',
     contents: [{ role: 'user', parts: [{ text: imagePrompt }] }],
     config: {
       responseModalities: ['IMAGE']
