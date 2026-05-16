@@ -1,7 +1,12 @@
 name: Backfill Missing Blog Images
 
 on:
-  workflow_dispatch: # Manual trigger only
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max number of images to generate'
+        required: false
+        default: '50'
 
 jobs:
   backfill:
@@ -25,6 +30,7 @@ jobs:
       - name: Run backfill script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LIMIT: ${{ github.event.inputs.limit }}
         run: |
           cat << 'EOF' > backfill-images.js
           const fs = require('fs');
@@ -68,8 +74,10 @@ jobs:
             const blogsFilePath = path.join(process.cwd(), 'blogs', 'blogs.json');
             const blogs = JSON.parse(fs.readFileSync(blogsFilePath, 'utf8'));
 
-            const missing = blogs.filter(b => !fs.existsSync(path.join(process.cwd(), b.bannerImage)));
-            console.log(`Found ${missing.length} posts with missing images out of ${blogs.length} total.\n`);
+            const allMissing = blogs.filter(b => !fs.existsSync(path.join(process.cwd(), b.bannerImage)));
+            const limit = parseInt(process.env.LIMIT || '50', 10);
+            const missing = allMissing.slice(0, limit);
+            console.log(`Found ${allMissing.length} posts with missing images. Processing first ${missing.length}.\n`);
 
             let success = 0;
             let failed = 0;
