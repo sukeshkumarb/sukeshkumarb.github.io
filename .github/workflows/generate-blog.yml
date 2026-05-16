@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm init -y
-          npm install @google/generative-ai
+          npm install @google/genai
           
       - name: Generate blog post
         env:
@@ -36,6 +36,6 @@ jobs:
           
       - name: Commit and push changes
         run: |
-          git add blogs/blogs.json
+          git add blogs/blogs.json blogs/images/
           git commit -m "Add daily blog post [automated]" || echo "No changes to commit"
           git push
