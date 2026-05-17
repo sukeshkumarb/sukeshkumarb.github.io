@@ -705,22 +705,19 @@ document.getElementById('contactForm').addEventListener('submit', async function
     formData.append('recaptcha', recaptchaResponse);
 
     try {
-        let response = await fetch('https://script.google.com/macros/s/AKfycbzmsNZJK6KzzDxCy0TBlTvBRAj3l6jltoDzx9lt8OBBdPdlTuLvN5L7yb201Fckc5GVag/exec', {
+        // Use no-cors to avoid CORS preflight rejection from Google Apps Script.
+        // Response is opaque so we show success optimistically on fetch completion.
+        await fetch('https://script.google.com/macros/s/AKfycbzmsNZJK6KzzDxCy0TBlTvBRAj3l6jltoDzx9lt8OBBdPdlTuLvN5L7yb201Fckc5GVag/exec', {
             method: 'POST',
+            mode: 'no-cors',
             body: formData
         });
 
-        let result = await response.json();
-
-        if (result.status === 'success') {
-            // Clear form
-            this.reset();
-            grecaptcha.reset();
-            $(".success-msg").text("Form submitted successfully! You will hear from us soon.").show();
-            setTimeout(() => { $(".success-msg").fadeOut(); }, 15000);
-        } else {
-            throw new Error(result.message || "Unknown error occurred.");
-        }
+        this.reset();
+        grecaptcha.reset();
+        $(".error").hide();
+        $(".success-msg").text("Received. We'll review your project details and reply within one business day.").show();
+        setTimeout(() => { $(".success-msg").fadeOut(); }, 15000);
     } catch (error) {
         console.error('Error:', error);
         $(".error").text("An error occurred while submitting the form. Please try again.").show();
