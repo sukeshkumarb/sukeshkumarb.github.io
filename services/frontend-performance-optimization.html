@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Performance Optimization — Angular Performance Audit | UI UX Powerhouse</title>
+    <meta name="description" content="Frontend performance optimization specialists for Angular and enterprise web applications. Bundle analysis, render profiling, Core Web Vitals improvement, change detection audits, and Lighthouse score optimization.">
+    <meta name="keywords" content="frontend performance optimization, Angular performance audit, Core Web Vitals, Lighthouse score, Angular change detection, bundle size optimization, render performance, web performance">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6Z85SZD4M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T6Z85SZD4M');</script>
+    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/vendors/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/vendors/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/theme-dark.css">
+    <link rel="stylesheet" href="../assets/css/luxury-gold.css">
+    <link rel="stylesheet" href="../assets/css/lead-gen.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        :root{--ph-gap:100px;--ph-gap-sm:60px;--ph-radius:12px;--ph-border:rgba(255,255,255,.07);--ph-card-bg:rgba(27,27,36,1);--ph-accent:#C9A84C}
+        .ph-hero{padding:120px 0 80px;position:relative;overflow:hidden}
+        .ph-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(201,168,76,.09) 0%,transparent 70%);pointer-events:none}
+        .ph-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.22);border-radius:100px;padding:5px 14px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:24px}
+        .ph-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-bottom:24px;color:#F5F5F7}
+        .ph-hero h1 em{font-style:normal;background:linear-gradient(135deg,#C9A84C,#E2C36B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .ph-hero-sub{font-size:1.05rem;line-height:1.8;color:#6B7280;max-width:540px;margin-bottom:36px}
+        .ph-cta-group{display:flex;flex-wrap:wrap;gap:12px}
+        .ph-btn-primary{background:linear-gradient(135deg,#C9A84C,#E2C36B,#C9A84C);color:#0B0B0F;padding:13px 28px;border-radius:10px;font-weight:600;font-size:.875rem;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s;display:inline-block;box-shadow:0 0 0 1px rgba(201,168,76,.3),0 4px 16px rgba(201,168,76,.2)}
+        .ph-btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(201,168,76,.5),0 8px 28px rgba(201,168,76,.35);color:#0B0B0F;text-decoration:none}
+        .ph-btn-ghost{background:rgba(27,27,36,1);color:#E2C36B;padding:12px 26px;border-radius:10px;font-weight:600;font-size:.875rem;text-decoration:none;border:1px solid rgba(201,168,76,.25);transition:border-color .2s,box-shadow .2s,color .2s,transform .2s;display:inline-block}
+        .ph-btn-ghost:hover{border-color:rgba(201,168,76,.5);box-shadow:0 0 16px rgba(201,168,76,.15);color:#fff;text-decoration:none;transform:translateY(-1px)}
+        .ph-trust-bar{display:flex;flex-wrap:wrap;gap:20px 32px;margin-top:40px;padding-top:36px;border-top:1px solid rgba(255,255,255,.07)}
+        .ph-trust-item{display:flex;align-items:center;gap:9px}
+        .ph-trust-item i{color:#C9A84C;font-size:.9rem}
+        .ph-trust-item span{font-size:.8rem;color:#6B7280}
+        .ph-section{padding:var(--ph-gap) 0}
+        .ph-section-eyebrow{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;display:block;font-weight:600}
+        .ph-section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.025em;line-height:1.18;margin-bottom:16px;color:#F5F5F7}
+        .ph-section-sub{color:#6B7280;font-size:1rem;line-height:1.8;max-width:560px}
+        .ph-divider{width:36px;height:2px;background:linear-gradient(135deg,#C9A84C,#E2C36B);border-radius:2px;margin:20px 0 0;box-shadow:0 0 8px rgba(201,168,76,.4)}
+        .ph-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        @media(max-width:991px){.ph-card-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:575px){.ph-card-grid{grid-template-columns:1fr}}
+        .ph-card{background:#1B1B24;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px 26px;transition:border-color .25s,box-shadow .25s,transform .25s}
+        .ph-card:hover{border-color:rgba(201,168,76,.3);box-shadow:0 0 24px rgba(201,168,76,.12);transform:translateY(-2px)}
+        .ph-card-icon{width:40px;height:40px;border-radius:10px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);display:flex;align-items:center;justify-content:center;color:#C9A84C;font-size:1rem;margin-bottom:16px}
+        .ph-card h5{font-size:.95rem;font-weight:700;margin-bottom:8px;color:#F5F5F7}
+        .ph-card p{font-size:.85rem;color:#6B7280;line-height:1.7;margin:0}
+        .ph-stack-grid{display:flex;flex-wrap:wrap;gap:12px}
+        .ph-tech-pill{display:flex;align-items:center;gap:9px;background:#1B1B24;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 18px;font-size:.85rem;font-weight:600;color:#D1D5DB;transition:border-color .2s,color .2s,box-shadow .2s}
+        .ph-tech-pill:hover{border-color:rgba(201,168,76,.4);color:#F5F5F7;box-shadow:0 0 14px rgba(201,168,76,.12)}
+        .ph-tech-pill i{color:#C9A84C;font-size:1rem}
+        .ph-faq-item{border-bottom:1px solid rgba(255,255,255,.07);padding:24px 0}
+        .ph-faq-item:last-child{border-bottom:none}
+        .ph-faq-q{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;color:#F5F5F7}
+        .ph-faq-q i{color:#C9A84C;font-size:.8rem;flex-shrink:0;margin-top:4px}
+        .ph-faq-a{font-size:.9rem;color:#6B7280;line-height:1.75;margin:0}
+        .ph-related a{font-size:.82rem;padding:6px 14px;border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#6B7280;text-decoration:none;transition:border-color .2s,color .2s,background .2s;display:block;margin-bottom:8px}
+        .ph-related a:hover{border-color:rgba(201,168,76,.3);color:#E2C36B;background:rgba(201,168,76,.05)}
+        .ph-contact-form{background:#1B1B24;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:40px}
+        .ph-contact-form .form-control{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07);color:#F5F5F7;border-radius:8px}
+        .ph-contact-form .form-control::placeholder{color:#4B5563}
+        .ph-contact-form .form-control:focus{border-color:rgba(201,168,76,.45);box-shadow:0 0 0 3px rgba(201,168,76,.07);background:rgba(255,255,255,.06);color:#F5F5F7}
+        .ph-breadcrumb{font-size:.8rem;color:#4B5563;margin-bottom:20px}
+        .ph-breadcrumb a{color:#6B7280;text-decoration:none}
+        .ph-breadcrumb a:hover{color:#E2C36B}
+        .ph-prose h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;letter-spacing:-.025em;margin:48px 0 16px;color:#F5F5F7;position:relative;padding-bottom:16px}
+        .ph-prose h2::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:2px;background:linear-gradient(135deg,#C9A84C,#E2C36B);border-radius:2px}
+        .ph-prose h3{font-size:1.1rem;font-weight:700;margin:32px 0 12px;color:#F5F5F7}
+        .ph-prose p{font-size:.95rem;color:#9CA3AF;line-height:1.9;margin-bottom:18px}
+        .ph-prose ul{padding-left:20px;margin-bottom:18px}
+        .ph-prose ul li{font-size:.93rem;color:#9CA3AF;line-height:1.85;margin-bottom:6px}
+        .ph-prose strong{color:#F5F5F7}
+        .ph-metric-row{display:flex;flex-wrap:wrap;gap:20px;margin:32px 0}
+        .ph-metric-box{background:#1B1B24;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 28px;flex:1;min-width:140px;position:relative;overflow:hidden}
+        .ph-metric-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);opacity:.5}
+        .ph-metric-box strong{display:block;font-size:2rem;font-weight:800;color:#F5F5F7;line-height:1;margin-bottom:6px}
+        .ph-metric-box span{font-size:.78rem;color:#4B5563;text-transform:uppercase;letter-spacing:.06em}
+        @media(max-width:767px){.ph-hero{padding:80px 0 60px}.ph-contact-form{padding:28px 20px}}
+    </style>
+</head>
+<body>
+
+<header class="header-area" data-aos="fade-down">
+    <div class="mobile-menu"><div class="container"><div class="mobile-menu-wrapper"></div></div></div>
+    <div class="main-responsive-nav"><div class="container"><div class="logo"><a href="../index.html"><img src="../assets/images/logo/Logo1.png" alt="UI UX Powerhouse" style="max-width:175px;"></a></div><button class="menu-toggler" type="button"><span></span><span></span><span></span></button></div></div>
+    <div class="main-navbar"><div class="container-fluid container-custom"><nav class="navbar navbar-expand-lg"><div class="collapse navbar-collapse"><ul id="mainMenu" class="navbar-nav mobile-item mx-auto align-items-xl-center">
+        <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../pricing.html">Services</a></li>
+        <li class="nav-item logo"><a class="navbar-brand nav-link" href="../index.html"><img src="../assets/images/logo/Logo1.png" alt="UI UX Powerhouse" style="max-width:175px;"></a></li>
+        <li class="nav-item"><a class="nav-link" href="../blogs.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
+    </ul></div></nav></div></div>
+</header>
+
+<!-- HERO -->
+<section class="ph-hero">
+    <div class="container">
+        <div class="row align-items-center gx-xl-5">
+            <div class="col-lg-7" data-aos="fade-up">
+                <nav class="ph-breadcrumb" aria-label="breadcrumb">
+                    <a href="../index.html">Home</a> &rsaquo; <a href="../pricing.html">Services</a> &rsaquo; Frontend Performance Optimization
+                </nav>
+                <div class="ph-eyebrow"><i class="fal fa-tachometer-alt"></i> Angular Performance Engineering</div>
+                <h1>Diagnose and Fix Your <em>Angular Performance</em> Problems Systematically</h1>
+                <p class="ph-hero-sub">Frontend performance problems in Angular applications are predictable and fixable. We audit your application's change detection strategy, bundle composition, render performance, and Core Web Vitals — then implement the fixes with measurable before-and-after results.</p>
+                <div class="ph-cta-group">
+                    <a href="#contact-section" class="ph-btn-primary">Request Performance Audit</a>
+                    <a href="../pricing.html" class="ph-btn-ghost">View Pricing</a>
+                </div>
+                <div class="ph-trust-bar">
+                    <div class="ph-trust-item"><i class="fal fa-check-circle"></i><span>Lighthouse 90+ delivery standard</span></div>
+                    <div class="ph-trust-item"><i class="fal fa-check-circle"></i><span>Bundle analysis on every build</span></div>
+                    <div class="ph-trust-item"><i class="fal fa-check-circle"></i><span>Angular change detection specialists</span></div>
+                    <div class="ph-trust-item"><i class="fal fa-check-circle"></i><span>Measurement-driven remediation</span></div>
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
+                <div class="ph-generated-visual ph-service-hero-visual">
+                    <img src="../assets/images/generated/service-hero-frontend-performance-optimization.png" alt="Frontend performance optimization preview" loading="eager">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN + SIDEBAR -->
+<section class="ph-section" style="padding-top:0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="ph-prose">
+
+                    <h2>Why Frontend Performance Degrades — and Why It Is Fixable</h2>
+                    <p>Frontend performance problems in production Angular applications follow a set of predictable patterns. They are not random — they are the cumulative result of specific architectural decisions made under time pressure, often by developers who were not aware of the performance implications at the time. Because these patterns are predictable, they are also fixable systematically. A performance audit is not a creative exercise; it is a diagnostic process with known investigation paths and known remediation techniques.</p>
+                    <p>The most pervasive cause of Angular performance degradation is the Default change detection strategy. Angular's Default strategy checks every component in the tree for changes on every browser event, every timer tick, and every resolved promise. On a simple application with 20 components, this is unnoticeable. On a production enterprise application with 150 components, live data feeds, and frequent user interaction, Default strategy generates thousands of unnecessary component checks per second. The CPU impact is real and measurable: running the Angular DevTools profiler on an application with Default strategy will typically show 30–50% of CPU time spent in change detection for components that have not changed.</p>
+                    <p>Large initial bundle sizes are the second common cause of poor performance. A 2MB JavaScript bundle requires approximately 6–8 seconds to parse and evaluate on a mid-range mobile device, even after transmission. Yet most Angular applications we encounter are shipping significant portions of their application in the initial bundle — feature modules that are only relevant to a subset of users, large third-party libraries loaded synchronously, and duplicated dependencies that result from misconfigured shared module imports. The fix is almost always available: proper lazy loading with <code>loadChildren</code>, route-level preload strategies, and deferred imports can reduce initial bundle sizes by 40–60% without any change to application behaviour.</p>
+                    <p>Synchronous data transformations in templates are a third common pattern. Template expressions like <code>{{ items | sort | filter }}</code> using impure pipes, or complex calculations performed inline in template bindings, execute on every change detection cycle. Moving these transformations to memoised NgRx selectors or pure pipes means they execute only when their inputs change — a significant difference when change detection runs hundreds of times per second. Memory leaks from unsubscribed RxJS observables accumulate over user sessions, causing progressive degradation that users experience as the application slowing down over time without a page reload.</p>
+                    <p>Third-party scripts are often overlooked as performance contributors. A single analytics SDK, chat widget, or advertising script loaded synchronously in the document head can add 200–400ms to Time to Interactive. The fix is straightforward — defer loading non-critical scripts — but identifying which scripts are responsible requires measurement tools, not guesswork.</p>
+
+                    <h2>Our Performance Audit Methodology</h2>
+                    <p>We approach performance audits as an engineering problem, not a checklist exercise. Every finding is backed by measurement data, and every recommendation is prioritised by impact relative to implementation cost.</p>
+
+                    <h3>Phase 1: Measurement Baseline</h3>
+                    <p>Before we touch a line of code, we establish a comprehensive measurement baseline. This baseline is what we compare against after remediation to quantify the actual improvement — without it, performance work produces anecdotal impressions rather than accountable results. Our baseline toolkit includes: Lighthouse run under controlled laboratory conditions for repeatable Core Web Vitals scores; WebPageTest for multi-location, multi-device real-world measurements; the User Timing API for application-specific markers (time to first data render, time to first meaningful interaction); Chrome DevTools Performance panel recordings of specific user flows; <code>source-map-explorer</code> for bundle composition analysis; and <code>webpack-bundle-analyzer</code> for visual identification of oversized dependencies and duplicate packages.</p>
+                    <p>The baseline phase typically takes one to two days and produces a prioritised list of performance bottlenecks ranked by estimated impact. This prioritisation is critical — not all performance work delivers equal return on engineering investment, and we want to ensure that the highest-impact changes are implemented first.</p>
+
+                    <h3>Phase 2: Change Detection Audit</h3>
+                    <p>Angular's change detection system is powerful and flexible, but it requires deliberate configuration to perform well at scale. Our change detection audit systematically examines every component in the application for change detection strategy assignment, identifies impure pipes and their invocation frequency, maps non-stable object and array inputs that cause reference changes without semantic changes, and quantifies the change detection frequency per component using Angular DevTools profiler recordings.</p>
+                    <p>The output of this phase is a per-component remediation specification: which components should be migrated to OnPush, which input bindings need to be stabilised, which pipes need to be converted from impure to pure, and which template expressions need to be moved into memoised selectors. We prioritise by the number of change detection cycles each fix will eliminate rather than by component count, ensuring the highest-frequency components are addressed first.</p>
+
+                    <h3>Phase 3: Bundle Analysis and Code Splitting</h3>
+                    <p>Bundle analysis reveals the composition of your JavaScript delivery and identifies opportunities for dramatic size reduction. We examine tree-shaking effectiveness — large utility libraries like Lodash or Moment.js that are imported as whole packages instead of individual functions are common culprits, each adding hundreds of kilobytes to the bundle unnecessarily. We identify duplicate packages, which occur when multiple dependencies specify different version ranges for the same library and the bundler cannot deduplicate them. We map the granularity of lazy loading, identifying feature areas that should be independently lazy-loaded but are currently included in the initial bundle.</p>
+                    <p>Synchronous imports in constructors and module initialisation code are a specific pattern we look for, because they prevent the bundler from code-splitting at natural lazy load boundaries. Moving these to async imports or lazy DI tokens often unlocks significant lazy loading opportunities that are otherwise blocked.</p>
+
+                    <h3>Phase 4: Render Performance Profiling</h3>
+                    <p>The Chrome DevTools Performance panel provides microsecond-level visibility into the browser's rendering pipeline. We record performance traces of the application's most performance-sensitive user flows and analyse the flame chart for long tasks — any JavaScript execution block longer than 50ms that blocks the main thread and prevents the browser from responding to user input. Long tasks are the root cause of poor Interaction to Next Paint scores and the "unresponsive" feeling that users describe in busy enterprise dashboards.</p>
+                    <p>Layout thrashing — alternating between DOM reads and writes that force repeated layout recalculations — is a common cause of visual jank in data-rich interfaces. We identify these patterns and restructure DOM manipulation sequences to batch reads and writes separately. CSS animation performance is evaluated for use of compositor-only properties (<code>transform</code> and <code>opacity</code>) versus properties that trigger layout recalculation (<code>width</code>, <code>height</code>, <code>top</code>, <code>left</code>). Memory profiles are analysed for heap growth patterns that indicate observable subscription leaks and closure-retained object trees that prevent garbage collection.</p>
+
+                    <h2>Core Web Vitals Optimization</h2>
+                    <p>Google's Core Web Vitals are the primary signals by which your application's user experience is quantified and compared. For enterprise SaaS products and B2B applications, Core Web Vitals scores directly influence organic search visibility, but more importantly, they are a proxy for the actual quality of experience your users receive every day.</p>
+
+                    <h3>Largest Contentful Paint (LCP)</h3>
+                    <p>LCP measures the time from navigation start to the point at which the largest content element visible in the viewport has been rendered. Good LCP is below 2.5 seconds. For Angular applications, LCP is typically delayed by large initial JavaScript bundles that must be downloaded, parsed, and executed before the framework can render anything. Our interventions include preloading critical resources with <code>&lt;link rel="preload"&gt;</code>, deferring non-critical scripts, implementing Angular Universal for server-side rendering of the initial HTML payload, and optimising the critical rendering path to minimise render-blocking resources.</p>
+
+                    <h3>Interaction to Next Paint (INP)</h3>
+                    <p>INP replaced First Input Delay as a Core Web Vital in 2024 and measures the latency of all interactions throughout the page lifecycle, not just the first one. Good INP is below 200 milliseconds. INP is where Angular's change detection overhead most directly manifests as a user-perceivable problem. When a user clicks a button and the browser must spend 80ms in Angular change detection before it can update the UI, that interaction feels sluggish. Our INP optimisation work focuses on identifying and eliminating synchronous work over 50ms in event handlers, migrating change detection to OnPush, and deferring non-essential update processing until after the visual response has been rendered.</p>
+
+                    <h3>Cumulative Layout Shift (CLS)</h3>
+                    <p>CLS measures unexpected layout shifts during page load and interaction. Poor CLS scores are typically caused by images and media without explicit dimensions, dynamically injected content that displaces existing content, and web fonts that load after the initial text render and cause reflow. We audit every dynamic content insertion point in the application, implement skeleton loaders that reserve space before data arrives, add explicit dimensions to all media elements, and implement font loading strategies that minimise the flash of unstyled text.</p>
+
+                    <div class="ph-metric-row">
+                        <div class="ph-metric-box"><strong>68%</strong><span>Average render time improvement</span></div>
+                        <div class="ph-metric-box"><strong>90+</strong><span>Lighthouse performance target</span></div>
+                        <div class="ph-metric-box"><strong>40%</strong><span>Typical bundle size reduction</span></div>
+                        <div class="ph-metric-box"><strong>&lt;2.5s</strong><span>LCP target</span></div>
+                    </div>
+
+                    <h2>Performance Audit Tool Stack</h2>
+                    <div class="ph-stack-grid">
+                        <div class="ph-tech-pill"><i class="fal fa-tools"></i> Chrome DevTools Performance</div>
+                        <div class="ph-tech-pill"><i class="fal fa-lighthouse"></i> Lighthouse / WebPageTest</div>
+                        <div class="ph-tech-pill"><i class="fal fa-map"></i> source-map-explorer</div>
+                        <div class="ph-tech-pill"><i class="fal fa-box"></i> webpack-bundle-analyzer</div>
+                        <div class="ph-tech-pill"><i class="fab fa-angular"></i> Angular DevTools</div>
+                        <div class="ph-tech-pill"><i class="fal fa-memory"></i> Memory Profiler</div>
+                        <div class="ph-tech-pill"><i class="fal fa-chart-line"></i> Core Web Vitals (CrUX)</div>
+                        <div class="ph-tech-pill"><i class="fal fa-shield-check"></i> CI Performance Budgets</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4" data-aos="fade-left" style="padding-top:40px;">
+                <div style="position:sticky;top:100px;">
+                    <div class="ph-card" style="margin-bottom:20px;border-color:rgba(201,168,76,.2);">
+                        <div class="ph-card-icon"><i class="fal fa-tachometer-alt"></i></div>
+                        <h5>Request a Performance Audit</h5>
+                        <p style="margin-bottom:16px;">Is your Angular application slower than it should be? We'll identify every bottleneck — change detection, bundles, render — and give you a prioritised fix plan.</p>
+                        <a href="#contact-section" class="ph-btn-primary" style="width:100%;text-align:center;display:block;">Request Audit</a>
+                    </div>
+                    <div style="background:#1B1B24;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px;">
+                        <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:16px;">Related Services</p>
+                        <div class="ph-related">
+                            <a href="angular-development.html"><i class="fab fa-angular" style="color:#C9A84C;margin-right:8px;"></i> Angular Development</a>
+                            <a href="enterprise-dashboard-development.html"><i class="fal fa-chart-network" style="color:#C9A84C;margin-right:8px;"></i> Enterprise Dashboards</a>
+                            <a href="saas-frontend-development.html"><i class="fal fa-cloud" style="color:#C9A84C;margin-right:8px;"></i> SaaS Frontend</a>
+                            <a href="admin-panel-development.html"><i class="fal fa-sliders-h" style="color:#C9A84C;margin-right:8px;"></i> Admin Panel Development</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="ph-section" style="background:rgba(27,27,36,.5);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);">
+    <div class="container">
+        <div class="row justify-content-center mb-50 text-center"><div class="col-lg-7" data-aos="fade-up">
+            <span class="ph-section-eyebrow">What We Deliver</span>
+            <h2 class="ph-section-title">Performance Optimization Capabilities</h2>
+            <div class="ph-divider" style="margin:0 auto;"></div>
+        </div></div>
+        <div class="ph-card-grid" data-aos="fade-up">
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-sync"></i></div>
+                <h5>Change Detection Audit</h5>
+                <p>Per-component change detection strategy analysis with Angular DevTools profiling, impure pipe identification, input stability analysis, and a complete OnPush migration specification.</p>
+            </div>
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-box"></i></div>
+                <h5>Bundle Size Optimization</h5>
+                <p>source-map-explorer analysis, duplicate dependency detection, lazy module granularity mapping, tree-shaking audit, and implementation of route-level code splitting.</p>
+            </div>
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-scroll"></i></div>
+                <h5>Virtual Scrolling Assessment</h5>
+                <p>Identification of data lists and tables rendering all rows to the DOM, virtualisation strategy selection, and CDK Virtual Scroll implementation for high-row-count views.</p>
+            </div>
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-chart-line"></i></div>
+                <h5>Core Web Vitals Triage</h5>
+                <p>Lighthouse and CrUX data analysis, LCP/INP/CLS root cause identification, and a prioritised remediation plan with expected score improvement for each intervention.</p>
+            </div>
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-memory"></i></div>
+                <h5>Memory Leak Detection</h5>
+                <p>Chrome DevTools memory profiling, heap snapshot comparison across navigation cycles, identification of unsubscribed observables and retained DOM references, and fix implementation.</p>
+            </div>
+            <div class="ph-card">
+                <div class="ph-card-icon"><i class="fal fa-shield-check"></i></div>
+                <h5>CI Performance Gates</h5>
+                <p>Bundle size budgets enforced in CI, performance budget configuration in <code>angular.json</code>, Lighthouse CI integration, and automated performance regression alerts on pull requests.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="ph-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" data-aos="fade-up">
+                <span class="ph-section-eyebrow">Frequently Asked Questions</span>
+                <h2 class="ph-section-title" style="margin-bottom:40px;">Performance Optimization Questions</h2>
+
+                <div class="ph-faq-item">
+                    <div class="ph-faq-q">How long does a frontend performance audit take? <i class="fal fa-plus"></i></div>
+                    <p class="ph-faq-a">A comprehensive audit of a medium-complexity Angular application (50–200 components) typically takes 3–5 days. This covers the full methodology: measurement baseline establishment, change detection audit, bundle analysis, render performance profiling, and Core Web Vitals triage. The output is a written audit report with quantified findings, impact estimates for each remediation item, and a prioritised implementation roadmap. If you need implementation of the fixes in addition to the audit, the timeline extends based on the complexity of the remediation work — we can provide a fixed-scope implementation estimate once the audit findings are complete.</p>
+                </div>
+                <div class="ph-faq-item">
+                    <div class="ph-faq-q">Can you implement the fixes, or do you only provide the audit report? <i class="fal fa-plus"></i></div>
+                    <p class="ph-faq-a">We offer both. Some clients prefer a pure audit engagement where we deliver the report and their internal team implements the fixes — this works well when you have experienced Angular engineers who want an expert second opinion and a prioritised fix specification. Other clients want us to implement the remediations directly, which ensures that the fixes are applied correctly and consistently across the entire codebase. For implementation engagements, we work in your repository, submit changes via pull requests for your team's review, and provide detailed commit messages explaining the rationale for each change. All implementations are accompanied by before-and-after measurement comparisons demonstrating the impact.</p>
+                </div>
+                <div class="ph-faq-item">
+                    <div class="ph-faq-q">What Lighthouse score improvement can we expect? <i class="fal fa-plus"></i></div>
+                    <p class="ph-faq-a">This depends on where you are starting from and which problems are present in your application. For applications with Default change detection and large initial bundles, Lighthouse performance score improvements of 20–40 points are typical. For applications that are already partially optimised, improvements are more targeted and often felt in interaction latency and real user experience rather than Lighthouse score alone. We do not make specific score guarantees before seeing the application, because the right number depends entirely on the baseline audit findings. What we commit to is delivering the highest achievable score given your application's architecture and constraints, with a clear audit report showing what was measured and what was changed.</p>
+                </div>
+                <div class="ph-faq-item">
+                    <div class="ph-faq-q">Do you need access to our source code for a performance audit? <i class="fal fa-plus"></i></div>
+                    <p class="ph-faq-a">Source code access is required for the change detection audit and bundle analysis phases. Without source code, we can only measure the symptoms — we cannot identify the specific components, modules, and imports that are causing them. We are comfortable with NDA requirements and work within standard enterprise security processes, including read-only repository access with no production environment permissions. For highly regulated environments, we can structure the engagement so that we provide the diagnostic tools and methodology and your internal team runs the analysis under our guidance, sharing only the results rather than the source code directly.</p>
+                </div>
+                <div class="ph-faq-item">
+                    <div class="ph-faq-q">How do we prevent performance regressions after the audit? <i class="fal fa-plus"></i></div>
+                    <p class="ph-faq-a">CI performance gates are the answer. We configure Angular's built-in bundle size budgets in <code>angular.json</code> so that any pull request that increases the initial or lazy chunk bundle sizes beyond defined thresholds fails the CI build. We integrate Lighthouse CI into your pipeline to run automated Lighthouse tests against pull request preview deployments and flag any Core Web Vitals regressions. For change detection regressions, we configure ESLint rules that flag the use of Default change detection strategy and impure pipes, making them visible at the code review stage. The goal is that the discipline of the initial optimization work is embedded into your development process, not lost over time as the team evolves.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ph-section" style="border-top:1px solid rgba(255,255,255,.07);background:linear-gradient(135deg,rgba(201,168,76,.07) 0%,rgba(201,168,76,.02) 50%,transparent 100%);" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-50 text-center"><div class="col-lg-7" data-aos="fade-up">
+            <span class="ph-section-eyebrow d-block" style="margin-bottom:16px;">Start the conversation</span>
+            <h2 class="ph-section-title" style="max-width:none;">Is Your Angular Application Slower Than It Should Be?</h2>
+            <p class="ph-section-sub" style="max-width:480px;margin:0 auto 32px;">Describe your performance issues and we'll tell you exactly what we'd look at first — before any formal engagement begins.</p>
+        </div></div>
+        <div class="row justify-content-center"><div class="col-lg-7"><div class="ph-contact-form" data-aos="fade-up">
+            <form id="contactForm"><div class="row">
+                <div class="col-md-6"><div class="form-group mb-20"><input type="text" name="name" class="form-control" required placeholder="Your name *"></div></div>
+                <div class="col-md-6"><div class="form-group mb-20"><input type="email" name="email" class="form-control" required placeholder="Work email *"></div></div>
+                <div class="col-12"><div class="form-group mb-20"><textarea name="message" class="form-control" rows="5" placeholder="Describe your performance issues — current Lighthouse scores, specific slow interactions, Angular version, app complexity..."></textarea></div></div>
+                <div class="g-recaptcha mb-20" data-sitekey="6LfOAS8pAAAAADRiJbykyVnuhwOrq2_FvLQEyNS4"></div>
+                <p class="error text-black font-weight-bold" style="display:none;">Please complete the reCAPTCHA.</p>
+                <div class="col-12 text-center"><button type="submit" class="ph-btn-primary" style="border:none;cursor:pointer;padding:14px 36px;">Send Enquiry</button></div>
+                <p class="success-msg font-weight-bold mt-4 text-center" style="display:none;color:#6ee7b7;">Received. We'll reply within one business day.</p>
+            </div></form>
+        </div></div></div>
+    </div>
+</section>
+
+<footer class="footer-area bg-primary-light radius-0">
+    <div class="footer-top pt-60 pb-40"><div class="container"><div class="row justify-content-between">
+        <div class="col-lg-4 col-md-12 mb-30"><a href="../index.html"><img src="../assets/images/logo/Logo1.png" alt="UI UX Powerhouse" style="max-width:160px;margin-bottom:14px;display:block;"></a><p style="font-size:.82rem;color:#4B5563;line-height:1.7;">Enterprise Frontend Engineering &amp; Dashboard UX specialists.</p></div>
+        <div class="col-lg-2 col-md-4 col-6"><div class="footer-widget"><h5>Services</h5><ul class="footer-links"><li><a href="angular-development.html">Angular Development</a></li><li><a href="enterprise-dashboard-development.html">Dashboard Development</a></li><li><a href="saas-frontend-development.html">SaaS Frontend</a></li><li><a href="frontend-performance-optimization.html">Performance Optimization</a></li><li><a href="admin-panel-development.html">Admin Panels</a></li></ul></div></div>
+        <div class="col-lg-2 col-md-4 col-6"><div class="footer-widget"><h5>More</h5><ul class="footer-links"><li><a href="fleet-management-ui.html">Fleet Management UI</a></li><li><a href="analytics-dashboard-development.html">Analytics Dashboards</a></li><li><a href="enterprise-ux-design.html">Enterprise UX Design</a></li><li><a href="../index.html">Home</a></li><li><a href="../blogs.html">Blog</a></li></ul></div></div>
+    </div></div></div>
+    <div class="copy-right-area border-top ptb-30"><div class="container"><div class="copy-right-content mt-20"><span>Copyright <i class="fal fa-copyright"></i><span id="footerDate"></span> <a href="../index.html" class="color-primary">UI UX Powerhouse</a>. All Rights Reserved.</span></div></div></div>
+</footer>
+<div class="go-top"><i class="fal fa-angle-up"></i></div>
+<script src="../assets/js/vendors/jquery.min.js"></script>
+<script src="../assets/js/vendors/bootstrap.min.js"></script>
+<script src="../assets/js/vendors/jquery.magnific-popup.min.js"></script>
+<script src="../assets/js/vendors/jquery.nice-select.min.js"></script>
+<script src="../assets/js/vendors/lazysizes.min.js"></script>
+<script src="../assets/js/vendors/aos.min.js"></script>
+<script src="../assets/js/script.js"></script>
+</body>
+</html>
