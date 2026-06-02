@@ -8,7 +8,7 @@ const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 // Helper to call Gemini with system + user messages
 async function geminiChat(systemPrompt, userPrompt, temperature = 0.7) {
   const result = await genAI.models.generateContent({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-2.5-flash',
     contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
     config: {
       systemInstruction: systemPrompt,

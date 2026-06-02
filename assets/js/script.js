@@ -701,16 +701,28 @@ document.getElementById('contactForm').addEventListener('submit', async function
         $(".success-msg").hide();
     }
 
-    var formData = new FormData(this);
-    formData.append('recaptcha', recaptchaResponse);
+    const btn = this.querySelector('[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbzmsNZJK6KzzDxCy0TBlTvBRAj3l6jltoDzx9lt8OBBdPdlTuLvN5L7yb201Fckc5GVag/exec';
+
+    // Build a URL-encoded payload — Google Apps Script reads this more reliably than FormData in no-cors mode
+    const params = new URLSearchParams();
+    params.append('name',    this.querySelector('[name="name"]').value);
+    params.append('email',   this.querySelector('[name="email"]').value);
+    params.append('message', this.querySelector('[name="message"]').value);
+    params.append('recaptcha', recaptchaResponse);
 
     try {
-        // Use no-cors to avoid CORS preflight rejection from Google Apps Script.
-        // Response is opaque so we show success optimistically on fetch completion.
-        await fetch('https://script.google.com/macros/s/AKfycbzmsNZJK6KzzDxCy0TBlTvBRAj3l6jltoDzx9lt8OBBdPdlTuLvN5L7yb201Fckc5GVag/exec', {
+        // no-cors avoids preflight; response is opaque (status always 0) so we show success optimistically.
+        // For this to work the Google Apps Script must be deployed as "Execute as: Me" + "Who has access: Anyone".
+        await fetch(GAS_URL + '?' + params.toString(), {
             method: 'POST',
             mode: 'no-cors',
-            body: formData
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
         });
 
         this.reset();
@@ -719,8 +731,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
         $(".success-msg").text("Received. We'll review your project details and reply within one business day.").show();
         setTimeout(() => { $(".success-msg").fadeOut(); }, 15000);
     } catch (error) {
-        console.error('Error:', error);
-        $(".error").text("An error occurred while submitting the form. Please try again.").show();
+        console.error('Form submit error:', error);
+        $(".error").text("Something went wrong. Please email us directly or try again.").show();
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
     }
 });
 
